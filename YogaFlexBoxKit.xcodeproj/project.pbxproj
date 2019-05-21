@@ -1,0 +1,585 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 50;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		1803E8F92293E40400F1DF77 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1803E8F82293E40400F1DF77 /* AppDelegate.swift */; };
+		1803E8FB2293E40400F1DF77 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1803E8FA2293E40400F1DF77 /* ViewController.swift */; };
+		1803E8FE2293E40400F1DF77 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1803E8FC2293E40400F1DF77 /* Main.storyboard */; };
+		1803E9002293E40600F1DF77 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1803E8FF2293E40600F1DF77 /* Assets.xcassets */; };
+		1803E9032293E40600F1DF77 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1803E9012293E40600F1DF77 /* LaunchScreen.storyboard */; };
+		1803E90E2293E40600F1DF77 /* YogaFlexBoxKitTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1803E90D2293E40600F1DF77 /* YogaFlexBoxKitTests.swift */; };
+		1803E9192293E40600F1DF77 /* YogaFlexBoxKitUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1803E9182293E40600F1DF77 /* YogaFlexBoxKitUITests.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		1803E90A2293E40600F1DF77 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 1803E8ED2293E40400F1DF77 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 1803E8F42293E40400F1DF77;
+			remoteInfo = YogaFlexBoxKit;
+		};
+		1803E9152293E40600F1DF77 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 1803E8ED2293E40400F1DF77 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 1803E8F42293E40400F1DF77;
+			remoteInfo = YogaFlexBoxKit;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		1803E8F52293E40400F1DF77 /* YogaFlexBoxKit.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = YogaFlexBoxKit.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		1803E8F82293E40400F1DF77 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		1803E8FA2293E40400F1DF77 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		1803E8FD2293E40400F1DF77 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		1803E8FF2293E40600F1DF77 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		1803E9022293E40600F1DF77 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		1803E9042293E40600F1DF77 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		1803E9092293E40600F1DF77 /* YogaFlexBoxKitTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = YogaFlexBoxKitTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		1803E90D2293E40600F1DF77 /* YogaFlexBoxKitTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YogaFlexBoxKitTests.swift; sourceTree = "<group>"; };
+		1803E90F2293E40600F1DF77 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		1803E9142293E40600F1DF77 /* YogaFlexBoxKitUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = YogaFlexBoxKitUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		1803E9182293E40600F1DF77 /* YogaFlexBoxKitUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YogaFlexBoxKitUITests.swift; sourceTree = "<group>"; };
+		1803E91A2293E40600F1DF77 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		1803E8F22293E40400F1DF77 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		1803E9062293E40600F1DF77 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		1803E9112293E40600F1DF77 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		1803E8EC2293E40400F1DF77 = {
+			isa = PBXGroup;
+			children = (
+				1803E8F72293E40400F1DF77 /* YogaFlexBoxKit */,
+				1803E90C2293E40600F1DF77 /* YogaFlexBoxKitTests */,
+				1803E9172293E40600F1DF77 /* YogaFlexBoxKitUITests */,
+				1803E8F62293E40400F1DF77 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		1803E8F62293E40400F1DF77 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				1803E8F52293E40400F1DF77 /* YogaFlexBoxKit.app */,
+				1803E9092293E40600F1DF77 /* YogaFlexBoxKitTests.xctest */,
+				1803E9142293E40600F1DF77 /* YogaFlexBoxKitUITests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		1803E8F72293E40400F1DF77 /* YogaFlexBoxKit */ = {
+			isa = PBXGroup;
+			children = (
+				1803E8F82293E40400F1DF77 /* AppDelegate.swift */,
+				1803E8FA2293E40400F1DF77 /* ViewController.swift */,
+				1803E8FC2293E40400F1DF77 /* Main.storyboard */,
+				1803E8FF2293E40600F1DF77 /* Assets.xcassets */,
+				1803E9012293E40600F1DF77 /* LaunchScreen.storyboard */,
+				1803E9042293E40600F1DF77 /* Info.plist */,
+			);
+			path = YogaFlexBoxKit;
+			sourceTree = "<group>";
+		};
+		1803E90C2293E40600F1DF77 /* YogaFlexBoxKitTests */ = {
+			isa = PBXGroup;
+			children = (
+				1803E90D2293E40600F1DF77 /* YogaFlexBoxKitTests.swift */,
+				1803E90F2293E40600F1DF77 /* Info.plist */,
+			);
+			path = YogaFlexBoxKitTests;
+			sourceTree = "<group>";
+		};
+		1803E9172293E40600F1DF77 /* YogaFlexBoxKitUITests */ = {
+			isa = PBXGroup;
+			children = (
+				1803E9182293E40600F1DF77 /* YogaFlexBoxKitUITests.swift */,
+				1803E91A2293E40600F1DF77 /* Info.plist */,
+			);
+			path = YogaFlexBoxKitUITests;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		1803E8F42293E40400F1DF77 /* YogaFlexBoxKit */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 1803E91D2293E40600F1DF77 /* Build configuration list for PBXNativeTarget "YogaFlexBoxKit" */;
+			buildPhases = (
+				1803E8F12293E40400F1DF77 /* Sources */,
+				1803E8F22293E40400F1DF77 /* Frameworks */,
+				1803E8F32293E40400F1DF77 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = YogaFlexBoxKit;
+			productName = YogaFlexBoxKit;
+			productReference = 1803E8F52293E40400F1DF77 /* YogaFlexBoxKit.app */;
+			productType = "com.apple.product-type.application";
+		};
+		1803E9082293E40600F1DF77 /* YogaFlexBoxKitTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 1803E9202293E40600F1DF77 /* Build configuration list for PBXNativeTarget "YogaFlexBoxKitTests" */;
+			buildPhases = (
+				1803E9052293E40600F1DF77 /* Sources */,
+				1803E9062293E40600F1DF77 /* Frameworks */,
+				1803E9072293E40600F1DF77 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				1803E90B2293E40600F1DF77 /* PBXTargetDependency */,
+			);
+			name = YogaFlexBoxKitTests;
+			productName = YogaFlexBoxKitTests;
+			productReference = 1803E9092293E40600F1DF77 /* YogaFlexBoxKitTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		1803E9132293E40600F1DF77 /* YogaFlexBoxKitUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 1803E9232293E40600F1DF77 /* Build configuration list for PBXNativeTarget "YogaFlexBoxKitUITests" */;
+			buildPhases = (
+				1803E9102293E40600F1DF77 /* Sources */,
+				1803E9112293E40600F1DF77 /* Frameworks */,
+				1803E9122293E40600F1DF77 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				1803E9162293E40600F1DF77 /* PBXTargetDependency */,
+			);
+			name = YogaFlexBoxKitUITests;
+			productName = YogaFlexBoxKitUITests;
+			productReference = 1803E9142293E40600F1DF77 /* YogaFlexBoxKitUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		1803E8ED2293E40400F1DF77 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 1020;
+				LastUpgradeCheck = 1020;
+				ORGANIZATIONNAME = zjade;
+				TargetAttributes = {
+					1803E8F42293E40400F1DF77 = {
+						CreatedOnToolsVersion = 10.2.1;
+					};
+					1803E9082293E40600F1DF77 = {
+						CreatedOnToolsVersion = 10.2.1;
+						TestTargetID = 1803E8F42293E40400F1DF77;
+					};
+					1803E9132293E40600F1DF77 = {
+						CreatedOnToolsVersion = 10.2.1;
+						TestTargetID = 1803E8F42293E40400F1DF77;
+					};
+				};
+			};
+			buildConfigurationList = 1803E8F02293E40400F1DF77 /* Build configuration list for PBXProject "YogaFlexBoxKit" */;
+			compatibilityVersion = "Xcode 9.3";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 1803E8EC2293E40400F1DF77;
+			productRefGroup = 1803E8F62293E40400F1DF77 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				1803E8F42293E40400F1DF77 /* YogaFlexBoxKit */,
+				1803E9082293E40600F1DF77 /* YogaFlexBoxKitTests */,
+				1803E9132293E40600F1DF77 /* YogaFlexBoxKitUITests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		1803E8F32293E40400F1DF77 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				1803E9032293E40600F1DF77 /* LaunchScreen.storyboard in Resources */,
+				1803E9002293E40600F1DF77 /* Assets.xcassets in Resources */,
+				1803E8FE2293E40400F1DF77 /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		1803E9072293E40600F1DF77 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		1803E9122293E40600F1DF77 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		1803E8F12293E40400F1DF77 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				1803E8FB2293E40400F1DF77 /* ViewController.swift in Sources */,
+				1803E8F92293E40400F1DF77 /* AppDelegate.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		1803E9052293E40600F1DF77 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				1803E90E2293E40600F1DF77 /* YogaFlexBoxKitTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		1803E9102293E40600F1DF77 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				1803E9192293E40600F1DF77 /* YogaFlexBoxKitUITests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		1803E90B2293E40600F1DF77 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 1803E8F42293E40400F1DF77 /* YogaFlexBoxKit */;
+			targetProxy = 1803E90A2293E40600F1DF77 /* PBXContainerItemProxy */;
+		};
+		1803E9162293E40600F1DF77 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 1803E8F42293E40400F1DF77 /* YogaFlexBoxKit */;
+			targetProxy = 1803E9152293E40600F1DF77 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		1803E8FC2293E40400F1DF77 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				1803E8FD2293E40400F1DF77 /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		1803E9012293E40600F1DF77 /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				1803E9022293E40600F1DF77 /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		1803E91B2293E40600F1DF77 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.2;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		1803E91C2293E40600F1DF77 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.2;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		1803E91E2293E40600F1DF77 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				INFOPLIST_FILE = YogaFlexBoxKit/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.zjade.YogaFlexBoxKit;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		1803E91F2293E40600F1DF77 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				INFOPLIST_FILE = YogaFlexBoxKit/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.zjade.YogaFlexBoxKit;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		1803E9212293E40600F1DF77 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				INFOPLIST_FILE = YogaFlexBoxKitTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.zjade.YogaFlexBoxKitTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/YogaFlexBoxKit.app/YogaFlexBoxKit";
+			};
+			name = Debug;
+		};
+		1803E9222293E40600F1DF77 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				INFOPLIST_FILE = YogaFlexBoxKitTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.zjade.YogaFlexBoxKitTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/YogaFlexBoxKit.app/YogaFlexBoxKit";
+			};
+			name = Release;
+		};
+		1803E9242293E40600F1DF77 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				INFOPLIST_FILE = YogaFlexBoxKitUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.zjade.YogaFlexBoxKitUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = YogaFlexBoxKit;
+			};
+			name = Debug;
+		};
+		1803E9252293E40600F1DF77 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				INFOPLIST_FILE = YogaFlexBoxKitUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.zjade.YogaFlexBoxKitUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = YogaFlexBoxKit;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		1803E8F02293E40400F1DF77 /* Build configuration list for PBXProject "YogaFlexBoxKit" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				1803E91B2293E40600F1DF77 /* Debug */,
+				1803E91C2293E40600F1DF77 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		1803E91D2293E40600F1DF77 /* Build configuration list for PBXNativeTarget "YogaFlexBoxKit" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				1803E91E2293E40600F1DF77 /* Debug */,
+				1803E91F2293E40600F1DF77 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		1803E9202293E40600F1DF77 /* Build configuration list for PBXNativeTarget "YogaFlexBoxKitTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				1803E9212293E40600F1DF77 /* Debug */,
+				1803E9222293E40600F1DF77 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		1803E9232293E40600F1DF77 /* Build configuration list for PBXNativeTarget "YogaFlexBoxKitUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				1803E9242293E40600F1DF77 /* Debug */,
+				1803E9252293E40600F1DF77 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 1803E8ED2293E40400F1DF77 /* Project object */;
+}

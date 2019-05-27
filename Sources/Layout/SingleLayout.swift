@@ -24,6 +24,16 @@ open class SingleLayout: RenderLayout, Layoutable {
         return child.sizeThatFits(size)
     }
 }
+extension Layoutable {
+    private func changeFlexIfZero(_ value: CGFloat) {
+        if self.yoga.flexGrow == 0 {
+            self.yoga.flexGrow = value
+        }
+        if self.yoga.flexShrink == 0 {
+            self.yoga.flexShrink = value
+        }
+    }
+}
 // MARK - Center
 public enum CenteringLayoutOptions {
     case X
@@ -33,7 +43,7 @@ public enum CenteringLayoutOptions {
 extension Layoutable {
     public func center(_ centeringOptions: CenteringLayoutOptions) -> SingleLayout {
         let layout = SingleLayout(child: self)
-        layout.yoga.flexGrow = 1
+        layout.changeFlexIfZero(1)
         switch centeringOptions {
         case .X:
             layout.yoga.justifyContent = .flexStart
@@ -63,44 +73,53 @@ public enum CornerLayoutOptions {
 extension Layoutable {
     public func corner(_ cornerOptions: CornerLayoutOptions) -> SingleLayout {
         let layout = SingleLayout(child: self)
-        layout.yoga.flexGrow = 1
+        layout.changeFlexIfZero(1)
         switch cornerOptions {
         case .topLeft(let top, let left):
+            layout.yoga.justifyContent = .flexStart
+            layout.yoga.alignItems = .flexStart
             layout.yoga.paddingTop = .init(top)
             layout.yoga.paddingLeft = .init(left)
         case .topRight(let top, let right):
+            layout.yoga.flexDirection = .row
+            layout.yoga.justifyContent = .flexEnd
+            layout.yoga.alignItems = .flexStart
             layout.yoga.paddingTop = .init(top)
             layout.yoga.paddingRight = .init(right)
         case .bottomLeft(let bottom, let left):
+            layout.yoga.justifyContent = .flexEnd
+            layout.yoga.alignItems = .flexStart
             layout.yoga.paddingBottom = .init(bottom)
             layout.yoga.paddingLeft = .init(left)
         case .bottomRight(let bottom, let right):
+            layout.yoga.justifyContent = .flexEnd
+            layout.yoga.alignItems = .flexEnd
             layout.yoga.paddingBottom = .init(bottom)
             layout.yoga.paddingRight = .init(right)
             
         case .topFill(let offSet, let fillOffset):
-            self.yoga.flexGrow = 1
+            self.changeFlexIfZero(1)
             layout.yoga.flexDirection = .row
             layout.yoga.justifyContent = .flexStart
             layout.yoga.alignItems = .flexStart
             layout.yoga.paddingHorizontal = .init(fillOffset)
             layout.yoga.paddingTop = .init(offSet)
         case .bottomFill(let offSet, let fillOffset):
-            self.yoga.flexGrow = 1
+            self.changeFlexIfZero(1)
             layout.yoga.flexDirection = .row
             layout.yoga.justifyContent = .flexStart
             layout.yoga.alignItems = .flexEnd
             layout.yoga.paddingHorizontal = .init(fillOffset)
             layout.yoga.paddingBottom = .init(offSet)
         case .leftFill(let offSet, let fillOffset):
-            self.yoga.flexGrow = 1
+            self.changeFlexIfZero(1)
             layout.yoga.flexDirection = .column
             layout.yoga.justifyContent = .flexStart
             layout.yoga.alignItems = .flexStart
             layout.yoga.paddingLeft = .init(offSet)
             layout.yoga.paddingVertical = .init(fillOffset)
         case .rightFill(let offSet, let fillOffset):
-            self.yoga.flexGrow = 1
+            self.changeFlexIfZero(1)
             layout.yoga.flexDirection = .column
             layout.yoga.justifyContent = .flexStart
             layout.yoga.alignItems = .flexEnd

@@ -10,26 +10,38 @@ import Foundation
 
 open class WrapLayout: RenderLayout {
     public weak var view: UIView?
-    init(view: UIView) {
+    public var containerRect: CGRect
+    init(view: UIView, containerRect: CGRect? = nil) {
         self.view = view
+        self.containerRect = containerRect ?? view.frame
+        super.init()
     }
     public private(set) var childs: [Layoutable] = []
 
     open override func layoutChanged() {
         super.layoutChanged()
-        var frame = converToViewHierarchy(self.frame)
+        let frame = converToViewHierarchy(self.frame)
         if self.superLayout == nil {
             if frame.origin != .zero {
                 assertionFailure("根节点origin不为zero")
-                frame.origin = .zero
             }
         }
         if let scrollView = view as? UIScrollView {
-            scrollView.frame.origin = frame.origin
+            var finalFrame = self.containerRect
+            if finalFrame.size.height.isNaN {
+                finalFrame.size.height = frame.size.height
+            }
+            if finalFrame.size.width.isNaN {
+                finalFrame.size.width = frame.size.width
+            }
+            scrollView.frame = finalFrame
             scrollView.contentSize = frame.size
         } else {
             view?.frame = frame
         }
+    }
+    var isScroll: Bool {
+        return view is UIScrollView
     }
 }
 extension WrapLayout {
@@ -37,10 +49,11 @@ extension WrapLayout {
         closure(self.yoga)
     }
     public func applyLayout(preserveOrigin: Bool = false) {
-        self.yoga.applyLayout(preserveOrigin: preserveOrigin)
-    }
-    public func applyLayout(preserveOrigin: Bool = false, dimensionFlexibility: YGDimensionFlexibility) {
-        self.yoga.applyLayout(preserveOrigin: preserveOrigin, dimensionFlexibility: dimensionFlexibility)
+        var size = containerRect.size
+        if isScroll {
+            size.height = CGFloat.nan
+        }
+        self.yoga.applyLayout(preserveOrigin: preserveOrigin, size: size)
     }
     public var intrinsicSize: CGSize {
         return self.yoga.intrinsicSize

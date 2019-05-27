@@ -17,7 +17,10 @@ public struct YGDimensionFlexibility: OptionSet {
 }
 extension LayoutNode {
     func applyLayout(preserveOrigin: Bool) {
-        calculateLayout(with: layoutable.size)
+        applyLayout(preserveOrigin: preserveOrigin, size: layoutable.size)
+    }
+    func applyLayout(preserveOrigin: Bool, size: CGSize) {
+        calculateLayout(with: size)
         layoutable.applyLayoutToViewHierarchy(preserveOrigin: preserveOrigin)
     }
     func applyLayout(preserveOrigin: Bool, dimensionFlexibility: YGDimensionFlexibility) {

@@ -8,12 +8,17 @@
 
 /* Begin PBXBuildFile section */
 		1803E8F92293E40400F1DF77 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1803E8F82293E40400F1DF77 /* AppDelegate.swift */; };
-		1803E8FB2293E40400F1DF77 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1803E8FA2293E40400F1DF77 /* ViewController.swift */; };
+		1803E8FB2293E40400F1DF77 /* CornerLayoutViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1803E8FA2293E40400F1DF77 /* CornerLayoutViewController.swift */; };
 		1803E8FE2293E40400F1DF77 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1803E8FC2293E40400F1DF77 /* Main.storyboard */; };
 		1803E9002293E40600F1DF77 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1803E8FF2293E40600F1DF77 /* Assets.xcassets */; };
 		1803E9032293E40600F1DF77 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1803E9012293E40600F1DF77 /* LaunchScreen.storyboard */; };
 		1803E90E2293E40600F1DF77 /* YogaFlexBoxKitTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1803E90D2293E40600F1DF77 /* YogaFlexBoxKitTests.swift */; };
 		1803E9192293E40600F1DF77 /* YogaFlexBoxKitUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1803E9182293E40600F1DF77 /* YogaFlexBoxKitUITests.swift */; };
+		18B08006229B76FE006E1FCB /* CornerLayoutTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18B08004229B7626006E1FCB /* CornerLayoutTests.swift */; };
+		18B08008229BD389006E1FCB /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18B08007229BD389006E1FCB /* ViewController.swift */; };
+		18B0800A229BD3F6006E1FCB /* CenterLayoutTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18B08009229BD3F6006E1FCB /* CenterLayoutTests.swift */; };
+		18B0800C229BD5D2006E1FCB /* CenterLayoutViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18B0800B229BD5D2006E1FCB /* CenterLayoutViewController.swift */; };
+		18B0800E229BE382006E1FCB /* LayoutViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18B0800D229BE382006E1FCB /* LayoutViewController.swift */; };
 		18FCBE0222968C9400695868 /* LayoutNode+ApplyLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18FCBDF122968C9300695868 /* LayoutNode+ApplyLayout.swift */; };
 		18FCBE0322968C9400695868 /* LayoutNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18FCBDF222968C9300695868 /* LayoutNode.swift */; };
 		18FCBE0422968C9400695868 /* UIView+Layout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18FCBDF322968C9300695868 /* UIView+Layout.swift */; };
@@ -50,7 +55,7 @@
 /* Begin PBXFileReference section */
 		1803E8F52293E40400F1DF77 /* YogaFlexBoxKit.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = YogaFlexBoxKit.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		1803E8F82293E40400F1DF77 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		1803E8FA2293E40400F1DF77 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		1803E8FA2293E40400F1DF77 /* CornerLayoutViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CornerLayoutViewController.swift; sourceTree = "<group>"; };
 		1803E8FD2293E40400F1DF77 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		1803E8FF2293E40600F1DF77 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		1803E9022293E40600F1DF77 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -62,6 +67,11 @@
 		1803E9182293E40600F1DF77 /* YogaFlexBoxKitUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YogaFlexBoxKitUITests.swift; sourceTree = "<group>"; };
 		1803E91A2293E40600F1DF77 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		1803E9292293E51100F1DF77 /* YogaFlexBoxKit-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "YogaFlexBoxKit-Bridging-Header.h"; sourceTree = "<group>"; };
+		18B08004229B7626006E1FCB /* CornerLayoutTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CornerLayoutTests.swift; sourceTree = "<group>"; };
+		18B08007229BD389006E1FCB /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		18B08009229BD3F6006E1FCB /* CenterLayoutTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CenterLayoutTests.swift; sourceTree = "<group>"; };
+		18B0800B229BD5D2006E1FCB /* CenterLayoutViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CenterLayoutViewController.swift; sourceTree = "<group>"; };
+		18B0800D229BE382006E1FCB /* LayoutViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LayoutViewController.swift; sourceTree = "<group>"; };
 		18FCBDF122968C9300695868 /* LayoutNode+ApplyLayout.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "LayoutNode+ApplyLayout.swift"; sourceTree = "<group>"; };
 		18FCBDF222968C9300695868 /* LayoutNode.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LayoutNode.swift; sourceTree = "<group>"; };
 		18FCBDF322968C9300695868 /* UIView+Layout.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIView+Layout.swift"; sourceTree = "<group>"; };
@@ -136,7 +146,10 @@
 			isa = PBXGroup;
 			children = (
 				1803E8F82293E40400F1DF77 /* AppDelegate.swift */,
-				1803E8FA2293E40400F1DF77 /* ViewController.swift */,
+				18B08007229BD389006E1FCB /* ViewController.swift */,
+				18B0800D229BE382006E1FCB /* LayoutViewController.swift */,
+				1803E8FA2293E40400F1DF77 /* CornerLayoutViewController.swift */,
+				18B0800B229BD5D2006E1FCB /* CenterLayoutViewController.swift */,
 				1803E8FC2293E40400F1DF77 /* Main.storyboard */,
 				1803E8FF2293E40600F1DF77 /* Assets.xcassets */,
 				1803E9012293E40600F1DF77 /* LaunchScreen.storyboard */,
@@ -150,6 +163,8 @@
 			isa = PBXGroup;
 			children = (
 				1803E90D2293E40600F1DF77 /* YogaFlexBoxKitTests.swift */,
+				18B08004229B7626006E1FCB /* CornerLayoutTests.swift */,
+				18B08009229BD3F6006E1FCB /* CenterLayoutTests.swift */,
 				1803E90F2293E40600F1DF77 /* Info.plist */,
 			);
 			path = YogaFlexBoxKitTests;
@@ -413,10 +428,12 @@
 			buildActionMask = 2147483647;
 			files = (
 				18FCBE0222968C9400695868 /* LayoutNode+ApplyLayout.swift in Sources */,
-				1803E8FB2293E40400F1DF77 /* ViewController.swift in Sources */,
+				1803E8FB2293E40400F1DF77 /* CornerLayoutViewController.swift in Sources */,
 				18FCBE0522968C9400695868 /* Measure.swift in Sources */,
 				1803E8F92293E40400F1DF77 /* AppDelegate.swift in Sources */,
+				18B0800E229BE382006E1FCB /* LayoutViewController.swift in Sources */,
 				18FCBE0C22968C9400695868 /* WrapLayout.swift in Sources */,
+				18B0800C229BD5D2006E1FCB /* CenterLayoutViewController.swift in Sources */,
 				18FCBE0422968C9400695868 /* UIView+Layout.swift in Sources */,
 				18FCBE1022968F3800695868 /* RenderLayout.swift in Sources */,
 				18FCBE0722968C9400695868 /* LayoutNode+Style.m in Sources */,
@@ -426,6 +443,7 @@
 				18FCBE0B22968C9400695868 /* Layoutable.swift in Sources */,
 				18FCBE12229691D200695868 /* SingleLayout.swift in Sources */,
 				18FCBE0822968C9400695868 /* LayoutNode.m in Sources */,
+				18B08008229BD389006E1FCB /* ViewController.swift in Sources */,
 				18FCBE0322968C9400695868 /* LayoutNode.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -434,7 +452,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				18B08006229B76FE006E1FCB /* CornerLayoutTests.swift in Sources */,
 				1803E90E2293E40600F1DF77 /* YogaFlexBoxKitTests.swift in Sources */,
+				18B0800A229BD3F6006E1FCB /* CenterLayoutTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

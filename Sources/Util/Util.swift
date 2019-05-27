@@ -29,3 +29,11 @@ extension CGRect {
         self.init(x: Double(x), y: Double(y), width: Double(width), height: Double(height))
     }
 }
+
+extension FloatingPoint {
+    public static func random(min: Self = 0, max: Self = 1) -> Self {
+        let diff = max - min
+        let rand = Self(arc4random() % (UInt32(RAND_MAX) + 1))
+        return ((rand / Self(RAND_MAX)) * diff) + min
+    }
+}

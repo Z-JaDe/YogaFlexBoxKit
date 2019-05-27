@@ -88,6 +88,15 @@ extension WrapLayout {
         if let child = child as? RenderLayout {
             child.superLayout = self
         }
+        addChildView(child)
         view?.setNeedsLayout()
+    }
+    func addChildView(_ child: Layoutable) {
+        if let childView = (child as? WrapLayout)?.view {
+            view?.addSubview(childView)
+        }
+        if let child = child as? SingleLayout {
+            addChildView(child.child)
+        }
     }
 }

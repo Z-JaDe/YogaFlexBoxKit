@@ -30,14 +30,12 @@ class LayoutTest {
     func reload(in view: UIView) {
         view.layout.applyLayout(preserveOrigin: true)
     }
-    @discardableResult
     func createItem(in superview: UIView, itemSize: CGSize) -> UIView {
         let view = UIView()
         view.layout.configureLayout { (node) in
             node.width = YGValue(itemSize.width)
             node.height = YGValue(itemSize.height)
         }
-        superview.addSubview(view)
         return view
     }
 }

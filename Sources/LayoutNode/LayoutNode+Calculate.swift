@@ -9,9 +9,6 @@
 import Foundation
 
 extension LayoutNode {
-    var intrinsicSize: CGSize {
-        return calculateLayout(with: CGSize.nan)
-    }
     @discardableResult
     func calculateLayout(with size: CGSize) -> CGSize {
         layoutable.attachNodesFromViewHierachy()

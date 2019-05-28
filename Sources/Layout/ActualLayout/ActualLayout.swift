@@ -53,10 +53,9 @@ extension ActualLayout {
         }
         yoga.applyLayout(preserveOrigin: preserveOrigin, size: size)
     }
-    public var intrinsicSize: CGSize {
-        return self.yoga.intrinsicSize
+    public var intrinsicÔSize: CGSize {
+        return self.calculateLayout(with: CGSize.nan)
     }
-    @discardableResult
     public func calculateLayout(with size: CGSize) -> CGSize {
         return self.yoga.calculateLayout(with: size)
     }

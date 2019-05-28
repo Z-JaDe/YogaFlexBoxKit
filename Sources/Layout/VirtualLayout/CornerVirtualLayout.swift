@@ -102,31 +102,27 @@ public class CornerVirtualLayout: VirtualLayout {
             yoga.paddingRight = .init(right)
             
         case .topFill(let top, let fillOffset):
-            child.changeFlexIfZero(1)
-            yoga.flexDirection = .row
+            yoga.flexDirection = .column
             yoga.justifyContent = .flexStart
-            yoga.alignItems = .flexStart
+            yoga.alignItems = .stretch
             yoga.paddingHorizontal = .init(fillOffset)
             yoga.paddingTop = .init(top)
         case .bottomFill(let bottom, let fillOffset):
-            child.changeFlexIfZero(1)
-            yoga.flexDirection = .row
-            yoga.justifyContent = .flexStart
-            yoga.alignItems = .flexEnd
+            yoga.flexDirection = .column
+            yoga.justifyContent = .flexEnd
+            yoga.alignItems = .stretch
             yoga.paddingHorizontal = .init(fillOffset)
             yoga.paddingBottom = .init(bottom)
         case .leftFill(let left, let fillOffset):
-            child.changeFlexIfZero(1)
-            yoga.flexDirection = .column
+            yoga.flexDirection = .row
             yoga.justifyContent = .flexStart
-            yoga.alignItems = .flexStart
+            yoga.alignItems = .stretch
             yoga.paddingLeft = .init(left)
             yoga.paddingVertical = .init(fillOffset)
         case .rightFill(let right, let fillOffset):
-            child.changeFlexIfZero(1)
-            yoga.flexDirection = .column
-            yoga.justifyContent = .flexStart
-            yoga.alignItems = .flexEnd
+            yoga.flexDirection = .row
+            yoga.justifyContent = .flexEnd
+            yoga.alignItems = .stretch
             yoga.paddingRight = .init(right)
             yoga.paddingVertical = .init(fillOffset)
         }

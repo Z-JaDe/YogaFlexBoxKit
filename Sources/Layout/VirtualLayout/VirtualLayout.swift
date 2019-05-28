@@ -7,7 +7,7 @@
 //
 
 import Foundation
-internal var isUseYogaLayout: Bool = true
+internal var isUseYogaLayout: Bool = false
 ///本身并不包含view 但是可以参与计算布局，子节点中可能包含view
 open class VirtualLayout: RenderLayout {
     public let child: Layoutable
@@ -29,6 +29,7 @@ open class VirtualLayout: RenderLayout {
     open override func layoutDidChanged(oldFrame: CGRect) {
         super.layoutDidChanged(oldFrame: oldFrame)
         guard isUseYogaLayout == false else { return }
+        guard oldFrame != self.frame else { return }
         layoutUpdate(oldFrame: oldFrame, newFrame: self.frame)
     }
     // MARK:

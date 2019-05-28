@@ -58,6 +58,5 @@ class CornerLayoutTest: LayoutTest {
             layout.yoga.flexGrow = 1
             view.layout.addChild(layout)
         }
-        reload(in: view)
     }
 }

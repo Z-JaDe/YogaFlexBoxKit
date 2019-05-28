@@ -50,7 +50,6 @@ class CenterLayoutTest: LayoutTest {
             layout.yoga.width = 90%
             view.layout.addChild(layout)
         }
-        reload(in: view)
     }
 
 }

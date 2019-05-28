@@ -11,9 +11,36 @@ import UIKit
 @testable import YogaFlexBoxKit
 
 class CenterLayoutTests: XCTestCase {
-    func testPerformanceExample() {
+    func testTime() {
+        let screenWidth = UIScreen.main.bounds.size.width
+        let screenHeight = UIScreen.main.bounds.size.height
+        for _ in 0..<20 {
+            let width = CGFloat(Int(CGFloat.random(in: screenWidth/2...screenWidth)))
+            let height = CGFloat(Int(CGFloat.random(in: screenWidth/2...screenHeight)))
+            let size = CGSize(width: width, height: height)
+            timerTest(true, size)
+            timerTest(false, size)
+            print("width：\(size.width) height：\(size.height)\n")
+        }
+    }
+    func timerTest(_ value: Bool, _ size: CGSize) {
+        isUseYogaLayout = value
+        let view = UIView()
+        let centerlayout = YogaFlexBoxKit.CenterLayoutTest()
+        centerlayout.test(in: view, view.frame)
+        
+        let startTime = CFAbsoluteTimeGetCurrent()
+        for _ in 0..<100 {
+            centerlayout.reload(in: view)
+        }
+        let endTime = CFAbsoluteTimeGetCurrent()
+        let diff1:Double = (endTime - startTime) * 1000
+        print((value ? "yoga" : "layout") + " center " + String(diff1))
+    }
+    func testLayoutExample() {
         self.measure {
             for _ in 0..<100 {
+                isUseYogaLayout.toggle()
                 testCenter()
             }
         }
@@ -27,6 +54,7 @@ class CenterLayoutTests: XCTestCase {
         view.bounds.size = CGSize(width: width, height: height)
         let centerlayout = YogaFlexBoxKit.CenterLayoutTest()
         centerlayout.test(in: view, view.frame)
+        centerlayout.reload(in: view)
         let itemRect = CGRect(origin: .zero, size: centerlayout.itemSize)
         for (offSet, layout) in view.layout.childs.enumerated() {
             var rect: CGRect = .zero

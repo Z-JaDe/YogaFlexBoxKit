@@ -26,8 +26,6 @@ public class LayoutNode: AbstractLayoutNode {
     public var isIncludedInLayout: Bool = true
     
     open var isLeaf: Bool {
-        guard let layoutable = layoutable else { return true }
-        /// 不包含可用子节点
-        return layoutable.childs.lazy.map({$0.yoga}).contains(where: {$0.isIncludedInLayout}) == false
+        return layoutable?.isLeaf ?? true
     }
 }

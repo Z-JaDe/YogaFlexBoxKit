@@ -14,9 +14,9 @@ class CenterLayoutViewController: LayoutViewController {
         let corner = CenterLayoutTest()
         corner.test(in: self.view, self.view.frame)
         for layout in self.view.layout.childs {
-            let layout = layout as! SingleLayout
+            let layout = layout as! VirtualLayout
             layout.yoga.margin = 5
-            let view = (layout.child as! WrapLayout).view!
+            let view = (layout.child as! ActualLayout).view!
             view.backgroundColor = UIColor.red
         }
         corner.reload(in: self.view)
@@ -31,7 +31,7 @@ class CenterLayoutViewController: LayoutViewController {
     }
 }
 class CenterLayoutTest: LayoutTest {
-    let array: [CenteringLayoutOptions] = [
+    let array: [CenterVirtualLayoutOptions] = [
         .X,
         .Y,
         .XY

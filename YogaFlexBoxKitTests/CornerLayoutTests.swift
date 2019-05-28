@@ -35,7 +35,7 @@ class CornerLayoutTests: XCTestCase {
             rect.origin.y = CGFloat(offSet / 2) * rect.size.height
             XCTAssertTrue(layout.frame == rect, "layout位置错误\(layout.frame) != \(rect)")
             
-            let item = (layout as! SingleLayout).child as! WrapLayout
+            let item = (layout as! VirtualLayout).child as! ActualLayout
             var layoutRect = layout.frame
             layoutRect.origin = .zero
             switch cornerlayout.array[offSet] {
@@ -63,9 +63,9 @@ class CornerLayoutTests: XCTestCase {
             case .topFill(let offSet, let fillOffset):
                 var rect: CGRect = layoutRect
                 rect.size.width -= fillOffset * 2
-                if rect.size.width < itemRect.size.width {
-                    rect.size.width = itemRect.size.width
-                }
+//                if rect.size.width < itemRect.size.width {
+//                    rect.size.width = itemRect.size.width
+//                }
                 rect.size.height = itemRect.size.height
                 rect.origin.x = fillOffset
                 rect.origin.y = offSet
@@ -73,9 +73,9 @@ class CornerLayoutTests: XCTestCase {
             case .bottomFill(let offSet, let fillOffset):
                 var rect: CGRect = layoutRect
                 rect.size.width -= fillOffset * 2
-                if rect.size.width < itemRect.size.width {
-                    rect.size.width = itemRect.size.width
-                }
+//                if rect.size.width < itemRect.size.width {
+//                    rect.size.width = itemRect.size.width
+//                }
                 rect.size.height = itemRect.size.height
                 rect.origin.x = fillOffset
                 rect.origin.y = layoutRect.size.height - offSet - rect.size.height

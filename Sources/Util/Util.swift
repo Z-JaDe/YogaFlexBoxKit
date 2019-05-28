@@ -23,6 +23,9 @@ extension CGSize {
     init(width: Float, height: Float) {
         self.init(width: Double(width), height: Double(height))
     }
+    static var nan: CGSize {
+        return CGSize(width: CGFloat.nan, height: CGFloat.nan)
+    }
 }
 extension CGRect {
     init(x: Float, y: Float, width: Float, height: Float) {

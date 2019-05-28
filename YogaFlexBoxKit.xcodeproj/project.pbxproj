@@ -21,7 +21,6 @@
 		18B0800E229BE382006E1FCB /* LayoutViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18B0800D229BE382006E1FCB /* LayoutViewController.swift */; };
 		18FCBE0222968C9400695868 /* LayoutNode+ApplyLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18FCBDF122968C9300695868 /* LayoutNode+ApplyLayout.swift */; };
 		18FCBE0322968C9400695868 /* LayoutNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18FCBDF222968C9300695868 /* LayoutNode.swift */; };
-		18FCBE0422968C9400695868 /* UIView+Layout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18FCBDF322968C9300695868 /* UIView+Layout.swift */; };
 		18FCBE0522968C9400695868 /* Measure.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18FCBDF422968C9300695868 /* Measure.swift */; };
 		18FCBE0622968C9400695868 /* LayoutNode+Calculate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18FCBDF522968C9300695868 /* LayoutNode+Calculate.swift */; };
 		18FCBE0722968C9400695868 /* LayoutNode+Style.m in Sources */ = {isa = PBXBuildFile; fileRef = 18FCBDF722968C9300695868 /* LayoutNode+Style.m */; };
@@ -29,9 +28,12 @@
 		18FCBE0922968C9400695868 /* Util.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18FCBDFD22968C9400695868 /* Util.swift */; };
 		18FCBE0A22968C9400695868 /* YGLayoutExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18FCBDFE22968C9400695868 /* YGLayoutExtensions.swift */; };
 		18FCBE0B22968C9400695868 /* Layoutable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18FCBE0022968C9400695868 /* Layoutable.swift */; };
-		18FCBE0C22968C9400695868 /* WrapLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18FCBE0122968C9400695868 /* WrapLayout.swift */; };
 		18FCBE1022968F3800695868 /* RenderLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18FCBE0F22968F3800695868 /* RenderLayout.swift */; };
-		18FCBE12229691D200695868 /* SingleLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18FCBE11229691D200695868 /* SingleLayout.swift */; };
+		18FCBE12229691D200695868 /* VirtualLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18FCBE11229691D200695868 /* VirtualLayout.swift */; };
+		18FF9D18229CC479003C5EA7 /* CenterVirtualLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18FF9D17229CC479003C5EA7 /* CenterVirtualLayout.swift */; };
+		18FF9D1A229CC593003C5EA7 /* CornerVirtualLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18FF9D19229CC593003C5EA7 /* CornerVirtualLayout.swift */; };
+		18FF9D45229D0B2F003C5EA7 /* UIView+Layout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18FF9D43229D0B2F003C5EA7 /* UIView+Layout.swift */; };
+		18FF9D46229D0B2F003C5EA7 /* ActualLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18FF9D44229D0B2F003C5EA7 /* ActualLayout.swift */; };
 		394BCA8780D9C2523303EFD2 /* Pods_YogaFlexBoxKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9C26E8BF526D2AA11B6AEEA5 /* Pods_YogaFlexBoxKit.framework */; };
 /* End PBXBuildFile section */
 
@@ -74,7 +76,6 @@
 		18B0800D229BE382006E1FCB /* LayoutViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LayoutViewController.swift; sourceTree = "<group>"; };
 		18FCBDF122968C9300695868 /* LayoutNode+ApplyLayout.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "LayoutNode+ApplyLayout.swift"; sourceTree = "<group>"; };
 		18FCBDF222968C9300695868 /* LayoutNode.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LayoutNode.swift; sourceTree = "<group>"; };
-		18FCBDF322968C9300695868 /* UIView+Layout.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIView+Layout.swift"; sourceTree = "<group>"; };
 		18FCBDF422968C9300695868 /* Measure.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Measure.swift; sourceTree = "<group>"; };
 		18FCBDF522968C9300695868 /* LayoutNode+Calculate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "LayoutNode+Calculate.swift"; sourceTree = "<group>"; };
 		18FCBDF722968C9300695868 /* LayoutNode+Style.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "LayoutNode+Style.m"; sourceTree = "<group>"; };
@@ -85,9 +86,12 @@
 		18FCBDFD22968C9400695868 /* Util.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Util.swift; sourceTree = "<group>"; };
 		18FCBDFE22968C9400695868 /* YGLayoutExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = YGLayoutExtensions.swift; sourceTree = "<group>"; };
 		18FCBE0022968C9400695868 /* Layoutable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Layoutable.swift; sourceTree = "<group>"; };
-		18FCBE0122968C9400695868 /* WrapLayout.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WrapLayout.swift; sourceTree = "<group>"; };
 		18FCBE0F22968F3800695868 /* RenderLayout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RenderLayout.swift; sourceTree = "<group>"; };
-		18FCBE11229691D200695868 /* SingleLayout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SingleLayout.swift; sourceTree = "<group>"; };
+		18FCBE11229691D200695868 /* VirtualLayout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VirtualLayout.swift; sourceTree = "<group>"; };
+		18FF9D17229CC479003C5EA7 /* CenterVirtualLayout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CenterVirtualLayout.swift; sourceTree = "<group>"; };
+		18FF9D19229CC593003C5EA7 /* CornerVirtualLayout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CornerVirtualLayout.swift; sourceTree = "<group>"; };
+		18FF9D43229D0B2F003C5EA7 /* UIView+Layout.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIView+Layout.swift"; sourceTree = "<group>"; };
+		18FF9D44229D0B2F003C5EA7 /* ActualLayout.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ActualLayout.swift; sourceTree = "<group>"; };
 		7BC0276049A549EAC5E0AF0A /* Pods-YogaFlexBoxKit.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-YogaFlexBoxKit.debug.xcconfig"; path = "Target Support Files/Pods-YogaFlexBoxKit/Pods-YogaFlexBoxKit.debug.xcconfig"; sourceTree = "<group>"; };
 		9C26E8BF526D2AA11B6AEEA5 /* Pods_YogaFlexBoxKit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_YogaFlexBoxKit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		EDA01FF3F1DF0535FA910D31 /* Pods-YogaFlexBoxKit.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-YogaFlexBoxKit.release.xcconfig"; path = "Target Support Files/Pods-YogaFlexBoxKit/Pods-YogaFlexBoxKit.release.xcconfig"; sourceTree = "<group>"; };
@@ -148,8 +152,8 @@
 				1803E8F82293E40400F1DF77 /* AppDelegate.swift */,
 				18B08007229BD389006E1FCB /* ViewController.swift */,
 				18B0800D229BE382006E1FCB /* LayoutViewController.swift */,
-				1803E8FA2293E40400F1DF77 /* CornerLayoutViewController.swift */,
 				18B0800B229BD5D2006E1FCB /* CenterLayoutViewController.swift */,
+				1803E8FA2293E40400F1DF77 /* CornerLayoutViewController.swift */,
 				1803E8FC2293E40400F1DF77 /* Main.storyboard */,
 				1803E8FF2293E40600F1DF77 /* Assets.xcassets */,
 				1803E9012293E40600F1DF77 /* LaunchScreen.storyboard */,
@@ -225,13 +229,31 @@
 		18FCBDFF22968C9400695868 /* Layout */ = {
 			isa = PBXGroup;
 			children = (
+				18FF9D42229D0B2F003C5EA7 /* ActualLayout */,
+				18FF9D16229CC461003C5EA7 /* VirtualLayout */,
 				18FCBE0F22968F3800695868 /* RenderLayout.swift */,
-				18FCBE11229691D200695868 /* SingleLayout.swift */,
 				18FCBE0022968C9400695868 /* Layoutable.swift */,
-				18FCBE0122968C9400695868 /* WrapLayout.swift */,
-				18FCBDF322968C9300695868 /* UIView+Layout.swift */,
 			);
 			path = Layout;
+			sourceTree = "<group>";
+		};
+		18FF9D16229CC461003C5EA7 /* VirtualLayout */ = {
+			isa = PBXGroup;
+			children = (
+				18FCBE11229691D200695868 /* VirtualLayout.swift */,
+				18FF9D17229CC479003C5EA7 /* CenterVirtualLayout.swift */,
+				18FF9D19229CC593003C5EA7 /* CornerVirtualLayout.swift */,
+			);
+			path = VirtualLayout;
+			sourceTree = "<group>";
+		};
+		18FF9D42229D0B2F003C5EA7 /* ActualLayout */ = {
+			isa = PBXGroup;
+			children = (
+				18FF9D43229D0B2F003C5EA7 /* UIView+Layout.swift */,
+				18FF9D44229D0B2F003C5EA7 /* ActualLayout.swift */,
+			);
+			path = ActualLayout;
 			sourceTree = "<group>";
 		};
 		25BDD72CE60C39654C1A4E2B /* Frameworks */ = {
@@ -432,18 +454,20 @@
 				18FCBE0522968C9400695868 /* Measure.swift in Sources */,
 				1803E8F92293E40400F1DF77 /* AppDelegate.swift in Sources */,
 				18B0800E229BE382006E1FCB /* LayoutViewController.swift in Sources */,
-				18FCBE0C22968C9400695868 /* WrapLayout.swift in Sources */,
+				18FF9D46229D0B2F003C5EA7 /* ActualLayout.swift in Sources */,
 				18B0800C229BD5D2006E1FCB /* CenterLayoutViewController.swift in Sources */,
-				18FCBE0422968C9400695868 /* UIView+Layout.swift in Sources */,
 				18FCBE1022968F3800695868 /* RenderLayout.swift in Sources */,
 				18FCBE0722968C9400695868 /* LayoutNode+Style.m in Sources */,
 				18FCBE0A22968C9400695868 /* YGLayoutExtensions.swift in Sources */,
 				18FCBE0622968C9400695868 /* LayoutNode+Calculate.swift in Sources */,
 				18FCBE0922968C9400695868 /* Util.swift in Sources */,
 				18FCBE0B22968C9400695868 /* Layoutable.swift in Sources */,
-				18FCBE12229691D200695868 /* SingleLayout.swift in Sources */,
+				18FCBE12229691D200695868 /* VirtualLayout.swift in Sources */,
+				18FF9D18229CC479003C5EA7 /* CenterVirtualLayout.swift in Sources */,
 				18FCBE0822968C9400695868 /* LayoutNode.m in Sources */,
 				18B08008229BD389006E1FCB /* ViewController.swift in Sources */,
+				18FF9D1A229CC593003C5EA7 /* CornerVirtualLayout.swift in Sources */,
+				18FF9D45229D0B2F003C5EA7 /* UIView+Layout.swift in Sources */,
 				18FCBE0322968C9400695868 /* LayoutNode.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

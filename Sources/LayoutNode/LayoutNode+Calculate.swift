@@ -10,7 +10,7 @@ import Foundation
 
 extension LayoutNode {
     var intrinsicSize: CGSize {
-        return calculateLayout(with: CGSize(width: CGFloat.nan, height: CGFloat.nan))
+        return calculateLayout(with: CGSize.nan)
     }
     @discardableResult
     func calculateLayout(with size: CGSize) -> CGSize {

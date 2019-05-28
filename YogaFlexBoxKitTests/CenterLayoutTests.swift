@@ -36,7 +36,7 @@ class CenterLayoutTests: XCTestCase {
             rect.origin.y = CGFloat(offSet) * rect.size.height
             XCTAssertTrue(layout.frame == rect, "layout位置错误\(layout.frame) != \(rect)")
             
-            let item = (layout as! SingleLayout).child as! WrapLayout
+            let item = (layout as! VirtualLayout).child as! ActualLayout
             var layoutRect = layout.frame
             layoutRect.origin = .zero
             switch centerlayout.array[offSet] {

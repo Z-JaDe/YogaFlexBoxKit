@@ -8,6 +8,10 @@
 
 #import "LayoutNode.h"
 
+id NodeGetContext(YGNodeRef __nullable node) {
+    return (__bridge id)(YGNodeGetContext(node));
+}
+
 static YGConfigRef globalConfig;
 @interface AbstractLayoutNode()
 

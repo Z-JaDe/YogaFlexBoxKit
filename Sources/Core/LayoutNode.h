@@ -11,6 +11,8 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
+id NodeGetContext(YGNodeRef __nullable node);
+
 @interface AbstractLayoutNode : NSObject
 - (instancetype)init
 __attribute__((unavailable("you are not meant to initialise YGLayout")));

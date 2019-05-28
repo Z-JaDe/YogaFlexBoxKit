@@ -1,5 +1,5 @@
 //
-//  WrapLayout.swift
+//  ActualLayout.swift
 //  YogaFlexBoxKit
 //
 //  Created by Apple on 2019/5/23.
@@ -7,19 +7,20 @@
 //
 
 import Foundation
-
-open class WrapLayout: RenderLayout {
+///本身包含view，可以添加多个子节点
+open class ActualLayout: RenderLayout {
     public weak var view: UIView?
     public var containerRect: CGRect
+    private let isScroll: Bool
     init(view: UIView, containerRect: CGRect? = nil) {
         self.view = view
         self.containerRect = containerRect ?? view.frame
+        self.isScroll = view is UIScrollView
         super.init()
     }
-    public private(set) var childs: [Layoutable] = []
 
-    open override func layoutChanged() {
-        super.layoutChanged()
+    open override func layoutDidChanged(oldFrame: CGRect) {
+        super.layoutDidChanged(oldFrame: oldFrame)
         let frame = converToViewHierarchy(self.frame)
         if self.superLayout == nil {
             if frame.origin != .zero {
@@ -40,20 +41,17 @@ open class WrapLayout: RenderLayout {
             view?.frame = frame
         }
     }
-    var isScroll: Bool {
-        return view is UIScrollView
-    }
 }
-extension WrapLayout {
+extension ActualLayout {
     public func configureLayout(_ closure: (LayoutNode) -> Void) {
-        closure(self.yoga)
+        closure(yoga)
     }
     public func applyLayout(preserveOrigin: Bool = false) {
         var size = containerRect.size
         if isScroll {
             size.height = CGFloat.nan
         }
-        self.yoga.applyLayout(preserveOrigin: preserveOrigin, size: size)
+        yoga.applyLayout(preserveOrigin: preserveOrigin, size: size)
     }
     public var intrinsicSize: CGSize {
         return self.yoga.intrinsicSize
@@ -63,9 +61,9 @@ extension WrapLayout {
         return self.yoga.calculateLayout(with: size)
     }
 }
-extension WrapLayout: Layoutable {
+extension ActualLayout: Layoutable {
     public func sizeThatFits(_ size: CGSize) -> CGSize {
-        return view!.sizeThatFits(size)
+        return view?.sizeThatFits(size) ?? .zero
     }
     func converToViewHierarchy(_ rect: CGRect) -> CGRect {
         var frame = rect
@@ -73,7 +71,7 @@ extension WrapLayout: Layoutable {
         while let layout = superLayout {
             frame.origin.x += layout.frame.origin.x
             frame.origin.y += layout.frame.origin.y
-            if let superView = (superLayout as? WrapLayout)?.view {
+            if let superView = (superLayout as? ActualLayout)?.view {
                 frame = superView.convert(frame, to: view!.superview)
                 break
             }
@@ -82,20 +80,16 @@ extension WrapLayout: Layoutable {
         return frame
     }
 }
-extension WrapLayout {
+extension ActualLayout {
     public func addChild(_ child: Layoutable) {
-        self.childs.append(child)
-        if let child = child as? RenderLayout {
-            child.superLayout = self
-        }
+        _addChild(child)
         addChildView(child)
         view?.setNeedsLayout()
     }
     func addChildView(_ child: Layoutable) {
-        if let childView = (child as? WrapLayout)?.view {
+        if let childView = (child as? ActualLayout)?.view {
             view?.addSubview(childView)
-        }
-        if let child = child as? SingleLayout {
+        } else if let child = child as? VirtualLayout {
             addChildView(child.child)
         }
     }

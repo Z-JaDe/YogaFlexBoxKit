@@ -16,23 +16,19 @@ public struct YGDimensionFlexibility: OptionSet {
     static let flexibleHeight = YGDimensionFlexibility(rawValue: 1 << 1)
 }
 extension LayoutNode {
-    func applyLayout(preserveOrigin: Bool) {
-        applyLayout(preserveOrigin: preserveOrigin, size: layoutable.size)
-    }
-    func applyLayout(preserveOrigin: Bool, size: CGSize) {
-        calculateLayout(with: size)
+    func applyLayout(preserveOrigin: Bool, size: CGSize? = nil) {
+        calculateLayout(with: size ?? layoutable.size)
         layoutable.applyLayoutToViewHierarchy(preserveOrigin: preserveOrigin)
     }
-    func applyLayout(preserveOrigin: Bool, dimensionFlexibility: YGDimensionFlexibility) {
-        var size: CGSize = layoutable.size
+    func applyLayout(preserveOrigin: Bool, size: CGSize? = nil, dimensionFlexibility: YGDimensionFlexibility) {
+        var size: CGSize = size ?? layoutable.size
         if dimensionFlexibility.contains(.flexibleWidth) {
             size.width = CGFloat.nan
         }
         if dimensionFlexibility.contains(.flexibleHeight) {
             size.height = CGFloat.nan
         }
-        calculateLayout(with: size)
-        layoutable.applyLayoutToViewHierarchy(preserveOrigin: preserveOrigin)
+        applyLayout(preserveOrigin: preserveOrigin, size: size)
     }
 }
 extension Layoutable {

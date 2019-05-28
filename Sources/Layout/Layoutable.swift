@@ -13,6 +13,8 @@ public protocol Layoutable: class {
     var yoga: LayoutNode {get}
     var childs: [Layoutable] {get}
     var superLayout: Layoutable? {get}
+    var isLeaf: Bool {get}
+    ///该节点是叶子节点的时候，才会调用
     func sizeThatFits(_ size: CGSize) -> CGSize
 }
 public extension Layoutable {
@@ -20,6 +22,15 @@ public extension Layoutable {
         return .zero
     }
     var size: CGSize {
-        return self.frame.size
+        return frame.size
+    }
+    var isLeaf: Bool {
+        return _isLeaf
+    }
+}
+extension Layoutable {
+    var _isLeaf: Bool {
+        /// 不包含可用子节点
+        return childs.lazy.map({$0.yoga}).contains(where: {$0.isIncludedInLayout}) == false
     }
 }

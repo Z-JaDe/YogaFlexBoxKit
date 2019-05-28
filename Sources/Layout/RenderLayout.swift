@@ -11,9 +11,10 @@ import Foundation
 open class RenderLayout {
     open lazy var yoga: LayoutNode = LayoutNode(target: self)
 
-    open weak var superLayout: Layoutable?
-    open var frame: CGRect = .zero {
-        didSet { layoutChanged() }
+    public private(set) weak var superLayout: Layoutable?
+    public private(set) var childs: [Layoutable] = []
+    public var frame: CGRect = .zero {
+        didSet { layoutDidChanged(oldFrame: oldValue) }
     }
     init() {
         configInit()
@@ -22,7 +23,21 @@ open class RenderLayout {
         
     }
 
-    open func layoutChanged() {
+    open func layoutDidChanged(oldFrame: CGRect) {
         
+    }
+}
+extension RenderLayout {
+    internal func _addChild(_ child: Layoutable) {
+        self.childs.append(child)
+        if let layout = self as? Layoutable {
+            (child as? RenderLayout)?.setSuperLayout(layout)
+        }
+    }
+    func setSuperLayout(_ layout: Layoutable) {
+        if let superLayout = self.superLayout {
+            assertionFailure("layout已经拥有superLayout->\(superLayout)")
+        }
+        self.superLayout = layout
     }
 }

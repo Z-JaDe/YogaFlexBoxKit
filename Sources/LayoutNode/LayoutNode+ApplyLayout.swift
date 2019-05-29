@@ -33,6 +33,7 @@ extension LayoutNode {
 }
 extension Layoutable {
     fileprivate func applyLayoutToViewHierarchy(preserveOrigin: Bool) {
+        assertInMain()
         let yoga = self.yoga
         guard yoga.isIncludedInLayout else { return }
         let node = yoga.yogaNode
@@ -45,12 +46,17 @@ extension Layoutable {
             y: topLeft.y + CGFloat(YGNodeLayoutGetHeight(node))
         )
         let origin = preserveOrigin ? self.frame.origin : .zero
-        self.frame = CGRect(
+        let frame = CGRect(
             x: (topLeft.x + origin.x).pixelValue,
             y: (topLeft.y + origin.y).pixelValue,
             width: bottomRight.x.pixelValue - topLeft.x.pixelValue,
             height: bottomRight.y.pixelValue - topLeft.y.pixelValue
         )
+        if let layout = self as? RenderLayout {
+            layout._frame = frame
+        } else {
+            self.frame = frame
+        }
         if !yoga.isLeaf {
             self.childs.forEach({$0.applyLayoutToViewHierarchy(preserveOrigin: false)})
         }

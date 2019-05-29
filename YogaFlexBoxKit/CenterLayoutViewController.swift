@@ -19,8 +19,7 @@ class CenterLayoutViewController: LayoutViewController {
             let view = (layout.child as! ActualLayout).view!
             view.backgroundColor = UIColor.red
         }
-        corner.reload(in: self.view)
-        corner.reload(in: self.view)
+        self.view.layout.applyLayout()
         for layout in self.view.layout.childs {
             let layoutView = UIView()
             layoutView.backgroundColor = UIColor.blue

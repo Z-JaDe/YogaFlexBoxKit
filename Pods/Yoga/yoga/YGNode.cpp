@@ -143,7 +143,7 @@ YGSize YGNode::measure(
     float height,
     YGMeasureMode heightMode,
     void* layoutContext) {
-
+    
   return measureUsesContext_
       ? measure_.withContext(
             this, width, widthMode, height, heightMode, layoutContext)

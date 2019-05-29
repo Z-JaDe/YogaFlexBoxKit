@@ -29,7 +29,7 @@ class LayoutTest {
     let layoutHeight: CGFloat = 200
     
     func reload(in view: UIView) {
-        view.layout.applyLayout(preserveOrigin: true)
+        view.layout.applyLayout()
     }
     func createItem(in superview: UIView, itemSize: CGSize) -> UIView {
         let view = UILabel()

@@ -26,11 +26,11 @@ open class VirtualLayout: RenderLayout {
             yogaLayoutConfig()
         }
     }
-    open override func layoutDidChanged(oldFrame: CGRect) {
-        super.layoutDidChanged(oldFrame: oldFrame)
+    open override func _frameDidChanged(oldFrame: CGRect) {
+        super._frameDidChanged(oldFrame: oldFrame)
         guard isUseYogaLayout == false else { return }
         guard oldFrame != self.frame else { return }
-        layoutUpdate(oldFrame: oldFrame, newFrame: self.frame)
+        self.layoutUpdate(oldFrame: oldFrame, newFrame: self.frame)
     }
     // MARK:
     public func sizeThatFits(_ size: CGSize) -> CGSize {
@@ -53,7 +53,7 @@ open class VirtualLayout: RenderLayout {
         if oldSize.height > newFrame.size.height {
             reSize.height = newFrame.size.height
         }
-        if reSize != nanSize {
+        if reSize.isNaN == false {
             return calculateLayout(with: oldSize)
         } else {
             return oldSize

@@ -40,9 +40,6 @@ static YGConfigRef globalConfig;
 }
 
 - (void)markDirty {
-    if (self.isDirty) {
-        return;
-    }
     YGNodeMarkDirty(self.node);
 }
 #pragma mark -

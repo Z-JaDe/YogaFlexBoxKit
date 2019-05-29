@@ -21,13 +21,22 @@ open class ActualLayout: RenderLayout {
 
     open override func layoutDidChanged(oldFrame: CGRect) {
         super.layoutDidChanged(oldFrame: oldFrame)
-        let frame = converToViewHierarchy(self.frame)
+        let frame = self.frame
+        performInMainAsync {
+            self.updateViewFrame(frame)
+        }
+    }
+    func updateViewFrame(_ frame: CGRect) {
+        ///放多点每次重新创建Timer实例，简单测试后发现速度反而慢了
+//        throttle(&layoutViewTimer, interval: .milliseconds(100)) {
+//        }
+        let frame = self.converToViewHierarchy(frame)
         if self.superLayout == nil {
             if frame.origin != .zero {
                 assertionFailure("根节点origin不为zero")
             }
         }
-        if let scrollView = view as? UIScrollView {
+        if let scrollView = self.view as? UIScrollView {
             var finalFrame = self.containerRect
             if finalFrame.size.height.isNaN {
                 finalFrame.size.height = frame.size.height
@@ -35,10 +44,20 @@ open class ActualLayout: RenderLayout {
             if finalFrame.size.width.isNaN {
                 finalFrame.size.width = frame.size.width
             }
-            scrollView.frame = finalFrame
-            scrollView.contentSize = frame.size
+            if scrollView.frame != finalFrame {
+                scrollView.frame = finalFrame
+            }
+            if scrollView.contentSize != frame.size {
+                scrollView.contentSize = frame.size
+            }
         } else {
-            view?.frame = frame
+            if frame.size.isNaN {
+                assertionFailure("计算frame出错")
+                return
+            }
+            if self.view?.frame != frame {
+                self.view?.frame = frame
+            }
         }
     }
 }
@@ -46,18 +65,37 @@ extension ActualLayout {
     public func configureLayout(_ closure: (LayoutNode) -> Void) {
         closure(yoga)
     }
-    public func applyLayout(preserveOrigin: Bool = false) {
+    public func applyLayout(preserveOrigin: Bool = false, viewDidLayout: (() -> Void)? = nil) {
         var size = containerRect.size
         if isScroll {
             size.height = CGFloat.nan
         }
         yoga.applyLayout(preserveOrigin: preserveOrigin, size: size)
+        performInMainAsync {
+            self.updateChildViewFrame()
+            viewDidLayout?()
+        }
     }
-    public var intrinsicÔSize: CGSize {
+    public var intrinsicSize: CGSize {
         return self.calculateLayout(with: CGSize.nan)
     }
     public func calculateLayout(with size: CGSize) -> CGSize {
         return self.yoga.calculateLayout(with: size)
+    }
+}
+/** 本想等计算好布局后再设置view的frame。但是yoga本身就是先计算好frame，然后统一设置一遍frame。所以这样做没意义，反而还要多写了一些兼容代码，故去除
+    重新使用这个方法是想把设置frame的代码都统一一次性放到主线程里面执行
+ */
+extension Layoutable {
+    public func updateChildViewFrame() {
+        switch self {
+        case let layout as ActualLayout:
+            layout.updateViewFrame(layout.frame)
+            layout.childs.forEach({$0.updateChildViewFrame()})
+        case let layout as VirtualLayout:
+            return layout.child.updateChildViewFrame()
+        default: assertionFailure("未知的类型")
+        }
     }
 }
 extension ActualLayout: Layoutable {

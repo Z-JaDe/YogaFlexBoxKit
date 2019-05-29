@@ -10,11 +10,18 @@ import Foundation
 
 open class RenderLayout {
     open lazy var yoga: LayoutNode = LayoutNode(target: self)
-
     public private(set) weak var superLayout: Layoutable?
     public private(set) var childs: [Layoutable] = []
-    public var frame: CGRect = .zero {
-        didSet { layoutDidChanged(oldFrame: oldValue) }
+    var _frame: CGRect = .zero {
+        didSet { _frameDidChanged(oldFrame: oldValue) }
+    }
+    public var frame: CGRect {
+        get { return _frame }
+        set {
+            let oldValue = _frame
+            _frame = newValue
+            layoutDidChanged(oldFrame: oldValue)
+        }
     }
     init() {
         configInit()
@@ -22,7 +29,9 @@ open class RenderLayout {
     open func configInit() {
         
     }
-
+    open func _frameDidChanged(oldFrame: CGRect) {
+        
+    }
     open func layoutDidChanged(oldFrame: CGRect) {
         
     }

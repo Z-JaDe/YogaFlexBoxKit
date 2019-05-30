@@ -13,14 +13,16 @@ class CornerLayoutViewController: LayoutViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         let corner = CornerLayoutTest()
-        corner.test(in: self.view, self.view.frame)
+        corner.test(in: self.view, isUseYoga: false)
         for layout in self.view.layout.childs {
-            let layout = layout as! VirtualLayout
+            let layout = layout as! (YogaLayoutable & VirtualLayoutCompatible)
             layout.yoga.margin = 5
-            let view = (layout.child as! ActualLayout).view!
+            let view = (layout.child as! ViewActualLayout).view as! UIView
             view.backgroundColor = UIColor.red
         }
-        self.view.layout.applyLayout()
+        self.view.layout
+            .container(containerSize: self.view.frame.size)
+            .applyLayout(preserveOrigin: false)
         for layout in self.view.layout.childs {
             let layoutView = UIView()
             layoutView.backgroundColor = UIColor.blue
@@ -42,8 +44,7 @@ class CornerLayoutTest: LayoutTest {
         .topFill(20, 20),
         .bottomFill(20, 20),
     ]
-    func test(in view: UIView, _ rect: CGRect) {
-        view.layout.containerRect = rect
+    func test(in view: UIView, isUseYoga: Bool) {
         view.layout.configureLayout { (node) in
             node.flexDirection = .row
             node.flexWrap = .wrap
@@ -51,7 +52,7 @@ class CornerLayoutTest: LayoutTest {
         }
         for option in array {
             let itemView = createItem(in: view, itemSize: itemSize)
-            let layout = itemView.layout.corner(option)
+            let layout = itemView.layout.corner(option, isUseYoga: isUseYoga)
             layout.yoga.height = YGValue(layoutHeight)
             layout.yoga.width = 50%
             layout.yoga.flexGrow = 1

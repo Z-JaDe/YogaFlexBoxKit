@@ -7,32 +7,14 @@
 //
 
 import Foundation
-public struct YGDimensionFlexibility: OptionSet {
-    public let rawValue: Int
-    public init(rawValue: Int) {
-        self.rawValue = rawValue
-    }
-    static let flexibleWidth = YGDimensionFlexibility(rawValue: 1 << 0)
-    static let flexibleHeight = YGDimensionFlexibility(rawValue: 1 << 1)
-}
+
 extension LayoutNode {
-    func applyLayout(preserveOrigin: Bool, size: CGSize? = nil) {
-        calculateLayout(with: size ?? layoutable.size)
-        layoutable.applyLayoutToViewHierarchy(preserveOrigin: preserveOrigin)
-    }
-    func applyLayout(preserveOrigin: Bool, size: CGSize? = nil, dimensionFlexibility: YGDimensionFlexibility) {
-        var size: CGSize = size ?? layoutable.size
-        if dimensionFlexibility.contains(.flexibleWidth) {
-            size.width = CGFloat.nan
-        }
-        if dimensionFlexibility.contains(.flexibleHeight) {
-            size.height = CGFloat.nan
-        }
-        applyLayout(preserveOrigin: preserveOrigin, size: size)
+    func applyLayoutToViewHierarchy(origin: CGPoint) {
+        layoutable.applyLayoutToViewHierarchy(origin: origin)
     }
 }
-extension Layoutable {
-    fileprivate func applyLayoutToViewHierarchy(preserveOrigin: Bool) {
+extension YogaLayoutable {
+    fileprivate func applyLayoutToViewHierarchy(origin: CGPoint) {
         assertInMain()
         let yoga = self.yoga
         guard yoga.isIncludedInLayout else { return }
@@ -45,20 +27,23 @@ extension Layoutable {
             x: topLeft.x + CGFloat(YGNodeLayoutGetWidth(node)),
             y: topLeft.y + CGFloat(YGNodeLayoutGetHeight(node))
         )
-        let origin = preserveOrigin ? self.frame.origin : .zero
+        let origin = origin
         let frame = CGRect(
             x: (topLeft.x + origin.x).pixelValue,
             y: (topLeft.y + origin.y).pixelValue,
             width: bottomRight.x.pixelValue - topLeft.x.pixelValue,
             height: bottomRight.y.pixelValue - topLeft.y.pixelValue
         )
+        self.applyFrame(frame)
+        if !yoga.isLeaf {
+            self.childs.forEach({$0.applyLayoutToViewHierarchy(origin: .zero)})
+        }
+    }
+    func applyFrame(_ frame: CGRect) {
         if let layout = self as? RenderLayout {
-            layout._frame = frame
+            layout.changePrivateFrame(frame)
         } else {
             self.frame = frame
-        }
-        if !yoga.isLeaf {
-            self.childs.forEach({$0.applyLayoutToViewHierarchy(preserveOrigin: false)})
         }
     }
 }

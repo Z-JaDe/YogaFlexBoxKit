@@ -14,6 +14,10 @@
 		1803E9032293E40600F1DF77 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1803E9012293E40600F1DF77 /* LaunchScreen.storyboard */; };
 		1803E90E2293E40600F1DF77 /* YogaFlexBoxKitTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1803E90D2293E40600F1DF77 /* YogaFlexBoxKitTests.swift */; };
 		1803E9192293E40600F1DF77 /* YogaFlexBoxKitUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1803E9182293E40600F1DF77 /* YogaFlexBoxKitUITests.swift */; };
+		1896C0FF229EBC2900FAF641 /* Viewable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1896C0FE229EBC2900FAF641 /* Viewable.swift */; };
+		1896C101229EBC7C00FAF641 /* YogaLayoutable+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1896C100229EBC7C00FAF641 /* YogaLayoutable+Extension.swift */; };
+		1896C103229EBD2300FAF641 /* YogaLayoutable+Sub.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1896C102229EBD2300FAF641 /* YogaLayoutable+Sub.swift */; };
+		1896C105229EBEBF00FAF641 /* ActualUpdateLayoutProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1896C104229EBEBF00FAF641 /* ActualUpdateLayoutProtocol.swift */; };
 		18B08006229B76FE006E1FCB /* CornerLayoutTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18B08004229B7626006E1FCB /* CornerLayoutTests.swift */; };
 		18B08008229BD389006E1FCB /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18B08007229BD389006E1FCB /* ViewController.swift */; };
 		18B0800A229BD3F6006E1FCB /* CenterLayoutTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18B08009229BD3F6006E1FCB /* CenterLayoutTests.swift */; };
@@ -27,9 +31,13 @@
 		18FCBE0822968C9400695868 /* LayoutNode.m in Sources */ = {isa = PBXBuildFile; fileRef = 18FCBDF822968C9300695868 /* LayoutNode.m */; };
 		18FCBE0922968C9400695868 /* Util.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18FCBDFD22968C9400695868 /* Util.swift */; };
 		18FCBE0A22968C9400695868 /* YGLayoutExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18FCBDFE22968C9400695868 /* YGLayoutExtensions.swift */; };
-		18FCBE0B22968C9400695868 /* Layoutable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18FCBE0022968C9400695868 /* Layoutable.swift */; };
+		18FCBE0B22968C9400695868 /* YogaLayoutable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18FCBE0022968C9400695868 /* YogaLayoutable.swift */; };
 		18FCBE1022968F3800695868 /* RenderLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18FCBE0F22968F3800695868 /* RenderLayout.swift */; };
 		18FCBE12229691D200695868 /* VirtualLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18FCBE11229691D200695868 /* VirtualLayout.swift */; };
+		18FDD555229F68FF00EC68A8 /* YogaLayoutable+Container.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18FDD554229F68FF00EC68A8 /* YogaLayoutable+Container.swift */; };
+		18FDD557229F6D9900EC68A8 /* ActualLayout+CalculateLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18FDD556229F6D9900EC68A8 /* ActualLayout+CalculateLayout.swift */; };
+		18FDD559229F6DC000EC68A8 /* VirtualLayout+CalculateLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18FDD558229F6DC000EC68A8 /* VirtualLayout+CalculateLayout.swift */; };
+		18FDD55B229FB08400EC68A8 /* YogaLayoutable+CalculateLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18FDD55A229FB08400EC68A8 /* YogaLayoutable+CalculateLayout.swift */; };
 		18FF9D18229CC479003C5EA7 /* CenterVirtualLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18FF9D17229CC479003C5EA7 /* CenterVirtualLayout.swift */; };
 		18FF9D1A229CC593003C5EA7 /* CornerVirtualLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18FF9D19229CC593003C5EA7 /* CornerVirtualLayout.swift */; };
 		18FF9D45229D0B2F003C5EA7 /* UIView+Layout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18FF9D43229D0B2F003C5EA7 /* UIView+Layout.swift */; };
@@ -69,6 +77,10 @@
 		1803E9182293E40600F1DF77 /* YogaFlexBoxKitUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YogaFlexBoxKitUITests.swift; sourceTree = "<group>"; };
 		1803E91A2293E40600F1DF77 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		1803E9292293E51100F1DF77 /* YogaFlexBoxKit-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "YogaFlexBoxKit-Bridging-Header.h"; sourceTree = "<group>"; };
+		1896C0FE229EBC2900FAF641 /* Viewable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Viewable.swift; sourceTree = "<group>"; };
+		1896C100229EBC7C00FAF641 /* YogaLayoutable+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "YogaLayoutable+Extension.swift"; sourceTree = "<group>"; };
+		1896C102229EBD2300FAF641 /* YogaLayoutable+Sub.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "YogaLayoutable+Sub.swift"; sourceTree = "<group>"; };
+		1896C104229EBEBF00FAF641 /* ActualUpdateLayoutProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActualUpdateLayoutProtocol.swift; sourceTree = "<group>"; };
 		18B08004229B7626006E1FCB /* CornerLayoutTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CornerLayoutTests.swift; sourceTree = "<group>"; };
 		18B08007229BD389006E1FCB /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		18B08009229BD3F6006E1FCB /* CenterLayoutTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CenterLayoutTests.swift; sourceTree = "<group>"; };
@@ -85,9 +97,13 @@
 		18FCBDFB22968C9400695868 /* Marco.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Marco.h; sourceTree = "<group>"; };
 		18FCBDFD22968C9400695868 /* Util.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Util.swift; sourceTree = "<group>"; };
 		18FCBDFE22968C9400695868 /* YGLayoutExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = YGLayoutExtensions.swift; sourceTree = "<group>"; };
-		18FCBE0022968C9400695868 /* Layoutable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Layoutable.swift; sourceTree = "<group>"; };
+		18FCBE0022968C9400695868 /* YogaLayoutable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = YogaLayoutable.swift; sourceTree = "<group>"; };
 		18FCBE0F22968F3800695868 /* RenderLayout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RenderLayout.swift; sourceTree = "<group>"; };
 		18FCBE11229691D200695868 /* VirtualLayout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VirtualLayout.swift; sourceTree = "<group>"; };
+		18FDD554229F68FF00EC68A8 /* YogaLayoutable+Container.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "YogaLayoutable+Container.swift"; sourceTree = "<group>"; };
+		18FDD556229F6D9900EC68A8 /* ActualLayout+CalculateLayout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ActualLayout+CalculateLayout.swift"; sourceTree = "<group>"; };
+		18FDD558229F6DC000EC68A8 /* VirtualLayout+CalculateLayout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "VirtualLayout+CalculateLayout.swift"; sourceTree = "<group>"; };
+		18FDD55A229FB08400EC68A8 /* YogaLayoutable+CalculateLayout.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "YogaLayoutable+CalculateLayout.swift"; sourceTree = "<group>"; };
 		18FF9D17229CC479003C5EA7 /* CenterVirtualLayout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CenterVirtualLayout.swift; sourceTree = "<group>"; };
 		18FF9D19229CC593003C5EA7 /* CornerVirtualLayout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CornerVirtualLayout.swift; sourceTree = "<group>"; };
 		18FF9D43229D0B2F003C5EA7 /* UIView+Layout.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIView+Layout.swift"; sourceTree = "<group>"; };
@@ -188,8 +204,8 @@
 			children = (
 				18FCBDF622968C9300695868 /* Core */,
 				18FCBDFC22968C9400695868 /* Util */,
-				18FCBDFF22968C9400695868 /* Layout */,
 				18FCBDF022968C9300695868 /* LayoutNode */,
+				18FCBDFF22968C9400695868 /* Layout */,
 			);
 			path = Sources;
 			sourceTree = "<group>";
@@ -229,18 +245,32 @@
 		18FCBDFF22968C9400695868 /* Layout */ = {
 			isa = PBXGroup;
 			children = (
+				18FDD553229F654D00EC68A8 /* Layoutable */,
 				18FF9D42229D0B2F003C5EA7 /* ActualLayout */,
 				18FF9D16229CC461003C5EA7 /* VirtualLayout */,
 				18FCBE0F22968F3800695868 /* RenderLayout.swift */,
-				18FCBE0022968C9400695868 /* Layoutable.swift */,
 			);
 			path = Layout;
+			sourceTree = "<group>";
+		};
+		18FDD553229F654D00EC68A8 /* Layoutable */ = {
+			isa = PBXGroup;
+			children = (
+				18FCBE0022968C9400695868 /* YogaLayoutable.swift */,
+				18FDD554229F68FF00EC68A8 /* YogaLayoutable+Container.swift */,
+				18FDD55A229FB08400EC68A8 /* YogaLayoutable+CalculateLayout.swift */,
+				1896C102229EBD2300FAF641 /* YogaLayoutable+Sub.swift */,
+				1896C100229EBC7C00FAF641 /* YogaLayoutable+Extension.swift */,
+				1896C0FE229EBC2900FAF641 /* Viewable.swift */,
+			);
+			path = Layoutable;
 			sourceTree = "<group>";
 		};
 		18FF9D16229CC461003C5EA7 /* VirtualLayout */ = {
 			isa = PBXGroup;
 			children = (
 				18FCBE11229691D200695868 /* VirtualLayout.swift */,
+				18FDD558229F6DC000EC68A8 /* VirtualLayout+CalculateLayout.swift */,
 				18FF9D17229CC479003C5EA7 /* CenterVirtualLayout.swift */,
 				18FF9D19229CC593003C5EA7 /* CornerVirtualLayout.swift */,
 			);
@@ -250,8 +280,10 @@
 		18FF9D42229D0B2F003C5EA7 /* ActualLayout */ = {
 			isa = PBXGroup;
 			children = (
-				18FF9D43229D0B2F003C5EA7 /* UIView+Layout.swift */,
 				18FF9D44229D0B2F003C5EA7 /* ActualLayout.swift */,
+				18FDD556229F6D9900EC68A8 /* ActualLayout+CalculateLayout.swift */,
+				1896C104229EBEBF00FAF641 /* ActualUpdateLayoutProtocol.swift */,
+				18FF9D43229D0B2F003C5EA7 /* UIView+Layout.swift */,
 			);
 			path = ActualLayout;
 			sourceTree = "<group>";
@@ -453,20 +485,28 @@
 				1803E8FB2293E40400F1DF77 /* CornerLayoutViewController.swift in Sources */,
 				18FCBE0522968C9400695868 /* Measure.swift in Sources */,
 				1803E8F92293E40400F1DF77 /* AppDelegate.swift in Sources */,
+				18FDD55B229FB08400EC68A8 /* YogaLayoutable+CalculateLayout.swift in Sources */,
 				18B0800E229BE382006E1FCB /* LayoutViewController.swift in Sources */,
+				18FDD555229F68FF00EC68A8 /* YogaLayoutable+Container.swift in Sources */,
 				18FF9D46229D0B2F003C5EA7 /* ActualLayout.swift in Sources */,
 				18B0800C229BD5D2006E1FCB /* CenterLayoutViewController.swift in Sources */,
+				1896C0FF229EBC2900FAF641 /* Viewable.swift in Sources */,
+				18FDD559229F6DC000EC68A8 /* VirtualLayout+CalculateLayout.swift in Sources */,
 				18FCBE1022968F3800695868 /* RenderLayout.swift in Sources */,
 				18FCBE0722968C9400695868 /* LayoutNode+Style.m in Sources */,
+				1896C103229EBD2300FAF641 /* YogaLayoutable+Sub.swift in Sources */,
+				18FDD557229F6D9900EC68A8 /* ActualLayout+CalculateLayout.swift in Sources */,
 				18FCBE0A22968C9400695868 /* YGLayoutExtensions.swift in Sources */,
 				18FCBE0622968C9400695868 /* LayoutNode+Calculate.swift in Sources */,
 				18FCBE0922968C9400695868 /* Util.swift in Sources */,
-				18FCBE0B22968C9400695868 /* Layoutable.swift in Sources */,
+				18FCBE0B22968C9400695868 /* YogaLayoutable.swift in Sources */,
+				1896C105229EBEBF00FAF641 /* ActualUpdateLayoutProtocol.swift in Sources */,
 				18FCBE12229691D200695868 /* VirtualLayout.swift in Sources */,
 				18FF9D18229CC479003C5EA7 /* CenterVirtualLayout.swift in Sources */,
 				18FCBE0822968C9400695868 /* LayoutNode.m in Sources */,
 				18B08008229BD389006E1FCB /* ViewController.swift in Sources */,
 				18FF9D1A229CC593003C5EA7 /* CornerVirtualLayout.swift in Sources */,
+				1896C101229EBC7C00FAF641 /* YogaLayoutable+Extension.swift in Sources */,
 				18FF9D45229D0B2F003C5EA7 /* UIView+Layout.swift in Sources */,
 				18FCBE0322968C9400695868 /* LayoutNode.swift in Sources */,
 			);

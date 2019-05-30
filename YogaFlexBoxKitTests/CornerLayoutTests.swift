@@ -13,21 +13,22 @@ import UIKit
 class CornerLayoutTests: XCTestCase {
     func testLayoutExample() {
         self.measure {
+            var isUseYogaLayout = false
             for _ in 0..<100 {
                 isUseYogaLayout.toggle()
-                testCorner()
+                testCorner(isUseYoga: isUseYogaLayout)
             }
         }
     }
-    func testCorner() {
+    func testCorner(isUseYoga: Bool) {
         let view = UIView()
         let screenWidth = UIScreen.main.bounds.size.width
         let screenHeight = UIScreen.main.bounds.size.height
         let width = CGFloat(Int(CGFloat.random(in: screenWidth/2...screenWidth)))
         let height = CGFloat(Int(CGFloat.random(in: screenWidth/2...screenHeight)))
         let cornerlayout = YogaFlexBoxKit.CornerLayoutTest()
-        cornerlayout.test(in: view, CGRect(origin: .zero, size: CGSize(width: width, height: height)))
-        cornerlayout.reload(in: view)
+        cornerlayout.test(in: view, isUseYoga: isUseYoga)
+        cornerlayout.reload(in: view, size: CGSize(width: width, height: height))
         let itemRect = CGRect(origin: .zero, size: cornerlayout.itemSize)
         for (offSet, layout) in view.layout.childs.enumerated() {
             var rect: CGRect = .zero
@@ -37,7 +38,7 @@ class CornerLayoutTests: XCTestCase {
             rect.origin.y = CGFloat(offSet / 2) * rect.size.height
             XCTAssertTrue(layout.frame == rect, "layout位置错误\(layout.frame) != \(rect)")
             
-            let item = (layout as! VirtualLayout).child as! ActualLayout
+            let item = (layout as! VirtualLayoutCompatible).child as! ViewActualLayout
             var layoutRect = layout.frame
             layoutRect.origin = .zero
             switch cornerlayout.array[offSet] {

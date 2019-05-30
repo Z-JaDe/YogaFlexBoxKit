@@ -7,18 +7,23 @@
 //
 
 import Foundation
-internal var isUseYogaLayout: Bool = false
+// MARK: -
+protocol VirtualLayoutCompatible {
+    var child: Layoutable {get}
+    func edgesInset() -> UIEdgeInsets
+}
+extension VirtualLayout: VirtualLayoutCompatible {}
+
 ///本身并不包含view 但是可以参与计算布局，子节点中可能包含view
-open class VirtualLayout: RenderLayout {
-    public let child: Layoutable
-    init(child: Layoutable) {
+class VirtualLayout: RenderLayout {
+    let child: Layoutable
+    let isUseYogaLayout: Bool
+    init(child: Layoutable, isUseYoga: Bool) {
         self.child = child
+        self.isUseYogaLayout = isUseYoga
         super.init()
     }
-    public override var childs: [Layoutable] {
-        return [self.child]
-    }
-    open override func configInit() {
+    override func configInit() {
         _addChild(child)
         super.configInit()
         changeFlexIfZero(1)
@@ -26,69 +31,50 @@ open class VirtualLayout: RenderLayout {
             yogaLayoutConfig()
         }
     }
-    open override func _frameDidChanged(oldFrame: CGRect) {
+    /**
+     VirtualLayout不管是主动设置的frame还是内部设置的_frame。
+     因为手动布局时VirtualLayout在yoga中没有childs，所以每次更新frame后 都要重新计算child的frame且VirtualLayout本身并不需要更新。
+     VirtualLayout本身并不需要更新UIView的frame
+     所以layoutDidChanged和_frameDidChanged的代码是一致的
+     */
+    override func layoutDidChanged(oldFrame: CGRect) {
+        super.layoutDidChanged(oldFrame: oldFrame)
+        layout(oldFrame: oldFrame)
+    }
+    override func _frameDidChanged(oldFrame: CGRect) {
         super._frameDidChanged(oldFrame: oldFrame)
+        layout(oldFrame: oldFrame)
+    }
+    func layout(oldFrame: CGRect) {
         guard isUseYogaLayout == false else { return }
-        guard oldFrame != self.frame else { return }
+        guard oldFrame != self.frame else {
+            ///如果重复设置frame，只更新下self.view的frame即可，故调用_frameDidChanged
+//            (self.child as? RenderLayout)?.changePrivateFrame(self.child.frame)
+            return
+        }
         self.layoutUpdate(oldFrame: oldFrame, newFrame: self.frame)
     }
     // MARK:
-    public func sizeThatFits(_ size: CGSize) -> CGSize {
-        return child.sizeThatFits(size)
-    }
     /// 手动计算布局时实现
     func layoutUpdate(oldFrame: CGRect, newFrame: CGRect) {
-        
+        let size = layoutChildSize(newFrame)
+        self.child.frame = CGRect(origin: layoutChildOrigin(newFrame, size), size: size)
     }
     /// 默认使用自有尺寸 如果自有尺寸小于newFrame.size 尝试重新计算一次
-    func layoutSizeUpdate(_ newFrame: CGRect) -> CGSize {
-        return layoutSizeUpdate(self.intrinsicSize, newFrame: newFrame)
+    func layoutChildSize(_ newFrame: CGRect) -> CGSize {
+        return layoutChildSize(self.child.intrinsicSize, newFrame: newFrame)
     }
-    func layoutSizeUpdate(_ oldSize: CGSize, newFrame: CGRect) -> CGSize {
-        let nanSize = CGSize.nan
-        var reSize = nanSize
-        if oldSize.width > newFrame.size.width {
-            reSize.width = newFrame.size.width
-        }
-        if oldSize.height > newFrame.size.height {
-            reSize.height = newFrame.size.height
-        }
-        if reSize.isNaN == false {
-            return calculateLayout(with: oldSize)
-        } else {
-            return oldSize
-        }
+    ///计算位置
+    func layoutChildOrigin(_ newFrame: CGRect, _ size: CGSize) -> CGPoint {
+        return .zero
     }
+    /// child内缩
+    func edgesInset() -> UIEdgeInsets {
+        return .zero
+    }
+
     /// 加入yoga计算布局时计算
     func yogaLayoutConfig() {
         
-    }
-}
-extension VirtualLayout {
-    var intrinsicSize: CGSize {
-        return calculateLayout(with: CGSize.nan)
-    }
-    func calculateLayout(with size: CGSize) -> CGSize {
-        return child.yoga.calculateLayout(with: size)
-    }
-}
-extension VirtualLayout: Layoutable {
-    public var isLeaf: Bool {
-        // 如果是yoga布局 需要确定子节点，如果是自己手动布局相当于就是一个叶子节点
-        if isUseYogaLayout {
-            return _isLeaf
-        } else {
-            return true            
-        }
-    }
-}
-extension Layoutable {
-    internal func changeFlexIfZero(_ value: CGFloat) {
-        if self.yoga.flexGrow == 0 {
-            self.yoga.flexGrow = value
-        }
-        if self.yoga.flexShrink == 0 {
-            self.yoga.flexShrink = value
-        }
     }
 }

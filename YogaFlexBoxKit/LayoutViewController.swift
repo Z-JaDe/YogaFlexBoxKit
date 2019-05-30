@@ -14,12 +14,12 @@ class LayoutViewController: UIViewController {
         super.loadView()
         let scrollView = UIScrollView(frame: self.view.bounds)
         scrollView.clipsToBounds = false
-        scrollView.backgroundColor = UIColor.yellow
 //        scrollView.bounds.size.width = 50
 //        scrollView.frame.origin.x = 10
 //        scrollView.frame.origin.y = 100
         scrollView.alwaysBounceVertical = true
         self.view = scrollView
+        self.view.backgroundColor = UIColor.yellow
     }
 
 }
@@ -28,8 +28,8 @@ class LayoutTest {
     let itemSize = CGSize(width: 50, height: 50)
     let layoutHeight: CGFloat = 200
     
-    func reload(in view: UIView) {
-        view.layout.applyLayout()
+    func reload(in view: UIView, size: CGSize) {
+        view.layout.container(containerSize: size).applyLayout()
     }
     func createItem(in superview: UIView, itemSize: CGSize) -> UIView {
         let view = UILabel()

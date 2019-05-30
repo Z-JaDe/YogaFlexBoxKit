@@ -13,29 +13,31 @@ public enum CenterVirtualLayoutOptions {
     case Y
     case XY
 }
-public class CenterVirtualLayout: VirtualLayout {
+class CenterVirtualLayout: VirtualLayout {
     let option: CenterVirtualLayoutOptions
-    init(child: Layoutable, option: CenterVirtualLayoutOptions) {
+    init(child: Layoutable, option: CenterVirtualLayoutOptions, isUseYoga: Bool) {
         self.option = option
-        super.init(child: child)
+        super.init(child: child, isUseYoga: isUseYoga)
     }
     // MARK:
-    override func layoutUpdate(oldFrame: CGRect, newFrame: CGRect) {
-        super.layoutUpdate(oldFrame: oldFrame, newFrame: newFrame)
-        let size = layoutSizeUpdate(newFrame)
-        var frame: CGRect = CGRect(origin: .zero, size: size)
+    override func layoutChildOrigin(_ newFrame: CGRect, _ size: CGSize) -> CGPoint {
         switch option {
         case .X:
-            frame.origin.x = (newFrame.size.width - size.width) / 2
-            frame.origin.y = 0
+            return CGPoint(
+                x: (newFrame.size.width - size.width) / 2,
+                y: 0
+            )
         case .Y:
-            frame.origin.x = 0
-            frame.origin.y = (newFrame.size.height - size.height) / 2
+            return CGPoint(
+                x: 0,
+                y: (newFrame.size.height - size.height) / 2
+            )
         case .XY:
-            frame.origin.x = (newFrame.size.width - size.width) / 2
-            frame.origin.y = (newFrame.size.height - size.height) / 2
+            return CGPoint(
+                x: (newFrame.size.width - size.width) / 2,
+                y: (newFrame.size.height - size.height) / 2
+            )
         }
-        self.child.frame = frame
     }
     override func yogaLayoutConfig() {
         super.yogaLayoutConfig()
@@ -50,10 +52,5 @@ public class CenterVirtualLayout: VirtualLayout {
             yoga.justifyContent = .center
             yoga.alignItems = .center
         }
-    }
-}
-extension Layoutable {
-    public func center(_ option: CenterVirtualLayoutOptions) -> CenterVirtualLayout {
-        return CenterVirtualLayout(child: self, option: option)
     }
 }

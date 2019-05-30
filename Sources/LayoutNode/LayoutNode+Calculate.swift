@@ -29,7 +29,7 @@ extension LayoutNode {
         return childs.enumerated().allSatisfy({$0.element.yogaNode == self.getChild(UInt32($0.offset))})
     }
 }
-extension Layoutable {
+extension YogaLayoutable {
     fileprivate func attachNodesFromViewHierachy() {
         let yoga = self.yoga
         if yoga.isLeaf {

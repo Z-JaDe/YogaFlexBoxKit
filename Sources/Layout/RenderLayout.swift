@@ -8,14 +8,12 @@
 
 import Foundation
 
-open class RenderLayout {
-    open lazy var yoga: LayoutNode = LayoutNode(target: self)
-    public private(set) weak var superLayout: Layoutable?
-    public private(set) var childs: [Layoutable] = []
-    var _frame: CGRect = .zero {
-        didSet { _frameDidChanged(oldFrame: oldValue) }
-    }
-    public var frame: CGRect {
+class RenderLayout {
+    lazy var yoga: LayoutNode = LayoutNode(target: self)
+    private(set) weak var superLayout: YogaLayoutable?
+    private(set) var childs: [YogaLayoutable] = []
+    var _frame: CGRect = .zero
+    var frame: CGRect {
         get { return _frame }
         set {
             let oldValue = _frame
@@ -26,25 +24,34 @@ open class RenderLayout {
     init() {
         configInit()
     }
-    open func configInit() {
+    func configInit() {
         
     }
-    open func _frameDidChanged(oldFrame: CGRect) {
+    func changePrivateFrame(_ frame: CGRect) {
+        let oldValue = self._frame
+        self._frame = frame
+        _frameDidChanged(oldFrame: oldValue)
+    }
+    //内部设置frame时监听，只是更新view frame
+    func _frameDidChanged(oldFrame: CGRect) {
         
     }
-    open func layoutDidChanged(oldFrame: CGRect) {
+    //外部设置frame时监听，会触发child计算自己的frame
+    func layoutDidChanged(oldFrame: CGRect) {
         
     }
 }
 
 extension RenderLayout {
-    internal func _addChild(_ child: Layoutable) {
+    internal func _addChild(_ child: YogaLayoutable) {
         self.childs.append(child)
-        if let layout = self as? Layoutable {
+        if let layout = self as? YogaLayoutable {
             (child as? RenderLayout)?.setSuperLayout(layout)
+        } else {
+            assertionFailure("未知的类型")
         }
     }
-    func setSuperLayout(_ layout: Layoutable) {
+    func setSuperLayout(_ layout: YogaLayoutable) {
         if let superLayout = self.superLayout {
             assertionFailure("layout已经拥有superLayout->\(superLayout)")
         }

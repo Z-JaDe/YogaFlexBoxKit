@@ -13,8 +13,8 @@ public class LayoutNode: AbstractLayoutNode {
     public override var target: AnyObject? {
         return super.target
     }
-    var layoutable: Layoutable! {
-        return super.target as? Layoutable
+    var layoutable: YogaLayoutable! {
+        return super.target as? YogaLayoutable
     }
     @available(*, unavailable, message: "内部使用")
     public override var node: YGNodeRef {

@@ -12,8 +12,8 @@ class ViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-//        let child = CenterLayoutViewController()
-        let child = CornerLayoutViewController()
+        let child = CenterLayoutViewController()
+//        let child = CornerLayoutViewController()
         self.addChild(child)
         self.view.addSubview(child.view)
     }
@@ -23,21 +23,24 @@ class ViewController: UIViewController {
     }
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
-        let corner = testTime(cornerTimerTest)
-        let center = testTime(centerTimerTest)
-        print("corner yoga: \(corner.0) layout: \(corner.1)")
-        print("center yoga: \(center.0) layout: \(center.1)")
-        let startTime = CFAbsoluteTimeGetCurrent()
-        group.notify(queue: DispatchQueue.main) {
-            let endTime = CFAbsoluteTimeGetCurrent()
-            let diff:Double = (endTime - startTime) * 1000
-            print("结束: " + String(diff) + " 毫秒(ms)")
-        }
+//        test()
     }
 }
 ///release下测试更精准
 let 测试次数 = 100
 let 每次测试循环次数 = 1000
+func test() {
+    let startTime = CFAbsoluteTimeGetCurrent()
+    let corner = testTime(cornerTimerTest)
+    let center = testTime(centerTimerTest)
+    print("corner yoga算: \(corner.0) 自己算: \(corner.1)")
+    print("center yoga算: \(center.0) 自己算: \(center.1)")
+    group.notify(queue: DispatchQueue.main) {
+        let endTime = CFAbsoluteTimeGetCurrent()
+        let diff:Double = (endTime - startTime) * 1000
+        print("结束: " + String(diff) + " 毫秒(ms)")
+    }
+}
 func testTime(_ testFunc: @escaping (Bool, CGSize) -> Double) -> (Double, Double) {
     let screenWidth = UIScreen.main.bounds.size.width
     let screenHeight = UIScreen.main.bounds.size.height
@@ -60,39 +63,37 @@ let queue: OperationQueue = {
     return queue
 }()
 func runTest(_ id: String, closure: @escaping () -> Void) -> Double {
-    queue.addOperation {
-        group.enter()
-        let startTime = CFAbsoluteTimeGetCurrent()
-        for _ in 0..<每次测试循环次数 {
-            closure()
-        }
-        let endTime = CFAbsoluteTimeGetCurrent()
-        let diff:Double = (endTime - startTime) * 1000
-        print(id + ": " + String(diff) + " 毫秒(ms)")
-        group.leave()
+//    queue.addOperation {
+//        group.enter()
+//        group.leave()
+//    }
+    let startTime = CFAbsoluteTimeGetCurrent()
+    for _ in 0..<每次测试循环次数 {
+        closure()
     }
-    return 0
+    let endTime = CFAbsoluteTimeGetCurrent()
+    let diff:Double = (endTime - startTime) * 1000
+    print(id + ": " + String(diff) + " 毫秒(ms)")
+    return diff
 }
 // MARK -
 func cornerTimerTest(_ value: Bool, _ size: CGSize) -> Double {
-    isUseYogaLayout = value
     let view = UIView()
     let cornerlayout = YogaFlexBoxKit.CornerLayoutTest()
-    cornerlayout.test(in: view, CGRect(origin: .zero, size: size))
+    cornerlayout.test(in: view, isUseYoga: value)
     
     let id = (value ? "yoga" : "layout") + " corner"
     return runTest(id) {
-        cornerlayout.reload(in: view)
+        cornerlayout.reload(in: view, size: size)
     }
 }
 func centerTimerTest(_ value: Bool, _ size: CGSize) -> Double {
-    isUseYogaLayout = value
     let view = UIView()
     let centerlayout = YogaFlexBoxKit.CenterLayoutTest()
-    centerlayout.test(in: view, view.frame)
+    centerlayout.test(in: view, isUseYoga: value)
     
     let id = (value ? "yoga" : "layout") + " center"
     return runTest(id) {
-        centerlayout.reload(in: view)
+        centerlayout.reload(in: view, size: size)
     }
 }

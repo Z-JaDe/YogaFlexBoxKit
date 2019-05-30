@@ -12,7 +12,7 @@ func measureView(_ node: YGNodeRef?, _ width: Float, _ widthMode: YGMeasureMode,
     let constrainedWidth = widthMode == .undefined ? Float.greatestFiniteMagnitude : width
     let constrainedHeight = heightMode == .undefined ? Float.greatestFiniteMagnitude : width
 
-    let layout: Layoutable? = NodeGetContext(node) as? Layoutable
+    let layout: YogaLayoutable? = NodeGetContext(node) as? YogaLayoutable
     let sizeThatFits: CGSize = layout?.sizeThatFits(CGSize(width: constrainedWidth, height: constrainedHeight)) ?? .zero
     return YGSize(
         width: sanitizeMeasurement(constrainedWidth, Float(sizeThatFits.width), widthMode),

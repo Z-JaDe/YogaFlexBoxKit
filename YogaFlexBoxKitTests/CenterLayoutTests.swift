@@ -13,13 +13,14 @@ import UIKit
 class CenterLayoutTests: XCTestCase {
     func testLayoutExample() {
         self.measure {
+            var isUseYogaLayout = false
             for _ in 0..<100 {
                 isUseYogaLayout.toggle()
-                testCenter()
+                testCenter(isUseYoga: isUseYogaLayout)
             }
         }
     }
-    func testCenter() {
+    func testCenter(isUseYoga: Bool) {
         let view = UIView()
         let screenWidth = UIScreen.main.bounds.size.width
         let screenHeight = UIScreen.main.bounds.size.height
@@ -27,8 +28,8 @@ class CenterLayoutTests: XCTestCase {
         let height = CGFloat(Int(CGFloat.random(in: screenHeight/2...screenHeight)))
         view.bounds.size = CGSize(width: width, height: height)
         let centerlayout = YogaFlexBoxKit.CenterLayoutTest()
-        centerlayout.test(in: view, view.frame)
-        centerlayout.reload(in: view)
+        centerlayout.test(in: view, isUseYoga: isUseYoga)
+        centerlayout.reload(in: view, size: CGSize(width: width, height: height))
         let itemRect = CGRect(origin: .zero, size: centerlayout.itemSize)
         for (offSet, layout) in view.layout.childs.enumerated() {
             var rect: CGRect = .zero
@@ -38,7 +39,7 @@ class CenterLayoutTests: XCTestCase {
             rect.origin.y = CGFloat(offSet) * rect.size.height
             XCTAssertTrue(layout.frame == rect, "layout位置错误\(layout.frame) != \(rect)")
             
-            let item = (layout as! VirtualLayout).child as! ActualLayout
+            let item = (layout as! VirtualLayoutCompatible).child as! ViewActualLayout
             var layoutRect = layout.frame
             layoutRect.origin = .zero
             switch centerlayout.array[offSet] {

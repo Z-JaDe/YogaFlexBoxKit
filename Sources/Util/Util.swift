@@ -35,6 +35,42 @@ extension CGRect {
         self.init(x: Double(x), y: Double(y), width: Double(width), height: Double(height))
     }
 }
+extension CGRect {
+    public static func - (left: CGRect, right: UIEdgeInsets) -> CGRect {
+        return left.inset(by: right)
+    }
+    public static func + (left: CGRect, right: UIEdgeInsets) -> CGRect {
+        var left = left
+        left.size += right
+        left.origin.x -= right.left
+        left.origin.y -= right.top
+        return left
+    }
+}
+extension CGSize {
+    public static func + (left: CGSize, right: UIEdgeInsets) -> CGSize {
+        var left = left
+        left.width += right.left + right.right
+        left.height += right.top + right.bottom
+        return left
+    }
+    public static func += (left: inout CGSize, right: UIEdgeInsets) {
+        // swiftlint:disable shorthand_operator
+        left = left + right
+    }
+    public static func - (left: CGSize, right: UIEdgeInsets) -> CGSize {
+        var left = left
+        left.width -= right.left + right.right
+        left.height -= right.top + right.bottom
+        left.width = max(left.width, 0)
+        left.height = max(left.height, 0)
+        return left
+    }
+    public static func -= (left: inout CGSize, right: UIEdgeInsets) {
+        // swiftlint:disable shorthand_operator
+        left = left - right
+    }
+}
 
 extension FloatingPoint {
     public static func random(min: Self = 0, max: Self = 1) -> Self {
@@ -43,7 +79,6 @@ extension FloatingPoint {
         return ((rand / Self(RAND_MAX)) * diff) + min
     }
 }
-
 
 func performInMainAsync(_ action: @escaping () -> Void) {
     if Thread.isMainThread {

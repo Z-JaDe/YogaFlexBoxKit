@@ -21,16 +21,14 @@ class ActualLayout: RenderLayout {
     var view: Viewable? {
         return _view ?? _layout
     }
-    
-    var containerSize: CGSize
+    var containerSize: CGSize = .nan
     internal let isScroll: Bool
-    init(view: Viewable, containerSize: CGSize? = nil) {
+    init(view: Viewable) {
         if view is UIView {
             self._view = view
         } else {
             self._layout = view
         }
-        self.containerSize = containerSize ?? .nan
         self.isScroll = view is UIScrollView
         super.init()
     }

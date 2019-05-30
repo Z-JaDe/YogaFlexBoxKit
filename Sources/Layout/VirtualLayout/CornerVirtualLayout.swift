@@ -26,19 +26,19 @@ class CornerVirtualLayout: VirtualLayout {
         super.init(child: child, isUseYoga: isUseYoga)
     }
     // MARK:
-    override func layoutChildSize(_ newFrame: CGRect) -> CGSize {
-        let newFrame = CGRect(origin: newFrame.origin, size: newFrame.size - edgesInset())
-        switch option {
-        case .topLeft, .topRight, .bottomLeft, .bottomRight:
-            return super.layoutChildSize(newFrame)
-        case .leftFill, .rightFill:
-            let size = self.child.calculateLayout(with: CGSize(width: .nan, height: newFrame.size.height))
-            return layoutChildSize(size, newFrame: newFrame)
-        case .topFill, .bottomFill:
-            let size = self.child.calculateLayout(with: CGSize(width: newFrame.size.width, height: .nan))
-            return layoutChildSize(size, newFrame: newFrame)
-        }
-    }
+//    override func layoutChildSize(_ newFrame: CGRect) -> CGSize {
+//
+//        switch option {
+//        case .topLeft, .topRight, .bottomLeft, .bottomRight:
+//            return super.layoutChildSize(newFrame)
+//        case .leftFill, .rightFill:
+//            let size = self.child.calculateLayout(with: CGSize(width: .nan, height: newFrame.size.height))
+//            return layoutChildSize(size, newFrame: newFrame)
+//        case .topFill, .bottomFill:
+//            let size = self.child.calculateLayout(with: CGSize(width: newFrame.size.width, height: .nan))
+//            return layoutChildSize(size, newFrame: newFrame)
+//        }
+//    }
     override func layoutChildOrigin(_ newFrame: CGRect, _ childSize: CGSize) -> CGPoint {
         switch option {
         case .topLeft(let top, let left):

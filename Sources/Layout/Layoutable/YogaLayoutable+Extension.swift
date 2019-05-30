@@ -20,15 +20,19 @@ extension YogaLayoutable where Self: Layoutable {
 }
 extension YogaLayoutable where Self: Layoutable {
     public func container(containerSize: CGSize? = nil) -> Layoutable {
-        if setActualLayout(self, containerSize ?? .nan) {
+        let containerSize = containerSize ?? .nan
+        if setActualLayout(self, containerSize) {
             return self
         } else {
-            return ActualLayout(view: self, containerSize: containerSize)
+            let layout = ActualLayout(view: self)
+            layout.containerSize = containerSize
+            return layout
         }
     }
     func setActualLayout(_ layout: YogaLayoutable, _ containerSize: CGSize) -> Bool {
         if let layout = layout as? VirtualLayoutCompatible {
-            return setActualLayout(layout.child, containerSize - layout.edgesInset())
+            layout.containerSize = containerSize
+            return true
         } else if let layout = layout as? ActualLayoutCompatible {
             layout.containerSize = containerSize
             return true

@@ -10,7 +10,11 @@ import Foundation
 
 extension VirtualLayout {
     func sizeThatFits(_ size: CGSize) -> CGSize {
-        return child.sizeThatFits(size) + edgesInset()
+        if child.yoga.isIncludedInLayout {
+            return child.sizeThatFits(size) + edgesInset()
+        } else {
+            return .zero
+        }
     }
     var intrinsicSize: CGSize {
         return self.calculateLayout(with: CGSize.nan)
@@ -18,17 +22,17 @@ extension VirtualLayout {
     func calculateLayout(with size: CGSize) -> CGSize {
         return child.yoga.calculateLayout(with: size) + edgesInset()
     }
-    func layoutChildSize(_ oldSize: CGSize, newFrame: CGRect) -> CGSize {
+    func layoutChildSize(_ oldSize: CGSize, _ containerSize: CGSize) -> CGSize {
         let nanSize = CGSize.nan
         var reSize = nanSize
-        if oldSize.width > newFrame.size.width {
-            reSize.width = newFrame.size.width
+        if oldSize.width > containerSize.width {
+            reSize.width = containerSize.width
         }
-        if oldSize.height > newFrame.size.height {
-            reSize.height = newFrame.size.height
+        if oldSize.height > containerSize.height {
+            reSize.height = containerSize.height
         }
         if reSize.isNaN == false {
-            return calculateLayout(with: oldSize)
+            return calculateLayout(with: reSize)
         } else {
             return oldSize
         }
@@ -37,9 +41,6 @@ extension VirtualLayout {
 extension VirtualLayout: YogaCalculateLayoutable {
     var isScroll: Bool {
         return child.isScroll
-    }
-    var containerSize: CGSize {
-        return child.containerSize + edgesInset()
     }
     func applyLayout(preserveOrigin: Bool, size: CGSize) {
         var size = size - edgesInset()
@@ -50,7 +51,7 @@ extension VirtualLayout: YogaCalculateLayoutable {
         let origin = preserveOrigin ? self._frame.origin : .zero
         self._frame.size = childSize + edgesInset()
         self._frame.origin = origin
-
+        ///这里 要递归处理 containerSize
         child.yoga.applyLayoutToViewHierarchy(origin: layoutChildOrigin(self._frame, childSize))
         self.updateChildViewFrame()
     }

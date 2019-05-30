@@ -8,7 +8,8 @@
 
 import Foundation
 // MARK: -
-protocol VirtualLayoutCompatible {
+protocol VirtualLayoutCompatible: class {
+    var containerSize: CGSize {get set}
     var child: Layoutable {get}
     func edgesInset() -> UIEdgeInsets
 }
@@ -18,6 +19,7 @@ extension VirtualLayout: VirtualLayoutCompatible {}
 class VirtualLayout: RenderLayout {
     let child: Layoutable
     let isUseYogaLayout: Bool
+    var containerSize: CGSize = .nan
     init(child: Layoutable, isUseYoga: Bool) {
         self.child = child
         self.isUseYogaLayout = isUseYoga
@@ -57,12 +59,13 @@ class VirtualLayout: RenderLayout {
     // MARK:
     /// 手动计算布局时实现
     func layoutUpdate(oldFrame: CGRect, newFrame: CGRect) {
-        let size = layoutChildSize(newFrame)
+        let size = layoutChildSize(newFrame.size)
         self.child.frame = CGRect(origin: layoutChildOrigin(newFrame, size), size: size)
     }
     /// 默认使用自有尺寸 如果自有尺寸小于newFrame.size 尝试重新计算一次
-    func layoutChildSize(_ newFrame: CGRect) -> CGSize {
-        return layoutChildSize(self.child.intrinsicSize, newFrame: newFrame)
+    func layoutChildSize(_ containerSize: CGSize) -> CGSize {
+        let size: CGSize = isScroll ? child.containerSize : child.intrinsicSize
+        return layoutChildSize(size, containerSize - edgesInset())
     }
     ///计算位置
     func layoutChildOrigin(_ newFrame: CGRect, _ size: CGSize) -> CGPoint {

@@ -21,65 +21,9 @@ public enum CornerVirtualLayoutOption {
 }
 class CornerVirtualLayout: VirtualLayout {
     let option: CornerVirtualLayoutOption
-    init(child: ChildType, option: CornerVirtualLayoutOption, isUseYoga: Bool) {
+    init(child: ChildType, option: CornerVirtualLayoutOption) {
         self.option = option
-        super.init(child: child, isUseYoga: isUseYoga)
-    }
-    // MARK:
-    override func childIntrinsicSize(_ containerSize: CGSize) -> CGSize {
-        switch option {
-        case .topLeft, .topRight, .bottomLeft, .bottomRight:
-            return super.childIntrinsicSize(containerSize)
-        case .leftFill, .rightFill:
-            return CGSize(width: .nan, height: containerSize.height)
-        case .topFill, .bottomFill:
-            return CGSize(width: containerSize.width, height: .nan)
-        }
-    }
-    override func layoutChildOrigin(_ newFrame: CGRect, _ childSize: CGSize) -> CGPoint {
-        switch option {
-        case .topLeft(let top, let left):
-            return CGPoint(
-                x: left,
-                y: top
-            )
-        case .topRight(let top, let right):
-            return CGPoint(
-                x: newFrame.size.width - right - childSize.width,
-                y: top
-            )
-        case .bottomLeft(let bottom, let left):
-            return CGPoint(
-                x: left,
-                y: newFrame.size.height - bottom - childSize.height
-            )
-        case .bottomRight(let bottom, let right):
-            return CGPoint(
-                x: newFrame.size.width - right - childSize.width,
-                y: newFrame.size.height - bottom - childSize.height
-            )
-            
-        case .topFill(let top, let fillOffset):
-            return CGPoint(
-                x: fillOffset,
-                y: top
-            )
-        case .bottomFill(let bottom, let fillOffset):
-            return CGPoint(
-                x: fillOffset,
-                y: newFrame.size.height - bottom - childSize.height
-            )
-        case .leftFill(let left, let fillOffset):
-            return CGPoint(
-                x: left,
-                y: fillOffset
-            )
-        case .rightFill(let right, let fillOffset):
-            return CGPoint(
-                x: newFrame.size.width - right - childSize.width,
-                y: fillOffset
-            )
-        }
+        super.init(child: child)
     }
     override func edgesInset() -> UIEdgeInsets {
         switch option {

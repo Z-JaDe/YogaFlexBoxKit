@@ -15,29 +15,9 @@ public enum CenterVirtualLayoutOptions {
 }
 class CenterVirtualLayout: VirtualLayout {
     let option: CenterVirtualLayoutOptions
-    init(child: ChildType, option: CenterVirtualLayoutOptions, isUseYoga: Bool) {
+    init(child: ChildType, option: CenterVirtualLayoutOptions) {
         self.option = option
-        super.init(child: child, isUseYoga: isUseYoga)
-    }
-    // MARK:
-    override func layoutChildOrigin(_ newFrame: CGRect, _ size: CGSize) -> CGPoint {
-        switch option {
-        case .X:
-            return CGPoint(
-                x: (newFrame.size.width - size.width) / 2,
-                y: 0
-            )
-        case .Y:
-            return CGPoint(
-                x: 0,
-                y: (newFrame.size.height - size.height) / 2
-            )
-        case .XY:
-            return CGPoint(
-                x: (newFrame.size.width - size.width) / 2,
-                y: (newFrame.size.height - size.height) / 2
-            )
-        }
+        super.init(child: child)
     }
     override func yogaLayoutConfig() {
         super.yogaLayoutConfig()

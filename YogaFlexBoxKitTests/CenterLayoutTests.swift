@@ -28,7 +28,7 @@ class CenterLayoutTests: XCTestCase {
         let height = CGFloat(Int(CGFloat.random(in: screenHeight/2...screenHeight)))
         view.bounds.size = CGSize(width: width, height: height)
         let centerlayout = YogaFlexBoxKit.CenterLayoutTest()
-        centerlayout.test(in: view, isUseYoga: isUseYoga)
+        centerlayout.test(in: view)
         centerlayout.reload(in: view, size: CGSize(width: width, height: height))
         let itemRect = CGRect(origin: .zero, size: centerlayout.itemSize)
         for (offSet, layout) in view.layout.childs.enumerated() {

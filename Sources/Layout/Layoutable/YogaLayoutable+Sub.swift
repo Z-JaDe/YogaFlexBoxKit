@@ -9,4 +9,8 @@
 import Foundation
 
 extension ActualLayout: YogaLayoutable {}
-extension VirtualLayout: YogaLayoutable {}
+extension VirtualLayout: YogaLayoutable {
+    var isLeaf: Bool {
+        return false
+    }
+}

@@ -14,7 +14,7 @@ extension UIView {
         if let layout = layout {
             return layout
         }
-        layout = ActualLayout(view: self)
+        layout = ActualLayout(view: self, containerSize: nil)
         objc_setAssociatedObject(self, &kLayoutAssociatedKey, layout, .OBJC_ASSOCIATION_RETAIN_NONATOMIC)
         return layout!
     }

@@ -12,7 +12,7 @@ class CenterLayoutViewController: LayoutViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         let corner = CenterLayoutTest()
-        corner.test(in: self.view, isUseYoga: false)
+        corner.test(in: self.view)
         for layout in self.view.layout.childs {
             let layout = layout as! (YogaLayoutable & VirtualLayout)
             layout.yoga.margin = 5
@@ -21,8 +21,8 @@ class CenterLayoutViewController: LayoutViewController {
         }
         
         self.view.layout
-            .corner(.bottomFill(100, 10), isUseYoga: false)
-            .corner(.topFill(50, 50), isUseYoga: false)
+            .corner(.bottomFill(100, 10))
+            .corner(.topFill(50, 50))
             .container(containerSize: self.view.frame.size)
             .applyLayout(preserveOrigin: false)
         for layout in self.view.layout.childs {
@@ -40,7 +40,7 @@ class CenterLayoutTest: LayoutTest {
         .Y,
         .XY
     ]
-    func test(in view: UIView, isUseYoga: Bool) {
+    func test(in view: UIView) {
         view.layout.configureLayout { (node) in
             node.flexWrap = .wrap
             node.flexDirection = .row
@@ -48,7 +48,7 @@ class CenterLayoutTest: LayoutTest {
         }
         for option in array {
             let itemView = createItem(in: view, itemSize: itemSize)
-            let layout = itemView.layout.center(option, isUseYoga: isUseYoga)
+            let layout = itemView.layout.center(option)
             layout.yoga.height = YGValue(layoutHeight)
             layout.yoga.width = 90%
             view.layout.addChild(layout)

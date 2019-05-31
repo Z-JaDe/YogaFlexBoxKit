@@ -27,7 +27,7 @@ class CornerLayoutTests: XCTestCase {
         let width = CGFloat(Int(CGFloat.random(in: screenWidth/2...screenWidth)))
         let height = CGFloat(Int(CGFloat.random(in: screenWidth/2...screenHeight)))
         let cornerlayout = YogaFlexBoxKit.CornerLayoutTest()
-        cornerlayout.test(in: view, isUseYoga: isUseYoga)
+        cornerlayout.test(in: view)
         cornerlayout.reload(in: view, size: CGSize(width: width, height: height))
         let itemRect = CGRect(origin: .zero, size: cornerlayout.itemSize)
         for (offSet, layout) in view.layout.childs.enumerated() {

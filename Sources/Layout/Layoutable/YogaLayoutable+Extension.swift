@@ -9,13 +9,13 @@
 import Foundation
 
 extension YogaLayoutable where Self: Layoutable {
-    public func corner(_ option: CornerVirtualLayoutOption, isUseYoga: Bool = false) -> Layoutable {
-        return CornerVirtualLayout(child: self, option: option, isUseYoga: isUseYoga)
+    public func corner(_ option: CornerVirtualLayoutOption) -> Layoutable {
+        return CornerVirtualLayout(child: self, option: option)
     }
 }
 extension YogaLayoutable where Self: Layoutable {
     public func center(_ option: CenterVirtualLayoutOptions, isUseYoga: Bool = false) -> Layoutable {
-        return CenterVirtualLayout(child: self, option: option, isUseYoga: isUseYoga)
+        return CenterVirtualLayout(child: self, option: option)
     }
 }
 extension YogaLayoutable where Self: Layoutable {
@@ -24,14 +24,11 @@ extension YogaLayoutable where Self: Layoutable {
         if setContainerSize(self, containerSize) {
             return self
         } else {
-            let layout = ActualLayout(view: self)
-            layout.containerSize = containerSize
-            return layout
+            return ActualLayout(view: self, containerSize: containerSize)
         }
     }
     func setContainerSize(_ layout: YogaLayoutable, _ containerSize: CGSize) -> Bool {
         if let layout = layout as? VirtualLayout {
-//            layout.containerSize = containerSize
             return setContainerSize(layout.child, containerSize - layout.edgesInset())
         } else if let layout = layout as? ActualLayout {
             layout.containerSize = containerSize

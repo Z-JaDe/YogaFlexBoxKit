@@ -22,8 +22,6 @@ public protocol YogaCalculateLayoutable: class {
     var intrinsicSize: CGSize {get}
     ///只计算布局但是没有更新frame
     func calculateLayout(with size: CGSize) -> CGSize
-    ///更新frame
-    func applyLayoutToViewHierarchy(origin: CGPoint)
     ///计算并更新frame
     func applyLayout(preserveOrigin: Bool, size: CGSize)
 }

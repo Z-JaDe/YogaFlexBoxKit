@@ -41,9 +41,5 @@ extension ActualLayout: YogaCalculateLayoutable {
         calculateLayout(with: size)
         /// 更新到_frame上
         applyLayoutToViewHierarchy(origin: origin)
-        /// 更新到 view的Frame上
-        performInMainAsyncIfNeed {
-            self.updateChildViewFrame()
-        }
     }
 }

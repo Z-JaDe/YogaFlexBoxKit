@@ -23,7 +23,7 @@ class ViewController: UIViewController {
     }
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
-//        test()
+        test()
     }
 }
 ///release下测试更精准
@@ -80,7 +80,7 @@ func runTest(_ id: String, closure: @escaping () -> Void) -> Double {
 func cornerTimerTest(_ value: Bool, _ size: CGSize) -> Double {
     let view = UIView()
     let cornerlayout = YogaFlexBoxKit.CornerLayoutTest()
-    cornerlayout.test(in: view, isUseYoga: value)
+    cornerlayout.test(in: view)
     
     let id = (value ? "yoga" : "layout") + " corner"
     return runTest(id) {
@@ -90,7 +90,7 @@ func cornerTimerTest(_ value: Bool, _ size: CGSize) -> Double {
 func centerTimerTest(_ value: Bool, _ size: CGSize) -> Double {
     let view = UIView()
     let centerlayout = YogaFlexBoxKit.CenterLayoutTest()
-    centerlayout.test(in: view, isUseYoga: value)
+    centerlayout.test(in: view)
     
     let id = (value ? "yoga" : "layout") + " center"
     return runTest(id) {

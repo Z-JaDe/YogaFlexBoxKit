@@ -10,7 +10,7 @@ import Foundation
 
 extension LayoutNode {
     @discardableResult
-    func calculateLayout(with size: CGSize) -> CGSize {
+    func calculateYogaLayout(with size: CGSize) -> CGSize {
         assertInMain()
         layoutable.attachNodesFromViewHierachy()
         YGNodeCalculateLayout(yogaNode, Float(size.width), Float(size.height), self.direction)

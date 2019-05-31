@@ -23,7 +23,7 @@ class ViewController: UIViewController {
     }
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
-        test()
+//        test()
     }
 }
 ///release下测试更精准
@@ -72,7 +72,7 @@ func runTest(_ id: String, closure: @escaping () -> Void) -> Double {
         closure()
     }
     let endTime = CFAbsoluteTimeGetCurrent()
-    let diff:Double = (endTime - startTime) * 1000
+    let diff: Double = (endTime - startTime) * 1000
     print(id + ": " + String(diff) + " 毫秒(ms)")
     return diff
 }

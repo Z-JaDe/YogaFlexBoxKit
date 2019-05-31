@@ -23,6 +23,7 @@ class CornerLayoutViewController: LayoutViewController {
             .corner(.topFill(50, 50))
             .corner(.bottomFill(100, 10))
             .container(containerSize: self.view.frame.size)
+            .container(containerSize: self.view.frame.size)
             .applyLayout(preserveOrigin: false)
         for layout in self.view.layout.childs {
             let layoutView = UIView()

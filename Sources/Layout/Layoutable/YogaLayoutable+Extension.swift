@@ -20,12 +20,12 @@ extension YogaLayoutable where Self: Layoutable {
 }
 extension YogaLayoutable where Self: Layoutable {
     public func container(containerSize: CGSize? = nil) -> Layoutable {
-        let containerSize = containerSize ?? .nan
-        if setContainerSize(self, containerSize) {
-            return self
-        } else {
-            return ActualLayout(view: self, containerSize: containerSize)
-        }
+//        let containerSize = containerSize ?? .nan
+//        if setContainerSize(self, containerSize) {
+//            return self
+//        } else {
+//        }
+        return ActualLayout(view: self, containerSize: containerSize)
     }
     func setContainerSize(_ layout: YogaLayoutable, _ containerSize: CGSize) -> Bool {
         if let layout = layout as? VirtualLayout {

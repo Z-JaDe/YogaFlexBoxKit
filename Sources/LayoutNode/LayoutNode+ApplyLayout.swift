@@ -13,7 +13,7 @@ extension LayoutNode {
         layoutable.applyLayoutToViewHierarchy(origin: origin)
     }
     func applyLayout(preserveOrigin: Bool, size: CGSize) {
-        calculateLayout(with: size)
+        calculateYogaLayout(with: size)
         applyLayoutToViewHierarchy(origin: preserveOrigin ? self.layoutable.frame.origin : .zero)
     }
 }

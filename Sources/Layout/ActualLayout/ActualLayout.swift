@@ -40,13 +40,6 @@ class ActualLayout: RenderLayout {
             self.changeFlexIfZero(1)
         }
     }
-    /**
-     ActualLayout如果是_frame的更新只需要更新下self.view的frame
-     若是frame的更新，需要重新applyLayout下，applyLayout后会自动调用_frame更新
-     ActualLayout有可能是有child的，而且self.view也有可能不是UIView
-     所以_frameDidChanged变化时只更新self.view的frame
-     layoutDidChanged变化时需要用yoga计算所有的childs
-     */
     override func _frameDidChanged(oldFrame: CGRect) {
         super._frameDidChanged(oldFrame: oldFrame)
         performInMainAsyncIfNeed {

@@ -25,9 +25,6 @@ public extension YogaLayoutable {
     var isLeaf: Bool {
         return _isLeaf
     }
-    var size: CGSize {
-        return frame.size
-    }
     func changeFlexIfZero(_ value: CGFloat) {
         if self.yoga.flexGrow == 0 {
             self.yoga.flexGrow = value

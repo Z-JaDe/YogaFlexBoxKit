@@ -7,7 +7,6 @@
 //
 
 import Foundation
-
 class RenderLayout {
     lazy var yoga: LayoutNode = LayoutNode(target: self)
     private(set) weak var superLayout: YogaLayoutable?

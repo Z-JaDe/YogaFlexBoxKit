@@ -49,52 +49,49 @@ class CornerVirtualLayout: VirtualLayout {
     override func yogaLayoutConfig() {
         super.yogaLayoutConfig()
         switch option {
-        case .topLeft(let top, let left):
+        case .topLeft:
             yoga.justifyContent = .flexStart
             yoga.alignItems = .flexStart
-            yoga.paddingTop = .init(top)
-            yoga.paddingLeft = .init(left)
-        case .topRight(let top, let right):
+        case .topRight:
             yoga.flexDirection = .row
             yoga.justifyContent = .flexEnd
             yoga.alignItems = .flexStart
-            yoga.paddingTop = .init(top)
-            yoga.paddingRight = .init(right)
-        case .bottomLeft(let bottom, let left):
+        case .bottomLeft:
             yoga.justifyContent = .flexEnd
             yoga.alignItems = .flexStart
-            yoga.paddingBottom = .init(bottom)
-            yoga.paddingLeft = .init(left)
-        case .bottomRight(let bottom, let right):
+        case .bottomRight:
             yoga.justifyContent = .flexEnd
             yoga.alignItems = .flexEnd
-            yoga.paddingBottom = .init(bottom)
-            yoga.paddingRight = .init(right)
             
-        case .topFill(let top, let fillOffset):
+        case .topFill:
             yoga.flexDirection = .column
             yoga.justifyContent = .flexStart
             yoga.alignItems = .stretch
-            yoga.paddingHorizontal = .init(fillOffset)
-            yoga.paddingTop = .init(top)
-        case .bottomFill(let bottom, let fillOffset):
+        case .bottomFill:
             yoga.flexDirection = .column
             yoga.justifyContent = .flexEnd
             yoga.alignItems = .stretch
-            yoga.paddingHorizontal = .init(fillOffset)
-            yoga.paddingBottom = .init(bottom)
-        case .leftFill(let left, let fillOffset):
+        case .leftFill:
             yoga.flexDirection = .row
             yoga.justifyContent = .flexStart
             yoga.alignItems = .stretch
-            yoga.paddingLeft = .init(left)
-            yoga.paddingVertical = .init(fillOffset)
-        case .rightFill(let right, let fillOffset):
+        case .rightFill:
             yoga.flexDirection = .row
             yoga.justifyContent = .flexEnd
             yoga.alignItems = .stretch
-            yoga.paddingRight = .init(right)
-            yoga.paddingVertical = .init(fillOffset)
+        }
+        let edge = edgesInset()
+        if edge.left > 0 {
+            yoga.paddingLeft = .init(edge.left)
+        }
+        if edge.right > 0 {
+            yoga.paddingRight = .init(edge.right)
+        }
+        if edge.top > 0 {
+            yoga.paddingTop = .init(edge.top)
+        }
+        if edge.bottom > 0 {
+            yoga.paddingBottom = .init(edge.bottom)
         }
     }
 }

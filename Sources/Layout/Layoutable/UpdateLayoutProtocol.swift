@@ -16,13 +16,16 @@ extension ActualLayout: UpdateLayoutProtocol {
         ///每次重新创建Timer实例，简单测试后发现速度反而慢了
         //        throttle(&layoutViewTimer, interval: .milliseconds(100)) {
         //        }
-        if let layout = self.view as? RenderLayout & YogaCalculateLayoutable {
+        guard let view = self.view else {
+            return
+        }
+        if let layout = view as? RenderLayout & YogaCalculateLayoutable {
             layout._frame.origin = frame.origin
             layout.applyLayout(preserveOrigin: true, size: frame.size)
             return
         }
         let frame = CGRect(origin: converToViewHierarchy(frame.origin), size: frame.size)
-        if let scrollView = self.view as? UIScrollView {
+        if let scrollView = view as? UIScrollView {
             if scrollView.frame != frame {
                 scrollView.frame = frame
             }
@@ -35,8 +38,8 @@ extension ActualLayout: UpdateLayoutProtocol {
                 assertionFailure("计算frame出错")
                 return
             }
-            if self.view!.frame != frame {
-                self.view!.frame = frame
+            if view.frame != frame {
+                view.frame = frame
             }
         }
     }

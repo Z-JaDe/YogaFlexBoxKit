@@ -15,15 +15,15 @@ protocol ActualLayoutCompatible: class {
 extension ActualLayout: ActualLayoutCompatible {}
 
 ///本身包含view，可以添加多个子节点
-class ActualLayout: RenderLayout {
+public class ActualLayout: RenderLayout {
     typealias View = Viewable
     private weak var _view: View?
     private var _layout: View?
     var view: View? {
         return _view ?? _layout
     }
-    var containerSize: CGSize
-    internal let isScroll: Bool
+    public internal(set) var containerSize: CGSize
+    public let isScroll: Bool
     init(view: View, containerSize: CGSize?) {
         if view is UIView {
             self._view = view
@@ -34,7 +34,7 @@ class ActualLayout: RenderLayout {
         self.isScroll = view is UIScrollView
         super.init()
     }
-    override func configInit() {
+    public override func configInit() {
         super.configInit()
         if isScroll {
             self.changeFlexIfZero(1)

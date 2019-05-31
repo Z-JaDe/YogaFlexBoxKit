@@ -87,7 +87,21 @@ func performInMainAsync(_ action: @escaping () -> Void) {
         return DispatchQueue.main.async(execute: action)
     }
 }
-
+extension Collection {
+    /// ZJaDe: 根据 size 把 Collection 拆分 相当于 chunk(size, 0)
+    public func chunk(_ size: UInt) -> AnySequence<SubSequence> {
+        return AnySequence { () -> AnyIterator<SubSequence> in
+            var temp = self.dropFirst(0)
+            let size = Int(size)
+            return AnyIterator({
+                guard temp.count > 0 else { return nil }
+                let size: Int = size > 0 ? size : temp.count
+                defer { temp = temp.dropFirst(size) }
+                return temp.prefix(size)
+            })
+        }
+    }
+}
 func assertInMain(file: StaticString = #file, line: UInt = #line) {
     /**
      经过不断测试，发现若是支持多线程，计算过程中计算view的尺寸需要同步切换到主线程，然后返回异步线程。

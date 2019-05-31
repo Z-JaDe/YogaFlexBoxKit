@@ -7,12 +7,12 @@
 //
 
 import Foundation
-class RenderLayout {
-    lazy var yoga: LayoutNode = LayoutNode(target: self)
-    private(set) weak var superLayout: YogaLayoutable?
-    private(set) var childs: [YogaLayoutable] = []
+open class RenderLayout {
+    public private(set) lazy var yoga: LayoutNode = LayoutNode(target: self)
+    public private(set) weak var superLayout: YogaLayoutable?
+    public private(set) var childs: [YogaLayoutable] = []
     var _frame: CGRect = .zero
-    var frame: CGRect {
+    public var frame: CGRect {
         get { return _frame }
         set {
             let oldValue = _frame
@@ -20,10 +20,10 @@ class RenderLayout {
             layoutDidChanged(oldFrame: oldValue)
         }
     }
-    init() {
+    public init() {
         configInit()
     }
-    func configInit() {
+    open func configInit() {
         
     }
     func changePrivateFrame(_ frame: CGRect) {

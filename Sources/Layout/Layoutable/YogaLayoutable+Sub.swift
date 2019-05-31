@@ -9,15 +9,20 @@
 import Foundation
 
 extension ActualLayout: YogaLayoutable {
-    func sizeThatFits(_ size: CGSize) -> CGSize {
+    public func sizeThatFits(_ size: CGSize) -> CGSize {
         return view!.sizeThatFits(size)
     }
 }
 extension VirtualLayout: YogaLayoutable {
-    func sizeThatFits(_ size: CGSize) -> CGSize {
+    public func sizeThatFits(_ size: CGSize) -> CGSize {
         return .zero
     }
-    var isLeaf: Bool {
+    public var isLeaf: Bool {
         return false
+    }
+}
+extension GridLayout: YogaLayoutable {
+    public func sizeThatFits(_ size: CGSize) -> CGSize {
+        return .zero
     }
 }

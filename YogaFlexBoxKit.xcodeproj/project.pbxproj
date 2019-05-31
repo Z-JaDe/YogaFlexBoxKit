@@ -14,6 +14,8 @@
 		1803E9032293E40600F1DF77 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1803E9012293E40600F1DF77 /* LaunchScreen.storyboard */; };
 		1803E90E2293E40600F1DF77 /* YogaFlexBoxKitTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1803E90D2293E40600F1DF77 /* YogaFlexBoxKitTests.swift */; };
 		1803E9192293E40600F1DF77 /* YogaFlexBoxKitUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1803E9182293E40600F1DF77 /* YogaFlexBoxKitUITests.swift */; };
+		18054D4922A1373E002A0911 /* GridLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18054D4822A1373E002A0911 /* GridLayout.swift */; };
+		18054D5022A155CD002A0911 /* PlaceholderLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18054D4F22A155CD002A0911 /* PlaceholderLayout.swift */; };
 		1896C0FF229EBC2900FAF641 /* Viewable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1896C0FE229EBC2900FAF641 /* Viewable.swift */; };
 		1896C101229EBC7C00FAF641 /* YogaLayoutable+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1896C100229EBC7C00FAF641 /* YogaLayoutable+Extension.swift */; };
 		1896C103229EBD2300FAF641 /* YogaLayoutable+Sub.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1896C102229EBD2300FAF641 /* YogaLayoutable+Sub.swift */; };
@@ -75,6 +77,8 @@
 		1803E9182293E40600F1DF77 /* YogaFlexBoxKitUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YogaFlexBoxKitUITests.swift; sourceTree = "<group>"; };
 		1803E91A2293E40600F1DF77 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		1803E9292293E51100F1DF77 /* YogaFlexBoxKit-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "YogaFlexBoxKit-Bridging-Header.h"; sourceTree = "<group>"; };
+		18054D4822A1373E002A0911 /* GridLayout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GridLayout.swift; sourceTree = "<group>"; };
+		18054D4F22A155CD002A0911 /* PlaceholderLayout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlaceholderLayout.swift; sourceTree = "<group>"; };
 		1896C0FE229EBC2900FAF641 /* Viewable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Viewable.swift; sourceTree = "<group>"; };
 		1896C100229EBC7C00FAF641 /* YogaLayoutable+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "YogaLayoutable+Extension.swift"; sourceTree = "<group>"; };
 		1896C102229EBD2300FAF641 /* YogaLayoutable+Sub.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "YogaLayoutable+Sub.swift"; sourceTree = "<group>"; };
@@ -195,6 +199,15 @@
 			path = YogaFlexBoxKitUITests;
 			sourceTree = "<group>";
 		};
+		18054D4722A1371C002A0911 /* Layouts */ = {
+			isa = PBXGroup;
+			children = (
+				18054D4822A1373E002A0911 /* GridLayout.swift */,
+				18054D4F22A155CD002A0911 /* PlaceholderLayout.swift */,
+			);
+			path = Layouts;
+			sourceTree = "<group>";
+		};
 		18FCBDEF22968C9300695868 /* Sources */ = {
 			isa = PBXGroup;
 			children = (
@@ -244,6 +257,7 @@
 				18FDD553229F654D00EC68A8 /* Layoutable */,
 				18FF9D42229D0B2F003C5EA7 /* ActualLayout */,
 				18FF9D16229CC461003C5EA7 /* VirtualLayout */,
+				18054D4722A1371C002A0911 /* Layouts */,
 				18FCBE0F22968F3800695868 /* RenderLayout.swift */,
 			);
 			path = Layout;
@@ -490,6 +504,8 @@
 				1896C103229EBD2300FAF641 /* YogaLayoutable+Sub.swift in Sources */,
 				18FCBE0A22968C9400695868 /* YGLayoutExtensions.swift in Sources */,
 				18FCBE0622968C9400695868 /* LayoutNode+Calculate.swift in Sources */,
+				18054D5022A155CD002A0911 /* PlaceholderLayout.swift in Sources */,
+				18054D4922A1373E002A0911 /* GridLayout.swift in Sources */,
 				18FCBE0922968C9400695868 /* Util.swift in Sources */,
 				18FCBE0B22968C9400695868 /* YogaLayoutable.swift in Sources */,
 				1896C105229EBEBF00FAF641 /* UpdateLayoutProtocol.swift in Sources */,

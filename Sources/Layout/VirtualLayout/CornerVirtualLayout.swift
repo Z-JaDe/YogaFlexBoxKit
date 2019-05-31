@@ -19,8 +19,8 @@ public enum CornerVirtualLayoutOption {
     case leftFill(CGFloat, CGFloat)
     case rightFill(CGFloat, CGFloat)
 }
-class CornerVirtualLayout: VirtualLayout {
-    let option: CornerVirtualLayoutOption
+public class CornerVirtualLayout: VirtualLayout {
+    public let option: CornerVirtualLayoutOption
     init(child: ChildType, option: CornerVirtualLayoutOption) {
         self.option = option
         super.init(child: child)

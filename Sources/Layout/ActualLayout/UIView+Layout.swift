@@ -9,7 +9,7 @@
 import Foundation
 private var kLayoutAssociatedKey: UInt8 = 0
 extension UIView {
-    public var layout: Layoutable & YogaContainerLayoutable {
+    public var layout: Layoutable & Viewable  & YogaContainerLayoutable {
         var layout = objc_getAssociatedObject(self, &kLayoutAssociatedKey) as? ViewActualLayout
         if let layout = layout {
             return layout

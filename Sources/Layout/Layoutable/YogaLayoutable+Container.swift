@@ -12,7 +12,7 @@ public protocol YogaContainerLayoutable {
     func addChild(_ child: YogaLayoutable)
 }
 extension ActualLayout: YogaContainerLayoutable {
-    func addChild(_ child: YogaLayoutable) {
+    public func addChild(_ child: YogaLayoutable) {
         _addChild(child)
         _addChildView(child)
     }
@@ -21,6 +21,18 @@ extension ActualLayout: YogaContainerLayoutable {
             view?.addSubview(childView.ownerView)
         } else if let child = child as? VirtualLayout {
             _addChildView(child.child)
+        } else if let child = child as? YogaLayoutable & YogaContainerLayoutable {
+            child.childs.forEach({_addChildView($0)})
         }
+    }
+}
+extension GridLayout: YogaContainerLayoutable {
+    public func addChild(_ child: YogaLayoutable) {
+        _addChild(child)
+    }
+}
+extension PlaceholderLayout: YogaContainerLayoutable {
+    public func addChild(_ child: YogaLayoutable) {
+        _addChild(child)
     }
 }

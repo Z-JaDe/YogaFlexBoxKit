@@ -8,7 +8,7 @@
 
 import Foundation
 
-public typealias Layoutable = YogaLayoutable & YogaCalculateLayoutable & Viewable
+public typealias Layoutable = YogaLayoutable & YogaCalculateLayoutable
 public protocol YogaLayoutable: class {
     var frame: CGRect {get}
     var yoga: LayoutNode {get}

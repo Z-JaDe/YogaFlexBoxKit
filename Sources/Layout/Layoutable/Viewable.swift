@@ -22,30 +22,30 @@ public extension Viewable {
     }
 }
 extension ActualLayout: Viewable {
-    func addSubview(_ view: UIView) {
+    public func addSubview(_ view: UIView) {
         view.addSubview(view)
     }
-    var ownerView: UIView {
+    public var ownerView: UIView {
         return view!.ownerView
     }
-    var superview: UIView? {
+    public var superview: UIView? {
         return view?.superview
     }
-    func convert(_ point: CGPoint, to view: UIView?) -> CGPoint {
+    public func convert(_ point: CGPoint, to view: UIView?) -> CGPoint {
         return view!.convert(point, to: view)
     }
 }
 extension VirtualLayout: Viewable {
-    var superview: UIView? {
+    public var superview: UIView? {
         return child.superview
     }
-    var ownerView: UIView {
+    public var ownerView: UIView {
         return child.ownerView
     }
-    func addSubview(_ view: UIView) {
+    public func addSubview(_ view: UIView) {
         child.addSubview(view)
     }
-    func convert(_ point: CGPoint, to view: UIView?) -> CGPoint {
+    public func convert(_ point: CGPoint, to view: UIView?) -> CGPoint {
         return child.convert(point, to: view)
     }
 }

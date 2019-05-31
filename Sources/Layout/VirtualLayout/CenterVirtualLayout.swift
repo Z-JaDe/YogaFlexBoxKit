@@ -13,8 +13,8 @@ public enum CenterVirtualLayoutOptions {
     case Y
     case XY
 }
-class CenterVirtualLayout: VirtualLayout {
-    let option: CenterVirtualLayoutOptions
+public class CenterVirtualLayout: VirtualLayout {
+    public let option: CenterVirtualLayoutOptions
     init(child: ChildType, option: CenterVirtualLayoutOptions) {
         self.option = option
         super.init(child: child)

@@ -43,7 +43,7 @@ public extension YogaCalculateLayoutable {
     }
 }
 
-extension YogaCalculateLayoutable where Self: YogaLayoutable {
+public extension YogaCalculateLayoutable where Self: YogaLayoutable {
     @discardableResult
     func calculateLayout(with size: CGSize) -> CGSize {
         return yoga.calculateYogaLayout(with: size)
@@ -54,10 +54,10 @@ extension YogaCalculateLayoutable where Self: YogaLayoutable {
 }
 extension ActualLayout: YogaCalculateLayoutable {}
 extension VirtualLayout: YogaCalculateLayoutable {
-    var isScroll: Bool {
+    public var isScroll: Bool {
         return child.isScroll
     }
-    var containerSize: CGSize {
+    public var containerSize: CGSize {
         return child.containerSize + edgesInset()
     }
 }

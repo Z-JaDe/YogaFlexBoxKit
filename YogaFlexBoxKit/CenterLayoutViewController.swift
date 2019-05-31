@@ -14,15 +14,15 @@ class CenterLayoutViewController: LayoutViewController {
         let corner = CenterLayoutTest()
         corner.test(in: self.view, isUseYoga: false)
         for layout in self.view.layout.childs {
-            let layout = layout as! (YogaLayoutable & VirtualLayoutCompatible)
+            let layout = layout as! (YogaLayoutable & VirtualLayout)
             layout.yoga.margin = 5
             let view = (layout.child as! ViewActualLayout).view as! UIView
             view.backgroundColor = UIColor.red
         }
         
         self.view.layout
-            .corner(.bottomFill(100, 10), isUseYoga: true)
-            .corner(.topFill(50, 50), isUseYoga: true)
+            .corner(.bottomFill(100, 10), isUseYoga: false)
+            .corner(.topFill(50, 50), isUseYoga: false)
             .container(containerSize: self.view.frame.size)
             .applyLayout(preserveOrigin: false)
         for layout in self.view.layout.childs {

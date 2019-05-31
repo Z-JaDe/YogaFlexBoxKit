@@ -21,24 +21,21 @@ public enum CornerVirtualLayoutOption {
 }
 class CornerVirtualLayout: VirtualLayout {
     let option: CornerVirtualLayoutOption
-    init(child: Layoutable, option: CornerVirtualLayoutOption, isUseYoga: Bool) {
+    init(child: ChildType, option: CornerVirtualLayoutOption, isUseYoga: Bool) {
         self.option = option
         super.init(child: child, isUseYoga: isUseYoga)
     }
     // MARK:
-//    override func layoutChildSize(_ newFrame: CGRect) -> CGSize {
-//
-//        switch option {
-//        case .topLeft, .topRight, .bottomLeft, .bottomRight:
-//            return super.layoutChildSize(newFrame)
-//        case .leftFill, .rightFill:
-//            let size = self.child.calculateLayout(with: CGSize(width: .nan, height: newFrame.size.height))
-//            return layoutChildSize(size, newFrame: newFrame)
-//        case .topFill, .bottomFill:
-//            let size = self.child.calculateLayout(with: CGSize(width: newFrame.size.width, height: .nan))
-//            return layoutChildSize(size, newFrame: newFrame)
-//        }
-//    }
+    override func childIntrinsicSize(_ containerSize: CGSize) -> CGSize {
+        switch option {
+        case .topLeft, .topRight, .bottomLeft, .bottomRight:
+            return super.childIntrinsicSize(containerSize)
+        case .leftFill, .rightFill:
+            return CGSize(width: .nan, height: containerSize.height)
+        case .topFill, .bottomFill:
+            return CGSize(width: containerSize.width, height: .nan)
+        }
+    }
     override func layoutChildOrigin(_ newFrame: CGRect, _ childSize: CGSize) -> CGPoint {
         switch option {
         case .topLeft(let top, let left):

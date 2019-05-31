@@ -9,18 +9,19 @@
 import UIKit
 
 class CornerLayoutViewController: LayoutViewController {
-
     override func viewDidLoad() {
         super.viewDidLoad()
         let corner = CornerLayoutTest()
-        corner.test(in: self.view, isUseYoga: false)
+        corner.test(in: self.view, isUseYoga: true)
         for layout in self.view.layout.childs {
-            let layout = layout as! (YogaLayoutable & VirtualLayoutCompatible)
+            let layout = layout as! (YogaLayoutable & VirtualLayout)
             layout.yoga.margin = 5
             let view = (layout.child as! ViewActualLayout).view as! UIView
             view.backgroundColor = UIColor.red
         }
         self.view.layout
+            .corner(.topFill(50, 50), isUseYoga: true)
+            .corner(.bottomFill(100, 10), isUseYoga: true)
             .container(containerSize: self.view.frame.size)
             .applyLayout(preserveOrigin: false)
         for layout in self.view.layout.childs {

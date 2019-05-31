@@ -19,6 +19,19 @@ extension LayoutNode {
             height: YGNodeLayoutGetHeight(yogaNode)
         )
     }
+    var contentSize: CGSize {
+        return layoutable.childs.reversed().reduce(into: CGSize.zero, { (size, layout) in
+            let node = layout.yoga.yogaNode
+            let width = CGFloat(YGNodeLayoutGetLeft(node) + YGNodeLayoutGetRight(node) + YGNodeLayoutGetWidth(node))
+            let height = CGFloat(YGNodeLayoutGetTop(node) + YGNodeLayoutGetBottom(node) + YGNodeLayoutGetHeight(node))
+            if width > size.width {
+                size.width = width
+            }
+            if height > size.height {
+                size.height = height
+            }
+        })
+    }
 }
 
 extension LayoutNode {

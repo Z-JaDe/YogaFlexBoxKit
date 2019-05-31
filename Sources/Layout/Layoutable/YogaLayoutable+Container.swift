@@ -17,9 +17,9 @@ extension ActualLayout: YogaContainerLayoutable {
         _addChildView(child)
     }
     func _addChildView(_ child: YogaLayoutable) {
-        if let childView = (child as? ActualLayoutCompatible)?.view {
+        if let childView = (child as? ActualLayout)?.view {
             view?.addSubview(childView.ownerView)
-        } else if let child = child as? VirtualLayoutCompatible {
+        } else if let child = child as? VirtualLayout {
             _addChildView(child.child)
         }
     }

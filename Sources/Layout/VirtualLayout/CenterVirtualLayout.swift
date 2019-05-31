@@ -15,7 +15,7 @@ public enum CenterVirtualLayoutOptions {
 }
 class CenterVirtualLayout: VirtualLayout {
     let option: CenterVirtualLayoutOptions
-    init(child: Layoutable, option: CenterVirtualLayoutOptions, isUseYoga: Bool) {
+    init(child: ChildType, option: CenterVirtualLayoutOptions, isUseYoga: Bool) {
         self.option = option
         super.init(child: child, isUseYoga: isUseYoga)
     }

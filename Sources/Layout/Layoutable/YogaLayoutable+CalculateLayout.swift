@@ -18,8 +18,13 @@ public struct YGDimensionFlexibility: OptionSet {
 public protocol YogaCalculateLayoutable: class {
     var containerSize: CGSize {get}
     var isScroll: Bool {get}
+    
     var intrinsicSize: CGSize {get}
+    ///只计算布局但是没有更新frame
     func calculateLayout(with size: CGSize) -> CGSize
+    ///更新frame
+    func applyLayoutToViewHierarchy(origin: CGPoint)
+    ///计算并更新frame
     func applyLayout(preserveOrigin: Bool, size: CGSize)
 }
 
@@ -38,18 +43,16 @@ public extension YogaCalculateLayoutable {
         applyLayout(preserveOrigin: preserveOrigin, size: size)
     }
 }
-
 /** 本想等计算好布局后再设置view的frame。但是yoga本身就是先计算好frame，然后统一设置一遍frame。所以这样做没意义，反而还要多写了一些兼容代码，故去除
- 重新使用这个方法是想把设置frame的代码都统一一次性放到主线程里面执行
+    重新使用这个方法是想把设置frame的代码都统一一次性放到主线程里面执行
  */
-extension YogaLayoutable {
+extension YogaCalculateLayoutable {
     func updateChildViewFrame() {
         switch self {
-        case let layout as ActualUpdateLayoutProtocol & YogaLayoutable:
+        case let layout as UpdateLayoutProtocol & YogaLayoutable:
+            print(layout.frame)
             layout.updateViewFrame(layout.frame)
-            layout.childs.forEach({$0.updateChildViewFrame()})
-        case let layout as VirtualLayoutCompatible:
-            return layout.child.updateChildViewFrame()
+            layout.childs.lazy.compactMap({$0 as? YogaCalculateLayoutable}).forEach({$0.updateChildViewFrame()})
         default: assertionFailure("未知的类型")
         }
     }

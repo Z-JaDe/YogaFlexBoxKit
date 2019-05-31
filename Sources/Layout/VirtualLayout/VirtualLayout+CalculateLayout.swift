@@ -19,8 +19,15 @@ extension VirtualLayout {
     var intrinsicSize: CGSize {
         return self.calculateLayout(with: CGSize.nan)
     }
+    @discardableResult
     func calculateLayout(with size: CGSize) -> CGSize {
-        return child.yoga.calculateLayout(with: size) + edgesInset()
+        if isUseYogaLayout {
+            return yoga.calculateLayout(with: size)
+        }
+        let size = size - edgesInset()
+        let childSize = child.calculateLayout(with: size)
+        __size = childSize + edgesInset()
+        return __size
     }
     func layoutChildSize(_ oldSize: CGSize, _ containerSize: CGSize) -> CGSize {
         let nanSize = CGSize.nan
@@ -37,22 +44,32 @@ extension VirtualLayout {
             return oldSize
         }
     }
+    
+    func applyLayoutToViewHierarchy(origin: CGPoint) {
+        self._frame = CGRect(origin: origin, size: self.__size)
+        self.child.applyLayoutToViewHierarchy(origin: layoutChildOrigin(self._frame, __size - edgesInset()))
+    }
 }
 extension VirtualLayout: YogaCalculateLayoutable {
     var isScroll: Bool {
         return child.isScroll
     }
+    var containerSize: CGSize {
+        return child.containerSize + edgesInset()
+    }
     func applyLayout(preserveOrigin: Bool, size: CGSize) {
-        var size = size - edgesInset()
-        if isScroll {
-            size.height = CGFloat.nan
+        if isUseYogaLayout {
+            yoga.applyLayout(preserveOrigin: preserveOrigin, size: size)
+            return
         }
-        let childSize = child.yoga.calculateLayout(with: size)
         let origin = preserveOrigin ? self._frame.origin : .zero
-        self._frame.size = childSize + edgesInset()
-        self._frame.origin = origin
-        ///这里 要递归处理 containerSize
-        child.yoga.applyLayoutToViewHierarchy(origin: layoutChildOrigin(self._frame, childSize))
-        self.updateChildViewFrame()
+        /// 只计算frame,但是没有设置到_frame上
+        calculateLayout(with: size)
+        /// 更新到_frame上
+        applyLayoutToViewHierarchy(origin: origin)
+        /// 更新到 view的Frame上
+        performInMainAsync {
+            self.updateChildViewFrame()
+        }
     }
 }

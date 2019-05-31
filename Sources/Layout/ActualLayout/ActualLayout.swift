@@ -16,14 +16,15 @@ extension ActualLayout: ActualLayoutCompatible {}
 
 ///本身包含view，可以添加多个子节点
 class ActualLayout: RenderLayout {
-    private weak var _view: Viewable?
-    private var _layout: Viewable?
-    var view: Viewable? {
+    typealias View = Viewable
+    private weak var _view: View?
+    private var _layout: View?
+    var view: View? {
         return _view ?? _layout
     }
     var containerSize: CGSize = .nan
     internal let isScroll: Bool
-    init(view: Viewable) {
+    init(view: View) {
         if view is UIView {
             self._view = view
         } else {
@@ -31,6 +32,12 @@ class ActualLayout: RenderLayout {
         }
         self.isScroll = view is UIScrollView
         super.init()
+    }
+    override func configInit() {
+        super.configInit()
+        if isScroll {
+            self.changeFlexIfZero(1)
+        }
     }
     /**
      ActualLayout如果是_frame的更新只需要更新下self.view的frame
@@ -47,11 +54,7 @@ class ActualLayout: RenderLayout {
     }
     override func layoutDidChanged(oldFrame: CGRect) {
         super.layoutDidChanged(oldFrame: oldFrame)
-        guard oldFrame != self.frame else {
-            ///如果重复设置frame，只更新下self.view的frame即可，故调用_frameDidChanged
-            changePrivateFrame(self.frame)
-            return
-        }
+        guard oldFrame != self.frame else { return }
         let frame = self.frame
         ///该方法走完会走下_frameDidChanged
         self.applyLayout(preserveOrigin: true, size: frame.size)

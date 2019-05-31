@@ -7,20 +7,15 @@
 //
 
 import Foundation
-// MARK: -
-protocol VirtualLayoutCompatible: class {
-    var containerSize: CGSize {get set}
-    var child: Layoutable {get}
-    func edgesInset() -> UIEdgeInsets
-}
-extension VirtualLayout: VirtualLayoutCompatible {}
 
 ///本身并不包含view 但是可以参与计算布局，子节点中可能包含view
 class VirtualLayout: RenderLayout {
-    let child: Layoutable
+    ///计算布局时更新到_frame之前的临时存储
+    var __size: CGSize = .zero
+    typealias ChildType = Layoutable
+    let child: ChildType
     let isUseYogaLayout: Bool
-    var containerSize: CGSize = .nan
-    init(child: Layoutable, isUseYoga: Bool) {
+    init(child: ChildType, isUseYoga: Bool) {
         self.child = child
         self.isUseYogaLayout = isUseYoga
         super.init()
@@ -49,23 +44,16 @@ class VirtualLayout: RenderLayout {
     }
     func layout(oldFrame: CGRect) {
         guard isUseYogaLayout == false else { return }
-        guard oldFrame != self.frame else {
-            ///如果重复设置frame，只更新下self.view的frame即可，故调用_frameDidChanged
-//            (self.child as? RenderLayout)?.changePrivateFrame(self.child.frame)
-            return
+        if self.frame.size != oldFrame.size {
+            
         }
-        self.layoutUpdate(oldFrame: oldFrame, newFrame: self.frame)
+    }
+    func childIntrinsicSize(_ containerSize: CGSize) -> CGSize {
+        return .nan
     }
     // MARK:
     /// 手动计算布局时实现
     func layoutUpdate(oldFrame: CGRect, newFrame: CGRect) {
-        let size = layoutChildSize(newFrame.size)
-        self.child.frame = CGRect(origin: layoutChildOrigin(newFrame, size), size: size)
-    }
-    /// 默认使用自有尺寸 如果自有尺寸小于newFrame.size 尝试重新计算一次
-    func layoutChildSize(_ containerSize: CGSize) -> CGSize {
-        let size: CGSize = isScroll ? child.containerSize : child.intrinsicSize
-        return layoutChildSize(size, containerSize - edgesInset())
     }
     ///计算位置
     func layoutChildOrigin(_ newFrame: CGRect, _ size: CGSize) -> CGPoint {

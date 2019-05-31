@@ -12,6 +12,10 @@ extension LayoutNode {
     func applyLayoutToViewHierarchy(origin: CGPoint) {
         layoutable.applyLayoutToViewHierarchy(origin: origin)
     }
+    func applyLayout(preserveOrigin: Bool, size: CGSize) {
+        calculateLayout(with: size)
+        applyLayoutToViewHierarchy(origin: preserveOrigin ? self.layoutable.frame.origin : .zero)
+    }
 }
 extension YogaLayoutable {
     fileprivate func applyLayoutToViewHierarchy(origin: CGPoint) {
@@ -42,8 +46,9 @@ extension YogaLayoutable {
     func applyFrame(_ frame: CGRect) {
         if let layout = self as? RenderLayout {
             layout.changePrivateFrame(frame)
-        } else {
-            self.frame = frame
+        } else if let view = self as? UIView {
+            assertionFailure("目前没有这种情况")
+            view.frame = frame
         }
     }
 }

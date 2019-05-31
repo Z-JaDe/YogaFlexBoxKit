@@ -7,9 +7,10 @@
 //
 
 import Foundation
+
 public typealias Layoutable = YogaLayoutable & YogaCalculateLayoutable & Viewable
 public protocol YogaLayoutable: class {
-    var frame: CGRect {get set}
+    var frame: CGRect {get}
     var yoga: LayoutNode {get}
     var childs: [YogaLayoutable] {get}
     var superLayout: YogaLayoutable? {get}
@@ -27,8 +28,6 @@ public extension YogaLayoutable {
     var size: CGSize {
         return frame.size
     }
-}
-internal extension YogaLayoutable {
     func changeFlexIfZero(_ value: CGFloat) {
         if self.yoga.flexGrow == 0 {
             self.yoga.flexGrow = value
@@ -37,6 +36,8 @@ internal extension YogaLayoutable {
             self.yoga.flexShrink = value
         }
     }
+}
+internal extension YogaLayoutable {
     var _isLeaf: Bool {
         /// 不包含可用子节点
         return childs.lazy.map({$0.yoga}).contains(where: {$0.isIncludedInLayout}) == false

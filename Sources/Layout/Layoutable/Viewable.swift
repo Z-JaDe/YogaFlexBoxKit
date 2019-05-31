@@ -14,7 +14,7 @@ public protocol Viewable: class {
     var superview: UIView? {get}
     func addSubview(_ view: UIView)
     func sizeThatFits(_ size: CGSize) -> CGSize
-    func convert(_ rect: CGRect, to view: UIView?) -> CGRect
+    func convert(_ point: CGPoint, to view: UIView?) -> CGPoint
 }
 public extension Viewable {
     var size: CGSize {
@@ -31,8 +31,8 @@ extension ActualLayout: Viewable {
     var superview: UIView? {
         return view?.superview
     }
-    func convert(_ rect: CGRect, to view: UIView?) -> CGRect {
-        return view!.convert(rect, to: view)
+    func convert(_ point: CGPoint, to view: UIView?) -> CGPoint {
+        return view!.convert(point, to: view)
     }
 }
 extension VirtualLayout: Viewable {
@@ -45,7 +45,7 @@ extension VirtualLayout: Viewable {
     func addSubview(_ view: UIView) {
         child.addSubview(view)
     }
-    func convert(_ rect: CGRect, to view: UIView?) -> CGRect {
-        return child.convert(rect, to: view)
+    func convert(_ point: CGPoint, to view: UIView?) -> CGPoint {
+        return child.convert(point, to: view)
     }
 }

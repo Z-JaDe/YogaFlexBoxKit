@@ -9,13 +9,4 @@
 import Foundation
 
 extension ActualLayout: YogaLayoutable {}
-extension VirtualLayout: YogaLayoutable {
-    var isLeaf: Bool {
-        // 如果是yoga布局 需要确定子节点，如果是自己手动布局相当于就是一个叶子节点
-        if isUseYogaLayout {
-            return _isLeaf
-        } else {
-            return true
-        }
-    }
-}
+extension VirtualLayout: YogaLayoutable {}

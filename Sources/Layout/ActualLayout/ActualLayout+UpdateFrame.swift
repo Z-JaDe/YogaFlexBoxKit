@@ -21,21 +21,17 @@ extension ActualLayout {
             return
         }
         let frame = CGRect(origin: converToViewHierarchy(frame.origin), size: frame.size)
+        if frame.size.isNaN {
+            assertionFailure("计算frame出错")
+            return
+        }
+        if view.frame != frame {
+            view.frame = frame
+        }
         if let scrollView = view as? UIScrollView {
-            if scrollView.frame != frame {
-                scrollView.frame = frame
-            }
             let contentSize = self.yoga.contentSize
             if scrollView.contentSize != contentSize {
                 scrollView.contentSize = contentSize
-            }
-        } else {
-            if frame.size.isNaN {
-                assertionFailure("计算frame出错")
-                return
-            }
-            if view.frame != frame {
-                view.frame = frame
             }
         }
     }

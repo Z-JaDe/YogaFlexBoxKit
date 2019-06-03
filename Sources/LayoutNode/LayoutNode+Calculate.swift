@@ -45,7 +45,7 @@ extension LayoutNode {
 extension YogaLayoutable {
     fileprivate func attachNodesFromViewHierachy() {
         let yoga = self.yoga
-        if yoga.isLeaf {
+        if self.isLeaf {
             ///如果是叶子节点 移除所有子节点，并设置适配尺寸的方法
             yoga.removeAllChildren()
             yoga.setMeasureFunc(measureView)

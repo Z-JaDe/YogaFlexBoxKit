@@ -25,13 +25,16 @@ extension YogaLayoutable {
 extension YogaContainerLayoutable where Self: YogaLayoutable {
     func _addChildView(_ child: YogaLayoutable) {
         guard let view = self.findFirstSuperActualLayout() else {
+            assertionFailure("layout需要先添加到ActualLayout里面再addChid")
             return
         }
         _addChildView(child, in: view.ownerView)
     }
     func _addChildView(_ child: YogaLayoutable, in view: UIView) {
-        if let childView = (child as? ActualLayout)?.view {
-            view.addSubview(childView.ownerView)
+        if let child = (child as? ActualLayout) {
+            if let childView = child.view {
+                view.addSubview(childView.ownerView)
+            }
         } else if let child = child as? VirtualLayout {
             _addChildView(child.child, in: view)
         } else if let child = child as? YogaLayoutable & YogaContainerLayoutable {
@@ -71,13 +74,14 @@ extension YogaContainerLayoutable where Self: RenderLayout {
         superlayout.removeChild(self)
     }
     fileprivate func makeDirtyIfNeed() {
-        if self.isLeaf && self.yoga.isDirty == false {
+        if self.isLeaf && self.yoga.isDirty == false && YGNodeHasMeasureFunc(self.yoga.yogaNode) {
             self.yoga.markDirty()
         }
     }
 }
 extension ActualLayout: YogaContainerLayoutable {}
 extension GridLayout: YogaContainerLayoutable {}
+extension StackLayout: YogaContainerLayoutable {}
 extension PlaceholderLayout: YogaContainerLayoutable {
     public func addChild(_ child: YogaLayoutable) {
         _addChild(child)

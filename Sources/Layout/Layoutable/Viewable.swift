@@ -17,16 +17,16 @@ public protocol Viewable: class {
 }
 extension ActualLayout: Viewable {
     public func addSubview(_ view: UIView) {
-        view.addSubview(view)
+        self.view?.addSubview(view)
     }
     public var ownerView: UIView {
         return view!.ownerView
     }
     public var superview: UIView? {
-        return view?.superview
+        return view!.superview
     }
     public func convert(_ point: CGPoint, to view: UIView?) -> CGPoint {
-        return view!.convert(point, to: view)
+        return self.view!.convert(point, to: view)
     }
 }
 extension VirtualLayout: Viewable {

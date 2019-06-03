@@ -9,14 +9,14 @@
 import Foundation
 
 ///本身并不包含view 但是可以参与计算布局，子节点中可能包含view
-public class VirtualLayout: RenderLayout {
-    public typealias ChildType = Layoutable & Viewable
-    public let child: ChildType
+class VirtualLayout: RenderLayout {
+    typealias ChildType = YogaLayoutable & Viewable
+    let child: ChildType
     init(child: ChildType) {
         self.child = child
         super.init()
     }
-    public override func configInit() {
+    override func configInit() {
         _addChild(child)
         super.configInit()
         changeFlexIfZero(1)
@@ -26,11 +26,7 @@ public class VirtualLayout: RenderLayout {
     func yogaLayoutConfig() {
         
     }
-    /// child内缩
-    func edgesInset() -> UIEdgeInsets {
-        return .zero
-    }
-    open override var isLeaf: Bool {
+    override var isLeaf: Bool {
         return false
     }
 }

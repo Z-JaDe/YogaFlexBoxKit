@@ -17,13 +17,27 @@
 		18054D4922A1373E002A0911 /* GridLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18054D4822A1373E002A0911 /* GridLayout.swift */; };
 		18054D5022A155CD002A0911 /* PlaceholderLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18054D4F22A155CD002A0911 /* PlaceholderLayout.swift */; };
 		1896C0FF229EBC2900FAF641 /* Viewable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1896C0FE229EBC2900FAF641 /* Viewable.swift */; };
-		1896C101229EBC7C00FAF641 /* YogaLayoutable+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1896C100229EBC7C00FAF641 /* YogaLayoutable+Extension.swift */; };
+		1896C101229EBC7C00FAF641 /* Layoutable+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1896C100229EBC7C00FAF641 /* Layoutable+Extension.swift */; };
 		1896C105229EBEBF00FAF641 /* ActualLayout+UpdateFrame.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1896C104229EBEBF00FAF641 /* ActualLayout+UpdateFrame.swift */; };
 		18B08006229B76FE006E1FCB /* CornerLayoutTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18B08004229B7626006E1FCB /* CornerLayoutTests.swift */; };
 		18B08008229BD389006E1FCB /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18B08007229BD389006E1FCB /* ViewController.swift */; };
 		18B0800A229BD3F6006E1FCB /* CenterLayoutTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18B08009229BD3F6006E1FCB /* CenterLayoutTests.swift */; };
 		18B0800C229BD5D2006E1FCB /* CenterLayoutViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18B0800B229BD5D2006E1FCB /* CenterLayoutViewController.swift */; };
 		18B0800E229BE382006E1FCB /* LayoutViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18B0800D229BE382006E1FCB /* LayoutViewController.swift */; };
+		18FBA66022A4D12900BCE64C /* StackLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18FBA65F22A4D12900BCE64C /* StackLayout.swift */; };
+		18FBA66222A4EE4C00BCE64C /* StackLayoutSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18FBA66122A4EE4C00BCE64C /* StackLayoutSpec.swift */; };
+		18FBA66422A4EE6E00BCE64C /* ItemSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18FBA66322A4EE6E00BCE64C /* ItemSpec.swift */; };
+		18FBA66622A5081E00BCE64C /* CGSize.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18FBA66522A5081D00BCE64C /* CGSize.swift */; };
+		18FBA66822A5083C00BCE64C /* CGRect.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18FBA66722A5083C00BCE64C /* CGRect.swift */; };
+		18FBA66A22A5085500BCE64C /* FloatingPoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18FBA66922A5085500BCE64C /* FloatingPoint.swift */; };
+		18FBA66C22A508A400BCE64C /* StackLayoutViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18FBA66B22A508A400BCE64C /* StackLayoutViewController.swift */; };
+		18FBA66E22A5100B00BCE64C /* Layoutable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18FBA66D22A5100B00BCE64C /* Layoutable.swift */; };
+		18FBA67022A5158300BCE64C /* ContainerLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18FBA66F22A5158300BCE64C /* ContainerLayout.swift */; };
+		18FBA67222A5221F00BCE64C /* SingleLayoutable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18FBA67122A5221F00BCE64C /* SingleLayoutable.swift */; };
+		18FBA67422A5259400BCE64C /* CenterLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18FBA67322A5259400BCE64C /* CenterLayout.swift */; };
+		18FBA67622A5290C00BCE64C /* CornerLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18FBA67522A5290C00BCE64C /* CornerLayout.swift */; };
+		18FBA67822A52A5C00BCE64C /* EdgeSingleLayoutable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18FBA67722A52A5C00BCE64C /* EdgeSingleLayoutable.swift */; };
+		18FBA67B22A54F9100BCE64C /* CGPoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18FBA67A22A54F9100BCE64C /* CGPoint.swift */; };
 		18FCBE0222968C9400695868 /* LayoutNode+ApplyLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18FCBDF122968C9300695868 /* LayoutNode+ApplyLayout.swift */; };
 		18FCBE0322968C9400695868 /* LayoutNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18FCBDF222968C9300695868 /* LayoutNode.swift */; };
 		18FCBE0522968C9400695868 /* Measure.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18FCBDF422968C9300695868 /* Measure.swift */; };
@@ -36,7 +50,7 @@
 		18FCBE1022968F3800695868 /* RenderLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18FCBE0F22968F3800695868 /* RenderLayout.swift */; };
 		18FCBE12229691D200695868 /* VirtualLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18FCBE11229691D200695868 /* VirtualLayout.swift */; };
 		18FDD555229F68FF00EC68A8 /* YogaLayoutable+Container.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18FDD554229F68FF00EC68A8 /* YogaLayoutable+Container.swift */; };
-		18FDD55B229FB08400EC68A8 /* YogaLayoutable+CalculateLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18FDD55A229FB08400EC68A8 /* YogaLayoutable+CalculateLayout.swift */; };
+		18FDD55B229FB08400EC68A8 /* Layoutable+CalculateLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18FDD55A229FB08400EC68A8 /* Layoutable+CalculateLayout.swift */; };
 		18FF9D18229CC479003C5EA7 /* CenterVirtualLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18FF9D17229CC479003C5EA7 /* CenterVirtualLayout.swift */; };
 		18FF9D1A229CC593003C5EA7 /* CornerVirtualLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18FF9D19229CC593003C5EA7 /* CornerVirtualLayout.swift */; };
 		18FF9D45229D0B2F003C5EA7 /* UIView+Layout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18FF9D43229D0B2F003C5EA7 /* UIView+Layout.swift */; };
@@ -80,13 +94,27 @@
 		18054D4822A1373E002A0911 /* GridLayout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GridLayout.swift; sourceTree = "<group>"; };
 		18054D4F22A155CD002A0911 /* PlaceholderLayout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlaceholderLayout.swift; sourceTree = "<group>"; };
 		1896C0FE229EBC2900FAF641 /* Viewable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Viewable.swift; sourceTree = "<group>"; };
-		1896C100229EBC7C00FAF641 /* YogaLayoutable+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "YogaLayoutable+Extension.swift"; sourceTree = "<group>"; };
+		1896C100229EBC7C00FAF641 /* Layoutable+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Layoutable+Extension.swift"; sourceTree = "<group>"; };
 		1896C104229EBEBF00FAF641 /* ActualLayout+UpdateFrame.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ActualLayout+UpdateFrame.swift"; sourceTree = "<group>"; };
 		18B08004229B7626006E1FCB /* CornerLayoutTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CornerLayoutTests.swift; sourceTree = "<group>"; };
 		18B08007229BD389006E1FCB /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		18B08009229BD3F6006E1FCB /* CenterLayoutTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CenterLayoutTests.swift; sourceTree = "<group>"; };
 		18B0800B229BD5D2006E1FCB /* CenterLayoutViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CenterLayoutViewController.swift; sourceTree = "<group>"; };
 		18B0800D229BE382006E1FCB /* LayoutViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LayoutViewController.swift; sourceTree = "<group>"; };
+		18FBA65F22A4D12900BCE64C /* StackLayout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StackLayout.swift; sourceTree = "<group>"; };
+		18FBA66122A4EE4C00BCE64C /* StackLayoutSpec.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StackLayoutSpec.swift; sourceTree = "<group>"; };
+		18FBA66322A4EE6E00BCE64C /* ItemSpec.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemSpec.swift; sourceTree = "<group>"; };
+		18FBA66522A5081D00BCE64C /* CGSize.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CGSize.swift; sourceTree = "<group>"; };
+		18FBA66722A5083C00BCE64C /* CGRect.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CGRect.swift; sourceTree = "<group>"; };
+		18FBA66922A5085500BCE64C /* FloatingPoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FloatingPoint.swift; sourceTree = "<group>"; };
+		18FBA66B22A508A400BCE64C /* StackLayoutViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StackLayoutViewController.swift; sourceTree = "<group>"; };
+		18FBA66D22A5100B00BCE64C /* Layoutable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Layoutable.swift; sourceTree = "<group>"; };
+		18FBA66F22A5158300BCE64C /* ContainerLayout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContainerLayout.swift; sourceTree = "<group>"; };
+		18FBA67122A5221F00BCE64C /* SingleLayoutable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SingleLayoutable.swift; sourceTree = "<group>"; };
+		18FBA67322A5259400BCE64C /* CenterLayout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CenterLayout.swift; sourceTree = "<group>"; };
+		18FBA67522A5290C00BCE64C /* CornerLayout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CornerLayout.swift; sourceTree = "<group>"; };
+		18FBA67722A52A5C00BCE64C /* EdgeSingleLayoutable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EdgeSingleLayoutable.swift; sourceTree = "<group>"; };
+		18FBA67A22A54F9100BCE64C /* CGPoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CGPoint.swift; sourceTree = "<group>"; };
 		18FCBDF122968C9300695868 /* LayoutNode+ApplyLayout.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "LayoutNode+ApplyLayout.swift"; sourceTree = "<group>"; };
 		18FCBDF222968C9300695868 /* LayoutNode.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LayoutNode.swift; sourceTree = "<group>"; };
 		18FCBDF422968C9300695868 /* Measure.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Measure.swift; sourceTree = "<group>"; };
@@ -102,7 +130,7 @@
 		18FCBE0F22968F3800695868 /* RenderLayout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RenderLayout.swift; sourceTree = "<group>"; };
 		18FCBE11229691D200695868 /* VirtualLayout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VirtualLayout.swift; sourceTree = "<group>"; };
 		18FDD554229F68FF00EC68A8 /* YogaLayoutable+Container.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "YogaLayoutable+Container.swift"; sourceTree = "<group>"; };
-		18FDD55A229FB08400EC68A8 /* YogaLayoutable+CalculateLayout.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "YogaLayoutable+CalculateLayout.swift"; sourceTree = "<group>"; };
+		18FDD55A229FB08400EC68A8 /* Layoutable+CalculateLayout.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Layoutable+CalculateLayout.swift"; sourceTree = "<group>"; };
 		18FF9D17229CC479003C5EA7 /* CenterVirtualLayout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CenterVirtualLayout.swift; sourceTree = "<group>"; };
 		18FF9D19229CC593003C5EA7 /* CornerVirtualLayout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CornerVirtualLayout.swift; sourceTree = "<group>"; };
 		18FF9D43229D0B2F003C5EA7 /* UIView+Layout.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIView+Layout.swift"; sourceTree = "<group>"; };
@@ -142,6 +170,7 @@
 		1803E8EC2293E40400F1DF77 = {
 			isa = PBXGroup;
 			children = (
+				18FBA67922A52E8500BCE64C /* 废弃 */,
 				18FCBDEF22968C9300695868 /* Sources */,
 				1803E8F72293E40400F1DF77 /* YogaFlexBoxKit */,
 				1803E90C2293E40600F1DF77 /* YogaFlexBoxKitTests */,
@@ -170,6 +199,7 @@
 				18B0800D229BE382006E1FCB /* LayoutViewController.swift */,
 				18B0800B229BD5D2006E1FCB /* CenterLayoutViewController.swift */,
 				1803E8FA2293E40400F1DF77 /* CornerLayoutViewController.swift */,
+				18FBA66B22A508A400BCE64C /* StackLayoutViewController.swift */,
 				1803E8FC2293E40400F1DF77 /* Main.storyboard */,
 				1803E8FF2293E40600F1DF77 /* Assets.xcassets */,
 				1803E9012293E40600F1DF77 /* LaunchScreen.storyboard */,
@@ -202,10 +232,23 @@
 		18054D4722A1371C002A0911 /* Layouts */ = {
 			isa = PBXGroup;
 			children = (
+				18FBA66322A4EE6E00BCE64C /* ItemSpec.swift */,
+				18FBA66122A4EE4C00BCE64C /* StackLayoutSpec.swift */,
 				18054D4822A1373E002A0911 /* GridLayout.swift */,
+				18FBA65F22A4D12900BCE64C /* StackLayout.swift */,
 				18054D4F22A155CD002A0911 /* PlaceholderLayout.swift */,
 			);
 			path = Layouts;
+			sourceTree = "<group>";
+		};
+		18FBA67922A52E8500BCE64C /* 废弃 */ = {
+			isa = PBXGroup;
+			children = (
+				18FBA67722A52A5C00BCE64C /* EdgeSingleLayoutable.swift */,
+				18FBA67522A5290C00BCE64C /* CornerLayout.swift */,
+				18FBA67322A5259400BCE64C /* CenterLayout.swift */,
+			);
+			path = "废弃";
 			sourceTree = "<group>";
 		};
 		18FCBDEF22968C9300695868 /* Sources */ = {
@@ -246,6 +289,10 @@
 			isa = PBXGroup;
 			children = (
 				18FCBDFD22968C9400695868 /* Util.swift */,
+				18FBA66922A5085500BCE64C /* FloatingPoint.swift */,
+				18FBA67A22A54F9100BCE64C /* CGPoint.swift */,
+				18FBA66522A5081D00BCE64C /* CGSize.swift */,
+				18FBA66722A5083C00BCE64C /* CGRect.swift */,
 				18FCBDFE22968C9400695868 /* YGLayoutExtensions.swift */,
 			);
 			path = Util;
@@ -256,7 +303,7 @@
 			children = (
 				18FDD553229F654D00EC68A8 /* Layoutable */,
 				18FF9D42229D0B2F003C5EA7 /* ActualLayout */,
-				18FF9D16229CC461003C5EA7 /* VirtualLayout */,
+				18FF9D16229CC461003C5EA7 /* SingleLayout */,
 				18054D4722A1371C002A0911 /* Layouts */,
 			);
 			path = Layout;
@@ -267,23 +314,26 @@
 			children = (
 				18FCBE0F22968F3800695868 /* RenderLayout.swift */,
 				E6A8654322A2749C002B8B10 /* LeafLayout.swift */,
+				18FBA66D22A5100B00BCE64C /* Layoutable.swift */,
+				18FDD55A229FB08400EC68A8 /* Layoutable+CalculateLayout.swift */,
+				1896C100229EBC7C00FAF641 /* Layoutable+Extension.swift */,
 				18FCBE0022968C9400695868 /* YogaLayoutable.swift */,
-				18FDD55A229FB08400EC68A8 /* YogaLayoutable+CalculateLayout.swift */,
 				18FDD554229F68FF00EC68A8 /* YogaLayoutable+Container.swift */,
-				1896C100229EBC7C00FAF641 /* YogaLayoutable+Extension.swift */,
 				1896C0FE229EBC2900FAF641 /* Viewable.swift */,
 			);
 			path = Layoutable;
 			sourceTree = "<group>";
 		};
-		18FF9D16229CC461003C5EA7 /* VirtualLayout */ = {
+		18FF9D16229CC461003C5EA7 /* SingleLayout */ = {
 			isa = PBXGroup;
 			children = (
+				18FBA67122A5221F00BCE64C /* SingleLayoutable.swift */,
+				18FBA66F22A5158300BCE64C /* ContainerLayout.swift */,
 				18FCBE11229691D200695868 /* VirtualLayout.swift */,
 				18FF9D17229CC479003C5EA7 /* CenterVirtualLayout.swift */,
 				18FF9D19229CC593003C5EA7 /* CornerVirtualLayout.swift */,
 			);
-			path = VirtualLayout;
+			path = SingleLayout;
 			sourceTree = "<group>";
 		};
 		18FF9D42229D0B2F003C5EA7 /* ActualLayout */ = {
@@ -489,32 +539,46 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				18FBA67422A5259400BCE64C /* CenterLayout.swift in Sources */,
+				18FBA67822A52A5C00BCE64C /* EdgeSingleLayoutable.swift in Sources */,
 				18FCBE0222968C9400695868 /* LayoutNode+ApplyLayout.swift in Sources */,
+				18FBA66822A5083C00BCE64C /* CGRect.swift in Sources */,
 				1803E8FB2293E40400F1DF77 /* CornerLayoutViewController.swift in Sources */,
+				18FBA67622A5290C00BCE64C /* CornerLayout.swift in Sources */,
 				18FCBE0522968C9400695868 /* Measure.swift in Sources */,
 				1803E8F92293E40400F1DF77 /* AppDelegate.swift in Sources */,
-				18FDD55B229FB08400EC68A8 /* YogaLayoutable+CalculateLayout.swift in Sources */,
+				18FDD55B229FB08400EC68A8 /* Layoutable+CalculateLayout.swift in Sources */,
 				18B0800E229BE382006E1FCB /* LayoutViewController.swift in Sources */,
+				18FBA67B22A54F9100BCE64C /* CGPoint.swift in Sources */,
 				18FDD555229F68FF00EC68A8 /* YogaLayoutable+Container.swift in Sources */,
 				18FF9D46229D0B2F003C5EA7 /* ActualLayout.swift in Sources */,
+				18FBA67222A5221F00BCE64C /* SingleLayoutable.swift in Sources */,
+				18FBA66C22A508A400BCE64C /* StackLayoutViewController.swift in Sources */,
 				18B0800C229BD5D2006E1FCB /* CenterLayoutViewController.swift in Sources */,
 				1896C0FF229EBC2900FAF641 /* Viewable.swift in Sources */,
 				18FCBE1022968F3800695868 /* RenderLayout.swift in Sources */,
 				18FCBE0722968C9400695868 /* LayoutNode+Style.m in Sources */,
+				18FBA66622A5081E00BCE64C /* CGSize.swift in Sources */,
+				18FBA66A22A5085500BCE64C /* FloatingPoint.swift in Sources */,
 				18FCBE0A22968C9400695868 /* YGLayoutExtensions.swift in Sources */,
 				18FCBE0622968C9400695868 /* LayoutNode+Calculate.swift in Sources */,
 				18054D5022A155CD002A0911 /* PlaceholderLayout.swift in Sources */,
+				18FBA66222A4EE4C00BCE64C /* StackLayoutSpec.swift in Sources */,
 				E6A8654422A2749C002B8B10 /* LeafLayout.swift in Sources */,
+				18FBA67022A5158300BCE64C /* ContainerLayout.swift in Sources */,
+				18FBA66E22A5100B00BCE64C /* Layoutable.swift in Sources */,
 				18054D4922A1373E002A0911 /* GridLayout.swift in Sources */,
+				18FBA66422A4EE6E00BCE64C /* ItemSpec.swift in Sources */,
 				18FCBE0922968C9400695868 /* Util.swift in Sources */,
 				18FCBE0B22968C9400695868 /* YogaLayoutable.swift in Sources */,
+				18FBA66022A4D12900BCE64C /* StackLayout.swift in Sources */,
 				1896C105229EBEBF00FAF641 /* ActualLayout+UpdateFrame.swift in Sources */,
 				18FCBE12229691D200695868 /* VirtualLayout.swift in Sources */,
 				18FF9D18229CC479003C5EA7 /* CenterVirtualLayout.swift in Sources */,
 				18FCBE0822968C9400695868 /* LayoutNode.m in Sources */,
 				18B08008229BD389006E1FCB /* ViewController.swift in Sources */,
 				18FF9D1A229CC593003C5EA7 /* CornerVirtualLayout.swift in Sources */,
-				1896C101229EBC7C00FAF641 /* YogaLayoutable+Extension.swift in Sources */,
+				1896C101229EBC7C00FAF641 /* Layoutable+Extension.swift in Sources */,
 				18FF9D45229D0B2F003C5EA7 /* UIView+Layout.swift in Sources */,
 				18FCBE0322968C9400695868 /* LayoutNode.swift in Sources */,
 			);

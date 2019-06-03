@@ -8,15 +8,16 @@
 
 import Foundation
 private var kLayoutAssociatedKey: UInt8 = 0
+
 extension UIView {
-    public var layout: Layoutable & Viewable  & YogaContainerLayoutable {
-        var layout = objc_getAssociatedObject(self, &kLayoutAssociatedKey) as? ViewActualLayout
-        if let layout = layout {
+    public var layout: YogaLayoutable & Viewable & YogaContainerLayoutable {
+        var _layout = objc_getAssociatedObject(self, &kLayoutAssociatedKey) as? ViewActualLayout
+        if let layout = _layout {
             return layout
         }
-        layout = ActualLayout(view: self, containerSize: nil)
-        objc_setAssociatedObject(self, &kLayoutAssociatedKey, layout, .OBJC_ASSOCIATION_RETAIN_NONATOMIC)
-        return layout!
+        _layout = ViewActualLayout(view: self)
+        objc_setAssociatedObject(self, &kLayoutAssociatedKey, _layout, .OBJC_ASSOCIATION_RETAIN_NONATOMIC)
+        return _layout!
     }
 }
 typealias ViewActualLayout = ActualLayout

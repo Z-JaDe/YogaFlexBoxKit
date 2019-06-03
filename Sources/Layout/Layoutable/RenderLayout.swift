@@ -47,7 +47,7 @@ open class RenderLayout: YogaLayoutable {
         } else {
             let frame = self.frame
             ///该方法走完会走下_frameDidChanged
-            self.applyLayout(preserveOrigin: true, size: frame.size)
+            self.applyLayout(origin: frame.origin, size: frame.size)
         }
     }
     /// 叶子节点的时候 yoga根据该方法返回一个适合的尺寸
@@ -62,8 +62,8 @@ open class RenderLayout: YogaLayoutable {
     open func calculateLayout(with size: CGSize) -> CGSize {
         return yoga.calculateYogaLayout(with: size)
     }
-    open func applyLayout(preserveOrigin: Bool, size: CGSize) {
-        yoga.applyLayout(preserveOrigin: preserveOrigin, size: size)
+    open func applyLayout(origin: CGPoint, size: CGSize) {
+        yoga.applyLayout(origin: origin, size: size)
     }
 }
 

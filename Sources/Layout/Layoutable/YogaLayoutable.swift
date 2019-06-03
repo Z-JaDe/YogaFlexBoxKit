@@ -8,8 +8,7 @@
 
 import Foundation
 
-public typealias Layoutable = YogaLayoutable
-public protocol YogaLayoutable: class {
+public protocol YogaLayoutable: class, Layoutable {
     var frame: CGRect {get set}
     var yoga: LayoutNode {get}
     var childs: [YogaLayoutable] {get}
@@ -17,11 +16,13 @@ public protocol YogaLayoutable: class {
     var isLeaf: Bool {get}
     ///该节点是叶子节点的时候，才会调用，适配尺寸
     func sizeThatFits(_ size: CGSize) -> CGSize
-    ///内部yoga计算好frame会调用该方法，实现协议需要实现该方法
+    ///内部计算好frame会调用该方法，实现协议需要实现该方法 更新内部布局
     func changePrivateFrame(_ frame: CGRect)
-    
-    func calculateLayout(with size: CGSize) -> CGSize
-    func applyLayout(preserveOrigin: Bool, size: CGSize)
+}
+public extension YogaLayoutable {
+    func getFrame() -> CGRect {
+        return self.frame
+    }
 }
 public extension YogaLayoutable {
     func configureLayout(_ closure: (LayoutNode) -> Void) {

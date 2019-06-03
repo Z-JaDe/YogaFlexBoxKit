@@ -7,23 +7,23 @@
 //
 
 import Foundation
-public struct YGDimensionFlexibility: OptionSet {
+
+public struct DimensionFlexibility: OptionSet {
     public let rawValue: Int
     public init(rawValue: Int) {
         self.rawValue = rawValue
     }
-    static let flexibleWidth = YGDimensionFlexibility(rawValue: 1 << 0)
-    static let flexibleHeight = YGDimensionFlexibility(rawValue: 1 << 1)
+    static let flexibleWidth = DimensionFlexibility(rawValue: 1 << 0)
+    static let flexibleHeight = DimensionFlexibility(rawValue: 1 << 1)
 }
-
-public extension YogaLayoutable {
+public extension Layoutable {
     var intrinsicSize: CGSize {
         return self.calculateLayout(with: .nan)
     }
     func applyLayout(preserveOrigin: Bool = false) {
-        applyLayout(preserveOrigin: preserveOrigin, size: .nan)
+        applyLayout(origin: preserveOrigin ? self.getFrame().origin : .zero, size: .nan)
     }
-    func applyLayout(preserveOrigin: Bool, size: CGSize, dimensionFlexibility: YGDimensionFlexibility) {
+    func applyLayout(preserveOrigin: Bool, size: CGSize, dimensionFlexibility: DimensionFlexibility) {
         var size: CGSize = size
         if dimensionFlexibility.contains(.flexibleWidth) {
             size.width = CGFloat.nan
@@ -31,7 +31,7 @@ public extension YogaLayoutable {
         if dimensionFlexibility.contains(.flexibleHeight) {
             size.height = CGFloat.nan
         }
-        applyLayout(preserveOrigin: preserveOrigin, size: size)
+        applyLayout(origin: preserveOrigin ? self.getFrame().origin : .zero, size: size)
     }
 }
 

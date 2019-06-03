@@ -9,32 +9,30 @@
 import Foundation
 
 ///本身包含view，可以添加多个子节点
-public class ActualLayout: RenderLayout {
+class ActualLayout: RenderLayout {
     typealias View = Viewable
     private weak var _view: View?
     private var _layout: View?
     var view: View? {
         return _view ?? _layout
     }
-    public internal(set) var containerSize: CGSize
-    public let isScroll: Bool
-    init(view: View, containerSize: CGSize?) {
+    let isScroll: Bool
+    init(view: View) {
+        self.isScroll = view is UIScrollView
+        super.init()
         if view is UIView {
             self._view = view
         } else {
             self._layout = view
         }
-        self.containerSize = containerSize ?? .nan
-        self.isScroll = view is UIScrollView
-        super.init()
     }
-    public override func configInit() {
+    override func configInit() {
         super.configInit()
         if isScroll {
             self.changeFlexIfZero(1)
         }
     }
-    open override func privateFrameDidChanged(oldFrame: CGRect) {
+    override func privateFrameDidChanged(oldFrame: CGRect) {
         super.privateFrameDidChanged(oldFrame: oldFrame)
         performInMainAsyncIfNeed {
             self.updateViewFrame(self.frame)
@@ -48,21 +46,6 @@ public class ActualLayout: RenderLayout {
         }
     }
     open override func sizeThatFits(_ size: CGSize) -> CGSize {
-        return containerSize.isNaN ? view!.sizeThatFits(size) : containerSize
-    }
-    @discardableResult
-    open override func calculateLayout(with size: CGSize) -> CGSize {
-        if containerSize.isNaN {
-            return yoga.calculateYogaLayout(with: size)
-        } else {
-            return containerSize
-        }
-    }
-    open override func applyLayout(preserveOrigin: Bool, size: CGSize) {
-        var size: CGSize = size
-        if containerSize.width.isNaN && containerSize.height.isNaN {
-            size = containerSize
-        }
-        yoga.applyLayout(preserveOrigin: preserveOrigin, size: size)
+        return view?.sizeThatFits(size) ?? .zero
     }
 }

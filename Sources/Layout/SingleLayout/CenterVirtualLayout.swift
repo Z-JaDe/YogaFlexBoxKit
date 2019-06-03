@@ -8,14 +8,14 @@
 
 import Foundation
 
-public enum CenterVirtualLayoutOptions {
+public enum CenterLayoutOption {
     case X
     case Y
     case XY
 }
-public class CenterVirtualLayout: VirtualLayout {
-    public let option: CenterVirtualLayoutOptions
-    init(child: ChildType, option: CenterVirtualLayoutOptions) {
+class CenterVirtualLayout: VirtualLayout {
+    let option: CenterLayoutOption
+    init(child: ChildType, option: CenterLayoutOption) {
         self.option = option
         super.init(child: child)
     }

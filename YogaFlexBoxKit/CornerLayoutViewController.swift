@@ -20,8 +20,8 @@ class CornerLayoutViewController: LayoutViewController {
             view.backgroundColor = UIColor.red
         }
         self.view.layout
-//            .corner(.topFill(50, 50))
-//            .corner(.bottomFill(100, 10))
+            .corner(.topFill(50, 50))
+            .corner(.bottomFill(100, 10))
             .container(containerSize: self.view.frame.size)
             .applyLayout(preserveOrigin: false)
         for layout in self.view.layout.childs {
@@ -34,7 +34,7 @@ class CornerLayoutViewController: LayoutViewController {
     }
 }
 class CornerLayoutTest: LayoutTest {
-    let array: [CornerVirtualLayoutOption] = [
+    let array: [CornerLayoutOption] = [
         .topLeft(10, 10),
         .topRight(10, 10),
         .bottomLeft(10, 10),

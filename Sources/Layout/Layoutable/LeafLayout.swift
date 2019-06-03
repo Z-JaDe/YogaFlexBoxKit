@@ -13,10 +13,8 @@ public protocol LeafLayoutProtocol {
     func frameDidChanged(oldFrame: CGRect, newFrame: CGRect)
 }
 open class LeafLayout: RenderLayout {
-    public private(set) var isLoad: Bool = false
     open override func configInit() {
         super.configInit()
-        changeFlexIfZero(1)
     }
     public override final var isLeaf: Bool {
         return true
@@ -24,7 +22,6 @@ open class LeafLayout: RenderLayout {
     public override final func privateFrameDidChanged(oldFrame: CGRect) {
         guard oldFrame != self.frame else { return }
         (self as? LeafLayoutProtocol)?.frameDidChanged(oldFrame: oldFrame, newFrame: self.frame)
-        self.isLoad = true
     }
     public override final func sizeThatFits(_ size: CGSize) -> CGSize {
         return (self as? LeafLayoutProtocol)?.calculateSize(size) ?? .zero
@@ -32,7 +29,7 @@ open class LeafLayout: RenderLayout {
 }
 extension LeafLayout {
     public func makeDirty() {
-        guard self.yoga.isDirty == false else {
+        guard self.yoga.isDirty == false && YGNodeHasMeasureFunc(self.yoga.yogaNode) else {
             return
         }
         self.yoga.markDirty()

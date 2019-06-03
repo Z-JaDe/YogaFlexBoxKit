@@ -12,9 +12,9 @@ extension LayoutNode {
     func applyLayoutToViewHierarchy(origin: CGPoint) {
         layoutable.applyLayoutToViewHierarchy(origin: origin)
     }
-    func applyLayout(preserveOrigin: Bool, size: CGSize) {
+    func applyLayout(origin: CGPoint, size: CGSize) {
         calculateYogaLayout(with: size)
-        applyLayoutToViewHierarchy(origin: preserveOrigin ? self.layoutable.frame.origin : .zero)
+        applyLayoutToViewHierarchy(origin: origin)
     }
 }
 extension YogaLayoutable {

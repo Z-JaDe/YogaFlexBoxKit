@@ -35,7 +35,7 @@ class CenterLayoutViewController: LayoutViewController {
     }
 }
 class CenterLayoutTest: LayoutTest {
-    let array: [CenterVirtualLayoutOptions] = [
+    let array: [CenterLayoutOption] = [
         .X,
         .Y,
         .XY

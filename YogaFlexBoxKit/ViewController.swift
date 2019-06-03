@@ -13,7 +13,8 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 //        let child = CenterLayoutViewController()
-        let child = CornerLayoutViewController()
+//        let child = CornerLayoutViewController()
+        let child = StackLayoutViewController()
         self.addChild(child)
         self.view.addSubview(child.view)
     }

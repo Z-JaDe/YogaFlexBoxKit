@@ -8,12 +8,6 @@
 
 import Foundation
 
-protocol ActualLayoutCompatible: class {
-    var containerSize: CGSize {get set}
-    var view: Viewable? {get}
-}
-extension ActualLayout: ActualLayoutCompatible {}
-
 ///本身包含view，可以添加多个子节点
 public class ActualLayout: RenderLayout {
     typealias View = Viewable
@@ -40,18 +34,11 @@ public class ActualLayout: RenderLayout {
             self.changeFlexIfZero(1)
         }
     }
-    override func _frameDidChanged(oldFrame: CGRect) {
-        super._frameDidChanged(oldFrame: oldFrame)
+    open override func privateFrameDidChanged(oldFrame: CGRect) {
+        super.privateFrameDidChanged(oldFrame: oldFrame)
         performInMainAsyncIfNeed {
             self.updateViewFrame(self.frame)
         }
-    }
-    override func layoutDidChanged(oldFrame: CGRect) {
-        super.layoutDidChanged(oldFrame: oldFrame)
-        guard oldFrame != self.frame else { return }
-        let frame = self.frame
-        ///该方法走完会走下_frameDidChanged
-        self.applyLayout(preserveOrigin: true, size: frame.size)
     }
     func performInMainAsyncIfNeed(_ action: @escaping () -> Void) {
         if view is UIView {
@@ -59,5 +46,23 @@ public class ActualLayout: RenderLayout {
         } else {
             action()
         }
+    }
+    open override func sizeThatFits(_ size: CGSize) -> CGSize {
+        return containerSize.isNaN ? view!.sizeThatFits(size) : containerSize
+    }
+    @discardableResult
+    open override func calculateLayout(with size: CGSize) -> CGSize {
+        if containerSize.isNaN {
+            return yoga.calculateYogaLayout(with: size)
+        } else {
+            return containerSize
+        }
+    }
+    open override func applyLayout(preserveOrigin: Bool, size: CGSize) {
+        var size: CGSize = size
+        if containerSize.width.isNaN && containerSize.height.isNaN {
+            size = containerSize
+        }
+        yoga.applyLayout(preserveOrigin: preserveOrigin, size: size)
     }
 }

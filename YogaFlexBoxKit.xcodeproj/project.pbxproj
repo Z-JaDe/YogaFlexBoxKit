@@ -18,8 +18,7 @@
 		18054D5022A155CD002A0911 /* PlaceholderLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18054D4F22A155CD002A0911 /* PlaceholderLayout.swift */; };
 		1896C0FF229EBC2900FAF641 /* Viewable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1896C0FE229EBC2900FAF641 /* Viewable.swift */; };
 		1896C101229EBC7C00FAF641 /* YogaLayoutable+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1896C100229EBC7C00FAF641 /* YogaLayoutable+Extension.swift */; };
-		1896C103229EBD2300FAF641 /* YogaLayoutable+Sub.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1896C102229EBD2300FAF641 /* YogaLayoutable+Sub.swift */; };
-		1896C105229EBEBF00FAF641 /* UpdateLayoutProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1896C104229EBEBF00FAF641 /* UpdateLayoutProtocol.swift */; };
+		1896C105229EBEBF00FAF641 /* ActualLayout+UpdateFrame.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1896C104229EBEBF00FAF641 /* ActualLayout+UpdateFrame.swift */; };
 		18B08006229B76FE006E1FCB /* CornerLayoutTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18B08004229B7626006E1FCB /* CornerLayoutTests.swift */; };
 		18B08008229BD389006E1FCB /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18B08007229BD389006E1FCB /* ViewController.swift */; };
 		18B0800A229BD3F6006E1FCB /* CenterLayoutTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18B08009229BD3F6006E1FCB /* CenterLayoutTests.swift */; };
@@ -43,6 +42,7 @@
 		18FF9D45229D0B2F003C5EA7 /* UIView+Layout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18FF9D43229D0B2F003C5EA7 /* UIView+Layout.swift */; };
 		18FF9D46229D0B2F003C5EA7 /* ActualLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18FF9D44229D0B2F003C5EA7 /* ActualLayout.swift */; };
 		394BCA8780D9C2523303EFD2 /* Pods_YogaFlexBoxKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9C26E8BF526D2AA11B6AEEA5 /* Pods_YogaFlexBoxKit.framework */; };
+		E6A8654422A2749C002B8B10 /* LeafLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6A8654322A2749C002B8B10 /* LeafLayout.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -81,8 +81,7 @@
 		18054D4F22A155CD002A0911 /* PlaceholderLayout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlaceholderLayout.swift; sourceTree = "<group>"; };
 		1896C0FE229EBC2900FAF641 /* Viewable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Viewable.swift; sourceTree = "<group>"; };
 		1896C100229EBC7C00FAF641 /* YogaLayoutable+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "YogaLayoutable+Extension.swift"; sourceTree = "<group>"; };
-		1896C102229EBD2300FAF641 /* YogaLayoutable+Sub.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "YogaLayoutable+Sub.swift"; sourceTree = "<group>"; };
-		1896C104229EBEBF00FAF641 /* UpdateLayoutProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UpdateLayoutProtocol.swift; sourceTree = "<group>"; };
+		1896C104229EBEBF00FAF641 /* ActualLayout+UpdateFrame.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ActualLayout+UpdateFrame.swift"; sourceTree = "<group>"; };
 		18B08004229B7626006E1FCB /* CornerLayoutTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CornerLayoutTests.swift; sourceTree = "<group>"; };
 		18B08007229BD389006E1FCB /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		18B08009229BD3F6006E1FCB /* CenterLayoutTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CenterLayoutTests.swift; sourceTree = "<group>"; };
@@ -110,6 +109,7 @@
 		18FF9D44229D0B2F003C5EA7 /* ActualLayout.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ActualLayout.swift; sourceTree = "<group>"; };
 		7BC0276049A549EAC5E0AF0A /* Pods-YogaFlexBoxKit.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-YogaFlexBoxKit.debug.xcconfig"; path = "Target Support Files/Pods-YogaFlexBoxKit/Pods-YogaFlexBoxKit.debug.xcconfig"; sourceTree = "<group>"; };
 		9C26E8BF526D2AA11B6AEEA5 /* Pods_YogaFlexBoxKit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_YogaFlexBoxKit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		E6A8654322A2749C002B8B10 /* LeafLayout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LeafLayout.swift; sourceTree = "<group>"; };
 		EDA01FF3F1DF0535FA910D31 /* Pods-YogaFlexBoxKit.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-YogaFlexBoxKit.release.xcconfig"; path = "Target Support Files/Pods-YogaFlexBoxKit/Pods-YogaFlexBoxKit.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -258,7 +258,6 @@
 				18FF9D42229D0B2F003C5EA7 /* ActualLayout */,
 				18FF9D16229CC461003C5EA7 /* VirtualLayout */,
 				18054D4722A1371C002A0911 /* Layouts */,
-				18FCBE0F22968F3800695868 /* RenderLayout.swift */,
 			);
 			path = Layout;
 			sourceTree = "<group>";
@@ -266,12 +265,12 @@
 		18FDD553229F654D00EC68A8 /* Layoutable */ = {
 			isa = PBXGroup;
 			children = (
+				18FCBE0F22968F3800695868 /* RenderLayout.swift */,
+				E6A8654322A2749C002B8B10 /* LeafLayout.swift */,
 				18FCBE0022968C9400695868 /* YogaLayoutable.swift */,
-				18FDD554229F68FF00EC68A8 /* YogaLayoutable+Container.swift */,
 				18FDD55A229FB08400EC68A8 /* YogaLayoutable+CalculateLayout.swift */,
-				1896C102229EBD2300FAF641 /* YogaLayoutable+Sub.swift */,
+				18FDD554229F68FF00EC68A8 /* YogaLayoutable+Container.swift */,
 				1896C100229EBC7C00FAF641 /* YogaLayoutable+Extension.swift */,
-				1896C104229EBEBF00FAF641 /* UpdateLayoutProtocol.swift */,
 				1896C0FE229EBC2900FAF641 /* Viewable.swift */,
 			);
 			path = Layoutable;
@@ -291,6 +290,7 @@
 			isa = PBXGroup;
 			children = (
 				18FF9D44229D0B2F003C5EA7 /* ActualLayout.swift */,
+				1896C104229EBEBF00FAF641 /* ActualLayout+UpdateFrame.swift */,
 				18FF9D43229D0B2F003C5EA7 /* UIView+Layout.swift */,
 			);
 			path = ActualLayout;
@@ -501,14 +501,14 @@
 				1896C0FF229EBC2900FAF641 /* Viewable.swift in Sources */,
 				18FCBE1022968F3800695868 /* RenderLayout.swift in Sources */,
 				18FCBE0722968C9400695868 /* LayoutNode+Style.m in Sources */,
-				1896C103229EBD2300FAF641 /* YogaLayoutable+Sub.swift in Sources */,
 				18FCBE0A22968C9400695868 /* YGLayoutExtensions.swift in Sources */,
 				18FCBE0622968C9400695868 /* LayoutNode+Calculate.swift in Sources */,
 				18054D5022A155CD002A0911 /* PlaceholderLayout.swift in Sources */,
+				E6A8654422A2749C002B8B10 /* LeafLayout.swift in Sources */,
 				18054D4922A1373E002A0911 /* GridLayout.swift in Sources */,
 				18FCBE0922968C9400695868 /* Util.swift in Sources */,
 				18FCBE0B22968C9400695868 /* YogaLayoutable.swift in Sources */,
-				1896C105229EBEBF00FAF641 /* UpdateLayoutProtocol.swift in Sources */,
+				1896C105229EBEBF00FAF641 /* ActualLayout+UpdateFrame.swift in Sources */,
 				18FCBE12229691D200695868 /* VirtualLayout.swift in Sources */,
 				18FF9D18229CC479003C5EA7 /* CenterVirtualLayout.swift in Sources */,
 				18FCBE0822968C9400695868 /* LayoutNode.m in Sources */,

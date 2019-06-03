@@ -8,20 +8,16 @@
 
 import Foundation
 
-protocol UpdateLayoutProtocol {
-    func updateViewFrame(_ frame: CGRect)
-}
-extension ActualLayout: UpdateLayoutProtocol {
+extension ActualLayout {
     func updateViewFrame(_ frame: CGRect) {
         ///每次重新创建Timer实例，简单测试后发现速度反而慢了
         //        throttle(&layoutViewTimer, interval: .milliseconds(100)) {
         //        }
-        guard let view = self.view else {
+        if let layout = self.view as? RenderLayout & YogaLayoutable {
+            layout.frame = frame
             return
         }
-        if let layout = view as? RenderLayout & YogaCalculateLayoutable {
-            layout._frame.origin = frame.origin
-            layout.applyLayout(preserveOrigin: true, size: frame.size)
+        guard let view = self.view as? UIView else {
             return
         }
         let frame = CGRect(origin: converToViewHierarchy(frame.origin), size: frame.size)
@@ -48,7 +44,7 @@ extension ActualLayout: UpdateLayoutProtocol {
         var point = point
         var superLayout = self.superLayout
         while let layout = superLayout {
-            if let superView = (superLayout as? ActualLayoutCompatible)?.view {
+            if let superView = (superLayout as? ActualLayout)?.view {
                 point = superView.convert(point, to: view?.superview)
                 break
             } else {                
@@ -58,10 +54,5 @@ extension ActualLayout: UpdateLayoutProtocol {
             superLayout = layout.superLayout
         }
         return point
-    }
-}
-extension VirtualLayout: UpdateLayoutProtocol {
-    func updateViewFrame(_ frame: CGRect) {
-        (child as! UpdateLayoutProtocol).updateViewFrame(frame)
     }
 }

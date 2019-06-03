@@ -9,17 +9,11 @@
 import Foundation
 
 public protocol Viewable: class {
-    var frame: CGRect {get set}
     var ownerView: UIView {get}
     var superview: UIView? {get}
     func addSubview(_ view: UIView)
     func sizeThatFits(_ size: CGSize) -> CGSize
     func convert(_ point: CGPoint, to view: UIView?) -> CGPoint
-}
-public extension Viewable {
-    var size: CGSize {
-        return frame.size
-    }
 }
 extension ActualLayout: Viewable {
     public func addSubview(_ view: UIView) {

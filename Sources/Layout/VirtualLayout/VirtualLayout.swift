@@ -30,4 +30,7 @@ public class VirtualLayout: RenderLayout {
     func edgesInset() -> UIEdgeInsets {
         return .zero
     }
+    open override var isLeaf: Bool {
+        return false
+    }
 }

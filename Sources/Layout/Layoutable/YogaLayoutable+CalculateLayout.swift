@@ -15,50 +15,23 @@ public struct YGDimensionFlexibility: OptionSet {
     static let flexibleWidth = YGDimensionFlexibility(rawValue: 1 << 0)
     static let flexibleHeight = YGDimensionFlexibility(rawValue: 1 << 1)
 }
-public protocol YogaCalculateLayoutable: class {
-    var containerSize: CGSize {get}
-    var isScroll: Bool {get}
-    ///只计算布局但是没有更新frame 内部没有用到
-    func calculateLayout(with size: CGSize) -> CGSize
-    ///计算并更新frame
-    func applyLayout(preserveOrigin: Bool, size: CGSize)
-}
 
-public extension YogaCalculateLayoutable {
+public extension YogaLayoutable {
     var intrinsicSize: CGSize {
-        return self.calculateLayout(with: CGSize.nan)
+        return self.calculateLayout(with: .nan)
     }
     func applyLayout(preserveOrigin: Bool = false) {
-        applyLayout(preserveOrigin: preserveOrigin, size: containerSize)
+        applyLayout(preserveOrigin: preserveOrigin, size: .nan)
     }
     func applyLayout(preserveOrigin: Bool, size: CGSize, dimensionFlexibility: YGDimensionFlexibility) {
         var size: CGSize = size
         if dimensionFlexibility.contains(.flexibleWidth) {
             size.width = CGFloat.nan
         }
-        if dimensionFlexibility.contains(.flexibleHeight) || isScroll {
+        if dimensionFlexibility.contains(.flexibleHeight) {
             size.height = CGFloat.nan
         }
         applyLayout(preserveOrigin: preserveOrigin, size: size)
-    }
-}
-
-public extension YogaCalculateLayoutable where Self: YogaLayoutable {
-    @discardableResult
-    func calculateLayout(with size: CGSize) -> CGSize {
-        return yoga.calculateYogaLayout(with: size)
-    }
-    func applyLayout(preserveOrigin: Bool, size: CGSize) {
-        yoga.applyLayout(preserveOrigin: preserveOrigin, size: size)
-    }
-}
-extension ActualLayout: YogaCalculateLayoutable {}
-extension VirtualLayout: YogaCalculateLayoutable {
-    public var isScroll: Bool {
-        return child.isScroll
-    }
-    public var containerSize: CGSize {
-        return child.containerSize + edgesInset()
     }
 }
 

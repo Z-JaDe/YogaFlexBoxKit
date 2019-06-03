@@ -56,7 +56,8 @@ extension YogaLayoutable {
         let subviewsToInclude = self.childs.lazy.map({$0.yoga}).filter({$0.isIncludedInLayout})
         if yoga.hasExactSameChildren(subviewsToInclude) == false {
             yoga.removeAllChildren()
-            subviewsToInclude.enumerated().forEach({yoga.insertChild($0.element, index: UInt32($0.offset))})
+            subviewsToInclude.enumerated()
+                .forEach({yoga.insertChild($0.element, index: UInt32($0.offset))})
         }
         subviewsToInclude.forEach({$0.layoutable?.attachNodesFromViewHierachy()})
     }

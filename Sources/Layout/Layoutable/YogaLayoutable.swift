@@ -40,6 +40,11 @@ public extension YogaLayoutable {
         }
     }
 }
+extension YogaLayoutable {
+    public static func == (lhs: Self, rhs: Self) -> Bool {
+        return lhs.yoga == rhs.yoga
+    }
+}
 internal extension YogaLayoutable {
     var _isLeaf: Bool {
         /// 不包含可用子节点

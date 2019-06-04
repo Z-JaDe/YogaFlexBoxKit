@@ -7,10 +7,17 @@
 //
 
 import Foundation
-
+//extension UIEdgeInsets {
+//    init(top: Float, left: Float, bottom: Float, right: Float) {
+//        self.init(top: CGFloat(top), left: CGFloat(left), bottom: CGFloat(bottom), right: CGFloat(right))
+//    }
+//}
 extension CGRect {
     init(x: Float, y: Float, width: Float, height: Float) {
         self.init(x: Double(x), y: Double(y), width: Double(width), height: Double(height))
+    }
+    var bounds: CGRect {
+        return CGRect(origin: .zero, size: size)
     }
 }
 extension CGRect {

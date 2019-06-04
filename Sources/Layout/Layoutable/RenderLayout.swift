@@ -85,7 +85,7 @@ extension RenderLayout {
         self.childs.removeAll()
     }
     internal func setSuperLayout(_ layout: YogaLayoutable?) {
-        if let superLayout = self.superLayout {
+        if let superLayout = self.superLayout, layout != nil {
             assertionFailure("layout已经拥有superLayout->\(superLayout)")
         }
         self.superLayout = layout

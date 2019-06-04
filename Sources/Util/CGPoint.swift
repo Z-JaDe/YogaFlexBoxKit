@@ -14,8 +14,8 @@ extension CGPoint {
     }
     static func + (left: CGPoint, right: CGPoint) -> CGPoint {
         var left = left
-        left.x += right.x + right.x
-        left.y += right.y + right.y
+        left.x += right.x
+        left.y += right.y
         return left
     }
     var pixelValue: CGPoint {

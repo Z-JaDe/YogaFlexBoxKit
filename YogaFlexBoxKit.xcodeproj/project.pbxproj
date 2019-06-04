@@ -49,6 +49,8 @@
 		18FCBE0B22968C9400695868 /* YogaLayoutable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18FCBE0022968C9400695868 /* YogaLayoutable.swift */; };
 		18FCBE1022968F3800695868 /* RenderLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18FCBE0F22968F3800695868 /* RenderLayout.swift */; };
 		18FCBE12229691D200695868 /* VirtualLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18FCBE11229691D200695868 /* VirtualLayout.swift */; };
+		18FD795122A60726001E8536 /* GridLayoutSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18FD795022A60726001E8536 /* GridLayoutSpec.swift */; };
+		18FD795322A61A81001E8536 /* MultipleItemsSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18FD795222A61A81001E8536 /* MultipleItemsSpec.swift */; };
 		18FDD555229F68FF00EC68A8 /* YogaLayoutable+Container.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18FDD554229F68FF00EC68A8 /* YogaLayoutable+Container.swift */; };
 		18FDD55B229FB08400EC68A8 /* Layoutable+CalculateLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18FDD55A229FB08400EC68A8 /* Layoutable+CalculateLayout.swift */; };
 		18FF9D18229CC479003C5EA7 /* CenterVirtualLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18FF9D17229CC479003C5EA7 /* CenterVirtualLayout.swift */; };
@@ -129,6 +131,8 @@
 		18FCBE0022968C9400695868 /* YogaLayoutable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = YogaLayoutable.swift; sourceTree = "<group>"; };
 		18FCBE0F22968F3800695868 /* RenderLayout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RenderLayout.swift; sourceTree = "<group>"; };
 		18FCBE11229691D200695868 /* VirtualLayout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VirtualLayout.swift; sourceTree = "<group>"; };
+		18FD795022A60726001E8536 /* GridLayoutSpec.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GridLayoutSpec.swift; sourceTree = "<group>"; };
+		18FD795222A61A81001E8536 /* MultipleItemsSpec.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MultipleItemsSpec.swift; sourceTree = "<group>"; };
 		18FDD554229F68FF00EC68A8 /* YogaLayoutable+Container.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "YogaLayoutable+Container.swift"; sourceTree = "<group>"; };
 		18FDD55A229FB08400EC68A8 /* Layoutable+CalculateLayout.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Layoutable+CalculateLayout.swift"; sourceTree = "<group>"; };
 		18FF9D17229CC479003C5EA7 /* CenterVirtualLayout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CenterVirtualLayout.swift; sourceTree = "<group>"; };
@@ -233,9 +237,11 @@
 			isa = PBXGroup;
 			children = (
 				18FBA66322A4EE6E00BCE64C /* ItemSpec.swift */,
+				18FD795222A61A81001E8536 /* MultipleItemsSpec.swift */,
 				18FBA66122A4EE4C00BCE64C /* StackLayoutSpec.swift */,
-				18054D4822A1373E002A0911 /* GridLayout.swift */,
+				18FD795022A60726001E8536 /* GridLayoutSpec.swift */,
 				18FBA65F22A4D12900BCE64C /* StackLayout.swift */,
+				18054D4822A1373E002A0911 /* GridLayout.swift */,
 				18054D4F22A155CD002A0911 /* PlaceholderLayout.swift */,
 			);
 			path = Layouts;
@@ -542,6 +548,7 @@
 				18FBA67422A5259400BCE64C /* CenterLayout.swift in Sources */,
 				18FBA67822A52A5C00BCE64C /* EdgeSingleLayoutable.swift in Sources */,
 				18FCBE0222968C9400695868 /* LayoutNode+ApplyLayout.swift in Sources */,
+				18FD795322A61A81001E8536 /* MultipleItemsSpec.swift in Sources */,
 				18FBA66822A5083C00BCE64C /* CGRect.swift in Sources */,
 				1803E8FB2293E40400F1DF77 /* CornerLayoutViewController.swift in Sources */,
 				18FBA67622A5290C00BCE64C /* CornerLayout.swift in Sources */,
@@ -575,6 +582,7 @@
 				1896C105229EBEBF00FAF641 /* ActualLayout+UpdateFrame.swift in Sources */,
 				18FCBE12229691D200695868 /* VirtualLayout.swift in Sources */,
 				18FF9D18229CC479003C5EA7 /* CenterVirtualLayout.swift in Sources */,
+				18FD795122A60726001E8536 /* GridLayoutSpec.swift in Sources */,
 				18FCBE0822968C9400695868 /* LayoutNode.m in Sources */,
 				18B08008229BD389006E1FCB /* ViewController.swift in Sources */,
 				18FF9D1A229CC593003C5EA7 /* CornerVirtualLayout.swift in Sources */,

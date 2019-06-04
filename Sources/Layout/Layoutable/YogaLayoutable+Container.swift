@@ -25,7 +25,10 @@ extension YogaLayoutable {
 extension YogaContainerLayoutable where Self: YogaLayoutable {
     func _addChildView(_ child: YogaLayoutable) {
         guard let view = self.findFirstSuperActualLayout() else {
-            assertionFailure("layout需要先添加到ActualLayout里面再addChid")
+            assertionFailure("""
+layout需要先添加到ActualLayout里面再addChid，
+原因是因为没被添加到视图层次里面的视图只被layout弱引用，可能会导致提前释放
+""")
             return
         }
         _addChildView(child, in: view.ownerView)
@@ -98,11 +101,15 @@ extension PlaceholderLayout: YogaContainerLayoutable {
 }
 
 extension YogaLayoutable where Self: YogaContainerLayoutable {
+    var canUseChilds: [YogaLayoutable] {
+        return self.childs.filter({$0.yoga.isIncludedInLayout})
+    }
     func hasExactSameChildren<C: Collection>(_ childs: C) -> Bool where C.Element == YogaLayoutable {
         let _childs = self.childs.lazy.filter({$0.yoga.isIncludedInLayout})
         if _childs.count != childs.count {
             return false
         }
-        return childs.enumerated().allSatisfy({$0.element === _childs[$0.offset]})
+        return childs.enumerated().allSatisfy({$0.element.yoga == _childs[$0.offset].yoga})
     }
 }
+

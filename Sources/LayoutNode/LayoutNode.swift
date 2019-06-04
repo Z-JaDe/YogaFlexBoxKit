@@ -28,7 +28,6 @@ public class LayoutNode: AbstractLayoutNode {
     open var isLeaf: Bool {
         return layoutable?.isLeaf ?? true
     }
-    
     public override func markDirty() {
         guard isLeaf else { return }
         guard self.isDirty == false else { return }

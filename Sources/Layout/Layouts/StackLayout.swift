@@ -9,7 +9,10 @@
 import Foundation
 
 public class StackLayout: LeafLayout {
-    var spec: StackLayoutSpec = StackLayoutSpec()
+    var _intrinsicSize: CGSize?
+    var spec: StackLayoutSpec = StackLayoutSpec() {
+        didSet { _intrinsicSize = nil }
+    }
     public var flexDirection: GridFlexDirection {
         get {return spec.flexDirection}
         set {spec.flexDirection = newValue}
@@ -31,6 +34,9 @@ extension StackLayout: LeafLayoutProtocol {
         self.spec.setChildFrames(newFrame, self.canUseChilds)
     }
     public func calculateSize(_ size: CGSize) -> CGSize {
-        return self.spec.calculateSize(size, self.canUseChilds)
+        if self.hasExactSameChildren(self.spec.childs) == false {
+            self.spec.childs = self.canUseChilds
+        }
+        return self.spec.intrinsicSize()
     }
 }

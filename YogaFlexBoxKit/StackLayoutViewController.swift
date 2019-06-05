@@ -18,7 +18,7 @@ class StackLayoutViewController: LayoutViewController {
         self.view.addSubview(button)
         stackLayout.lineSpace = 10
         stackLayout.itemSpace = 5
-        //        stackLayout.flexDirection = .column
+//        stackLayout.flexDirection = .column
 //        stackLayout.justifyContent = .spaceAround
 //        stackLayout.alignContent = .fill
 //        stackLayout.itemEqual = .allSize

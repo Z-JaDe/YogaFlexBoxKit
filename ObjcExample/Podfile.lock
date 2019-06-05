@@ -1,0 +1,25 @@
+PODS:
+  - Yoga (1.14.0)
+  - YogaFlexBoxKit/Core (1.0.0):
+    - Yoga
+  - YogaFlexBoxKit/ObjectiveC (1.0.0):
+    - YogaFlexBoxKit/Core
+
+DEPENDENCIES:
+  - YogaFlexBoxKit/ObjectiveC (from `../`)
+
+SPEC REPOS:
+  https://github.com/cocoapods/specs.git:
+    - Yoga
+
+EXTERNAL SOURCES:
+  YogaFlexBoxKit:
+    :path: "../"
+
+SPEC CHECKSUMS:
+  Yoga: cff67a400f6b74dc38eb0bad4f156673d9aa980c
+  YogaFlexBoxKit: 6bba566250a5f469748f7bb5ce91afc6c9bd14fb
+
+PODFILE CHECKSUM: 81d7efa89c8581800e4fd03f8ab935591f1a40ef
+
+COCOAPODS: 1.7.0.beta.3

@@ -10,18 +10,6 @@ import Foundation
 
 public class StackLayout: LeafLayout {
     let spec: StackLayoutSpec = StackLayoutSpec()
-    public var flexDirection: GridFlexDirection {
-        get {return spec.flexDirection}
-        set {spec.flexDirection = newValue}
-    }
-    public var distribution: GridJustify {
-        get {return spec.alignContent}
-        set {spec.alignContent = newValue}
-    }
-    public var spacing: CGFloat {
-        get {return spec.spacing}
-        set {spec.spacing = newValue}
-    }
 }
 extension StackLayout: LeafLayoutProtocol {
     public func frameDidChanged(oldFrame: CGRect, newFrame: CGRect) {

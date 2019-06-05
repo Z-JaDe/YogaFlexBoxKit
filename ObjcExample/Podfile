@@ -1,0 +1,5 @@
+use_frameworks!
+
+target 'YogaFlexBoxKitOC' do
+  pod 'YogaFlexBoxKit/ObjectiveC', :path => "../"
+end

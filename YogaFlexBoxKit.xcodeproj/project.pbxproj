@@ -7,6 +7,16 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1802FE3822A7668000F38F85 /* YogaFlexBoxKit.podspec in Resources */ = {isa = PBXBuildFile; fileRef = 1802FE3722A7668000F38F85 /* YogaFlexBoxKit.podspec */; };
+		1802FE7E22A76D7F00F38F85 /* StackLayoutSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1802FE7A22A76D7F00F38F85 /* StackLayoutSpec.swift */; };
+		1802FE7F22A76D7F00F38F85 /* ItemSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1802FE7B22A76D7F00F38F85 /* ItemSpec.swift */; };
+		1802FE8022A76D7F00F38F85 /* GridLayoutSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1802FE7C22A76D7F00F38F85 /* GridLayoutSpec.swift */; };
+		1802FE8122A76D7F00F38F85 /* MultipleItemsSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1802FE7D22A76D7F00F38F85 /* MultipleItemsSpec.swift */; };
+		1802FE8522A76F9D00F38F85 /* YogaFlexBoxKit.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1802FE8422A76F9D00F38F85 /* YogaFlexBoxKit.swift */; };
+		1802FE8722A770B200F38F85 /* GridLayout+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1802FE8622A770B200F38F85 /* GridLayout+Extension.swift */; };
+		1802FE8922A770F000F38F85 /* StackLayout+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1802FE8822A770F000F38F85 /* StackLayout+Extension.swift */; };
+		1802FE8B22A771A700F38F85 /* Types.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1802FE8A22A771A700F38F85 /* Types.swift */; };
+		1802FE8D22A786AC00F38F85 /* UIView+OCLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1802FE8C22A786AC00F38F85 /* UIView+OCLayout.swift */; };
 		1803E8F92293E40400F1DF77 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1803E8F82293E40400F1DF77 /* AppDelegate.swift */; };
 		1803E8FB2293E40400F1DF77 /* CornerLayoutViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1803E8FA2293E40400F1DF77 /* CornerLayoutViewController.swift */; };
 		1803E8FE2293E40400F1DF77 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1803E8FC2293E40400F1DF77 /* Main.storyboard */; };
@@ -25,8 +35,6 @@
 		18B0800C229BD5D2006E1FCB /* CenterLayoutViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18B0800B229BD5D2006E1FCB /* CenterLayoutViewController.swift */; };
 		18B0800E229BE382006E1FCB /* LayoutViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18B0800D229BE382006E1FCB /* LayoutViewController.swift */; };
 		18FBA66022A4D12900BCE64C /* StackLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18FBA65F22A4D12900BCE64C /* StackLayout.swift */; };
-		18FBA66222A4EE4C00BCE64C /* StackLayoutSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18FBA66122A4EE4C00BCE64C /* StackLayoutSpec.swift */; };
-		18FBA66422A4EE6E00BCE64C /* ItemSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18FBA66322A4EE6E00BCE64C /* ItemSpec.swift */; };
 		18FBA66622A5081E00BCE64C /* CGSize.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18FBA66522A5081D00BCE64C /* CGSize.swift */; };
 		18FBA66822A5083C00BCE64C /* CGRect.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18FBA66722A5083C00BCE64C /* CGRect.swift */; };
 		18FBA66A22A5085500BCE64C /* FloatingPoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18FBA66922A5085500BCE64C /* FloatingPoint.swift */; };
@@ -49,8 +57,6 @@
 		18FCBE0B22968C9400695868 /* YogaLayoutable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18FCBE0022968C9400695868 /* YogaLayoutable.swift */; };
 		18FCBE1022968F3800695868 /* RenderLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18FCBE0F22968F3800695868 /* RenderLayout.swift */; };
 		18FCBE12229691D200695868 /* VirtualLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18FCBE11229691D200695868 /* VirtualLayout.swift */; };
-		18FD795122A60726001E8536 /* GridLayoutSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18FD795022A60726001E8536 /* GridLayoutSpec.swift */; };
-		18FD795322A61A81001E8536 /* MultipleItemsSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18FD795222A61A81001E8536 /* MultipleItemsSpec.swift */; };
 		18FDD555229F68FF00EC68A8 /* YogaLayoutable+Container.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18FDD554229F68FF00EC68A8 /* YogaLayoutable+Container.swift */; };
 		18FDD55B229FB08400EC68A8 /* Layoutable+CalculateLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18FDD55A229FB08400EC68A8 /* Layoutable+CalculateLayout.swift */; };
 		18FF9D18229CC479003C5EA7 /* CenterVirtualLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18FF9D17229CC479003C5EA7 /* CenterVirtualLayout.swift */; };
@@ -79,6 +85,17 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		1802FE3722A7668000F38F85 /* YogaFlexBoxKit.podspec */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = YogaFlexBoxKit.podspec; sourceTree = "<group>"; };
+		1802FE7722A76B3E00F38F85 /* YogaFlexBoxKit.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = YogaFlexBoxKit.h; sourceTree = "<group>"; };
+		1802FE7A22A76D7F00F38F85 /* StackLayoutSpec.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StackLayoutSpec.swift; sourceTree = "<group>"; };
+		1802FE7B22A76D7F00F38F85 /* ItemSpec.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ItemSpec.swift; sourceTree = "<group>"; };
+		1802FE7C22A76D7F00F38F85 /* GridLayoutSpec.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GridLayoutSpec.swift; sourceTree = "<group>"; };
+		1802FE7D22A76D7F00F38F85 /* MultipleItemsSpec.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MultipleItemsSpec.swift; sourceTree = "<group>"; };
+		1802FE8422A76F9D00F38F85 /* YogaFlexBoxKit.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YogaFlexBoxKit.swift; sourceTree = "<group>"; };
+		1802FE8622A770B200F38F85 /* GridLayout+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "GridLayout+Extension.swift"; sourceTree = "<group>"; };
+		1802FE8822A770F000F38F85 /* StackLayout+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "StackLayout+Extension.swift"; sourceTree = "<group>"; };
+		1802FE8A22A771A700F38F85 /* Types.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Types.swift; sourceTree = "<group>"; };
+		1802FE8C22A786AC00F38F85 /* UIView+OCLayout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+OCLayout.swift"; sourceTree = "<group>"; };
 		1803E8F52293E40400F1DF77 /* YogaFlexBoxKit.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = YogaFlexBoxKit.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		1803E8F82293E40400F1DF77 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		1803E8FA2293E40400F1DF77 /* CornerLayoutViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CornerLayoutViewController.swift; sourceTree = "<group>"; };
@@ -104,8 +121,6 @@
 		18B0800B229BD5D2006E1FCB /* CenterLayoutViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CenterLayoutViewController.swift; sourceTree = "<group>"; };
 		18B0800D229BE382006E1FCB /* LayoutViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LayoutViewController.swift; sourceTree = "<group>"; };
 		18FBA65F22A4D12900BCE64C /* StackLayout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StackLayout.swift; sourceTree = "<group>"; };
-		18FBA66122A4EE4C00BCE64C /* StackLayoutSpec.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StackLayoutSpec.swift; sourceTree = "<group>"; };
-		18FBA66322A4EE6E00BCE64C /* ItemSpec.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemSpec.swift; sourceTree = "<group>"; };
 		18FBA66522A5081D00BCE64C /* CGSize.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CGSize.swift; sourceTree = "<group>"; };
 		18FBA66722A5083C00BCE64C /* CGRect.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CGRect.swift; sourceTree = "<group>"; };
 		18FBA66922A5085500BCE64C /* FloatingPoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FloatingPoint.swift; sourceTree = "<group>"; };
@@ -131,8 +146,6 @@
 		18FCBE0022968C9400695868 /* YogaLayoutable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = YogaLayoutable.swift; sourceTree = "<group>"; };
 		18FCBE0F22968F3800695868 /* RenderLayout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RenderLayout.swift; sourceTree = "<group>"; };
 		18FCBE11229691D200695868 /* VirtualLayout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VirtualLayout.swift; sourceTree = "<group>"; };
-		18FD795022A60726001E8536 /* GridLayoutSpec.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GridLayoutSpec.swift; sourceTree = "<group>"; };
-		18FD795222A61A81001E8536 /* MultipleItemsSpec.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MultipleItemsSpec.swift; sourceTree = "<group>"; };
 		18FDD554229F68FF00EC68A8 /* YogaLayoutable+Container.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "YogaLayoutable+Container.swift"; sourceTree = "<group>"; };
 		18FDD55A229FB08400EC68A8 /* Layoutable+CalculateLayout.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Layoutable+CalculateLayout.swift"; sourceTree = "<group>"; };
 		18FF9D17229CC479003C5EA7 /* CenterVirtualLayout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CenterVirtualLayout.swift; sourceTree = "<group>"; };
@@ -171,10 +184,31 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		1802FE7922A76D7F00F38F85 /* Spec */ = {
+			isa = PBXGroup;
+			children = (
+				1802FE7B22A76D7F00F38F85 /* ItemSpec.swift */,
+				1802FE7D22A76D7F00F38F85 /* MultipleItemsSpec.swift */,
+				1802FE7A22A76D7F00F38F85 /* StackLayoutSpec.swift */,
+				1802FE7C22A76D7F00F38F85 /* GridLayoutSpec.swift */,
+			);
+			path = Spec;
+			sourceTree = "<group>";
+		};
+		1802FE8322A76F7000F38F85 /* ObjectiveC */ = {
+			isa = PBXGroup;
+			children = (
+				1802FE8C22A786AC00F38F85 /* UIView+OCLayout.swift */,
+			);
+			path = ObjectiveC;
+			sourceTree = "<group>";
+		};
 		1803E8EC2293E40400F1DF77 = {
 			isa = PBXGroup;
 			children = (
+				1802FE3722A7668000F38F85 /* YogaFlexBoxKit.podspec */,
 				18FBA67922A52E8500BCE64C /* 废弃 */,
+				1802FE8322A76F7000F38F85 /* ObjectiveC */,
 				18FCBDEF22968C9300695868 /* Sources */,
 				1803E8F72293E40400F1DF77 /* YogaFlexBoxKit */,
 				1803E90C2293E40600F1DF77 /* YogaFlexBoxKitTests */,
@@ -236,12 +270,13 @@
 		18054D4722A1371C002A0911 /* Layouts */ = {
 			isa = PBXGroup;
 			children = (
-				18FBA66322A4EE6E00BCE64C /* ItemSpec.swift */,
-				18FD795222A61A81001E8536 /* MultipleItemsSpec.swift */,
-				18FBA66122A4EE4C00BCE64C /* StackLayoutSpec.swift */,
-				18FD795022A60726001E8536 /* GridLayoutSpec.swift */,
+				1802FE7922A76D7F00F38F85 /* Spec */,
+				E6A8654322A2749C002B8B10 /* LeafLayout.swift */,
+				1802FE8A22A771A700F38F85 /* Types.swift */,
 				18FBA65F22A4D12900BCE64C /* StackLayout.swift */,
+				1802FE8822A770F000F38F85 /* StackLayout+Extension.swift */,
 				18054D4822A1373E002A0911 /* GridLayout.swift */,
+				1802FE8622A770B200F38F85 /* GridLayout+Extension.swift */,
 				18054D4F22A155CD002A0911 /* PlaceholderLayout.swift */,
 			);
 			path = Layouts;
@@ -260,6 +295,8 @@
 		18FCBDEF22968C9300695868 /* Sources */ = {
 			isa = PBXGroup;
 			children = (
+				1802FE7722A76B3E00F38F85 /* YogaFlexBoxKit.h */,
+				1802FE8422A76F9D00F38F85 /* YogaFlexBoxKit.swift */,
 				18FCBDF622968C9300695868 /* Core */,
 				18FCBDFC22968C9400695868 /* Util */,
 				18FCBDF022968C9300695868 /* LayoutNode */,
@@ -319,7 +356,6 @@
 			isa = PBXGroup;
 			children = (
 				18FCBE0F22968F3800695868 /* RenderLayout.swift */,
-				E6A8654322A2749C002B8B10 /* LeafLayout.swift */,
 				18FBA66D22A5100B00BCE64C /* Layoutable.swift */,
 				18FDD55A229FB08400EC68A8 /* Layoutable+CalculateLayout.swift */,
 				1896C100229EBC7C00FAF641 /* Layoutable+Extension.swift */,
@@ -478,6 +514,7 @@
 			files = (
 				1803E9032293E40600F1DF77 /* LaunchScreen.storyboard in Resources */,
 				1803E9002293E40600F1DF77 /* Assets.xcassets in Resources */,
+				1802FE3822A7668000F38F85 /* YogaFlexBoxKit.podspec in Resources */,
 				1803E8FE2293E40400F1DF77 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -548,7 +585,7 @@
 				18FBA67422A5259400BCE64C /* CenterLayout.swift in Sources */,
 				18FBA67822A52A5C00BCE64C /* EdgeSingleLayoutable.swift in Sources */,
 				18FCBE0222968C9400695868 /* LayoutNode+ApplyLayout.swift in Sources */,
-				18FD795322A61A81001E8536 /* MultipleItemsSpec.swift in Sources */,
+				1802FE8D22A786AC00F38F85 /* UIView+OCLayout.swift in Sources */,
 				18FBA66822A5083C00BCE64C /* CGRect.swift in Sources */,
 				1803E8FB2293E40400F1DF77 /* CornerLayoutViewController.swift in Sources */,
 				18FBA67622A5290C00BCE64C /* CornerLayout.swift in Sources */,
@@ -560,6 +597,7 @@
 				18FDD555229F68FF00EC68A8 /* YogaLayoutable+Container.swift in Sources */,
 				18FF9D46229D0B2F003C5EA7 /* ActualLayout.swift in Sources */,
 				18FBA67222A5221F00BCE64C /* SingleLayoutable.swift in Sources */,
+				1802FE8922A770F000F38F85 /* StackLayout+Extension.swift in Sources */,
 				18FBA66C22A508A400BCE64C /* StackLayoutViewController.swift in Sources */,
 				18B0800C229BD5D2006E1FCB /* CenterLayoutViewController.swift in Sources */,
 				1896C0FF229EBC2900FAF641 /* Viewable.swift in Sources */,
@@ -569,25 +607,29 @@
 				18FBA66A22A5085500BCE64C /* FloatingPoint.swift in Sources */,
 				18FCBE0A22968C9400695868 /* YGLayoutExtensions.swift in Sources */,
 				18FCBE0622968C9400695868 /* LayoutNode+Calculate.swift in Sources */,
+				1802FE8122A76D7F00F38F85 /* MultipleItemsSpec.swift in Sources */,
 				18054D5022A155CD002A0911 /* PlaceholderLayout.swift in Sources */,
-				18FBA66222A4EE4C00BCE64C /* StackLayoutSpec.swift in Sources */,
+				1802FE8522A76F9D00F38F85 /* YogaFlexBoxKit.swift in Sources */,
+				1802FE8B22A771A700F38F85 /* Types.swift in Sources */,
 				E6A8654422A2749C002B8B10 /* LeafLayout.swift in Sources */,
 				18FBA67022A5158300BCE64C /* ContainerLayout.swift in Sources */,
 				18FBA66E22A5100B00BCE64C /* Layoutable.swift in Sources */,
 				18054D4922A1373E002A0911 /* GridLayout.swift in Sources */,
-				18FBA66422A4EE6E00BCE64C /* ItemSpec.swift in Sources */,
 				18FCBE0922968C9400695868 /* Util.swift in Sources */,
 				18FCBE0B22968C9400695868 /* YogaLayoutable.swift in Sources */,
 				18FBA66022A4D12900BCE64C /* StackLayout.swift in Sources */,
 				1896C105229EBEBF00FAF641 /* ActualLayout+UpdateFrame.swift in Sources */,
 				18FCBE12229691D200695868 /* VirtualLayout.swift in Sources */,
 				18FF9D18229CC479003C5EA7 /* CenterVirtualLayout.swift in Sources */,
-				18FD795122A60726001E8536 /* GridLayoutSpec.swift in Sources */,
 				18FCBE0822968C9400695868 /* LayoutNode.m in Sources */,
+				1802FE7F22A76D7F00F38F85 /* ItemSpec.swift in Sources */,
+				1802FE8022A76D7F00F38F85 /* GridLayoutSpec.swift in Sources */,
 				18B08008229BD389006E1FCB /* ViewController.swift in Sources */,
 				18FF9D1A229CC593003C5EA7 /* CornerVirtualLayout.swift in Sources */,
 				1896C101229EBC7C00FAF641 /* Layoutable+Extension.swift in Sources */,
 				18FF9D45229D0B2F003C5EA7 /* UIView+Layout.swift in Sources */,
+				1802FE8722A770B200F38F85 /* GridLayout+Extension.swift in Sources */,
+				1802FE7E22A76D7F00F38F85 /* StackLayoutSpec.swift in Sources */,
 				18FCBE0322968C9400695868 /* LayoutNode.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -696,7 +738,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 10;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -751,7 +793,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 10;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				SDKROOT = iphoneos;

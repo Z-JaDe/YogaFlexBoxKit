@@ -34,6 +34,7 @@ func test() {
     let startTime = CFAbsoluteTimeGetCurrent()
     let corner = testTime(cornerTimerTest)
     let center = testTime(centerTimerTest)
+    ///自己算部分已经移除
     print("corner yoga算: \(corner.0) 自己算: \(corner.1)")
     print("center yoga算: \(center.0) 自己算: \(center.1)")
     group.notify(queue: DispatchQueue.main) {

@@ -8,59 +8,41 @@
 
 import Foundation
 
-public enum GridItemEqual {
-    ///每个item默认使用自有尺寸, 根据情况缩放
-    case none
-    ///每一行每个item尺寸相等, 多行之间的item不一定相等
-    case everyLineSize
-    ///每一行每个item尺寸相等, 多行之间item只有高度相等
-    case everyLineSizeAndAllHieght
-    ///每个item之间尺寸相等
-    case allSize
-}
 ///处理指定数量后换行
 public class GridLayout: LeafLayout {
     let spec: GridLayoutSpec = GridLayoutSpec()
-    public var flexDirection: GridFlexDirection {
-        get {return spec.flexDirection.reversed()}
-        set {spec.flexDirection = newValue.reversed()}
-    }
-    public var justifyContent: GridJustify {
-        get {return spec.justifyContent}
-        set {spec.justifyContent = newValue}
-    }
-    public var alignContent: GridJustify {
-        get {return spec.alignContent}
-        set {spec.alignContent = newValue}
-    }
-    public var lineSpace: CGFloat {
-        get {return spec.lineSpace}
-        set {spec.lineSpace = newValue}
-    }
+    #if ObjcSupport
+    @objc
     public var itemEqual: GridItemEqual = .allSize {
-        didSet {
-            switch self.itemEqual {
-            case .everyLineSizeAndAllHieght, .allSize:
-                self.spec.allItemEqual = true
-            case .everyLineSize, .none:
-                self.spec.allItemEqual = false
-            }
-            spec.invalidateIntrinsicSize()
-        }
+        didSet { itemEqualChanged() }
     }
-    
-    public var itemSpace: CGFloat {
-        get {return spec.itemSpace}
-        set {spec.itemSpace = newValue}
+    @objc
+    public var lineLength: UInt = 0 {
+        didSet { spec.invalidateIntrinsicSize() }
+    }
+    #else
+    public var itemEqual: GridItemEqual = .allSize {
+        didSet { itemEqualChanged() }
     }
     public var lineLength: UInt = 0 {
         didSet { spec.invalidateIntrinsicSize() }
+    }
+    #endif
+    
+    func itemEqualChanged() {
+        switch self.itemEqual {
+        case .everyLineSizeAndAllHieght, .allSize:
+            self.spec.allItemEqual = true
+        case .everyLineSize, .none:
+            self.spec.allItemEqual = false
+        }
+        spec.invalidateIntrinsicSize()
     }
     
     public override func configInit() {
         super.configInit()
         self.flexDirection = .row
-        self.itemEqual = .allSize
+        itemEqualChanged()
     }
     
 }

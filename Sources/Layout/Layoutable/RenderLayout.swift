@@ -7,7 +7,9 @@
 //
 
 import Foundation
-open class RenderLayout: YogaLayoutable {
+import yoga
+
+open class RenderLayout: FlexBoxKit, YogaLayoutable {
     public private(set) lazy var yoga: LayoutNode = LayoutNode(target: self)
     public private(set) weak var superLayout: YogaLayoutable?
     public private(set) var childs: [YogaLayoutable] = []
@@ -20,7 +22,8 @@ open class RenderLayout: YogaLayoutable {
             layoutDidChanged(oldFrame: oldValue)
         }
     }
-    public init() {
+    public override init() {
+        super.init()
         configInit()
     }
     open func configInit() {

@@ -18,6 +18,7 @@ extension ActualLayout {
             return
         }
         guard let view = self.view as? UIView else {
+            assertionFailure("view丢失")
             return
         }
         let frame = CGRect(origin: converToViewHierarchy(frame.origin), size: frame.size)

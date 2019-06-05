@@ -37,6 +37,8 @@ layout需要先添加到ActualLayout里面再addChid，
         if let child = (child as? ActualLayout) {
             if let childView = child.view {
                 view.addSubview(childView.ownerView)
+            } else {
+                assertionFailure("view丢失")
             }
         } else if let child = child as? VirtualLayout {
             _addChildView(child.child, in: view)
@@ -77,7 +79,7 @@ extension YogaContainerLayoutable where Self: RenderLayout {
         superlayout.removeChild(self)
     }
     fileprivate func makeDirtyIfNeed() {
-        if self.isLeaf && self.yoga.isDirty == false && YGNodeHasMeasureFunc(self.yoga.yogaNode) {
+        if self.yoga.isDirty == false && self.isLeaf && YGNodeHasMeasureFunc(self.yoga.yogaNode) {
             self.yoga.markDirty()
         }
     }

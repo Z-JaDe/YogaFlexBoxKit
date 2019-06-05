@@ -9,7 +9,7 @@
 import Foundation
 
 public class StackLayout: LeafLayout {
-    var spec: StackLayoutSpec = StackLayoutSpec()
+    let spec: StackLayoutSpec = StackLayoutSpec()
     public var flexDirection: GridFlexDirection {
         get {return spec.flexDirection}
         set {spec.flexDirection = newValue}

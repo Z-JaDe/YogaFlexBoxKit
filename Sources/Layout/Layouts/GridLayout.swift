@@ -20,7 +20,7 @@ public enum GridItemEqual {
 }
 ///处理指定数量后换行
 public class GridLayout: LeafLayout {
-    var spec: GridLayoutSpec = GridLayoutSpec()
+    let spec: GridLayoutSpec = GridLayoutSpec()
     public var flexDirection: GridFlexDirection {
         get {return spec.flexDirection.reversed()}
         set {spec.flexDirection = newValue.reversed()}
@@ -37,7 +37,7 @@ public class GridLayout: LeafLayout {
         get {return spec.lineSpace}
         set {spec.lineSpace = newValue}
     }
-    public var itemEqual: GridItemEqual = .none {
+    public var itemEqual: GridItemEqual = .allSize {
         didSet {
             switch self.itemEqual {
             case .everyLineSizeAndAllHieght, .allSize:
@@ -60,6 +60,7 @@ public class GridLayout: LeafLayout {
     public override func configInit() {
         super.configInit()
         self.flexDirection = .row
+        self.itemEqual = .allSize
     }
     
 }
@@ -80,13 +81,12 @@ extension GridLayout: LeafLayoutProtocol {
     }
     func updateSpecChild() {
         let specChild = self.spec.childs.lazy.flatMap({$0.childs})
-        guard self.hasExactSameChildren(specChild) == false else {
-            return
-        }
-        let lineLength: Int = self.lineLength > 0 ? Int(self.lineLength) : self.childs.count
-        let specLineLength = self.spec.childs.first?.childs.count ?? 0
-        guard specLineLength != lineLength else {
-            return
+        if self.hasExactSameChildren(specChild) {
+            let lineLength: Int = self.lineLength > 0 ? Int(self.lineLength) : self.childs.count
+            let specLineLength = self.spec.childs.first?.childs.count ?? 0
+            if specLineLength == lineLength {
+                return
+            }
         }
         for (offset, child) in gridChilds.enumerated() {
             let stackSpec: StackLayoutSpec

@@ -16,22 +16,22 @@ class StackLayoutViewController: LayoutViewController {
         button.backgroundColor = UIColor.black
         button.addTarget(self, action: #selector(touchButton), for: .touchUpInside)
         self.view.addSubview(button)
-        addGridLayout()
-    }
-    func addGridLayout() {
-        let stackLayout = GridLayout()
         stackLayout.lineSpace = 10
-        stackLayout.itemSpace = 50
-//        stackLayout.flexDirection = .column
-        stackLayout.justifyContent = .center
-        stackLayout.alignContent = .flexStart
-        stackLayout.itemEqual = .allSize
+        stackLayout.itemSpace = 5
+        //        stackLayout.flexDirection = .column
+//        stackLayout.justifyContent = .spaceAround
+//        stackLayout.alignContent = .fill
+//        stackLayout.itemEqual = .allSize
         stackLayout.lineLength = 3
         stackLayout.configureLayout { (yoga) in
-//            yoga.margin = 20
-//            yoga.height = 300
+            yoga.margin = 20
+            //            yoga.height = 300
         }
         self.view.layout.addChild(stackLayout)
+        addGridLayout()
+    }
+    let stackLayout = GridLayout()
+    func addGridLayout() {
         for i in 0..<11 {
             let label = UILabel()
             label.backgroundColor = UIColor.red
@@ -49,15 +49,14 @@ class StackLayoutViewController: LayoutViewController {
             .applyLayout()
     }
     @objc func touchButton() {
-        self.view.layout.removeAllChild()
-        self.view.subviews.filter({$0 is UIButton == false}).forEach({$0.removeFromSuperview()})
+        stackLayout.removeAllChild()
         addGridLayout()
     }
 }
 extension String {
-    static var uppercaseLetters: String = "ABCDEFGHIGKLMNOPQRSTUVWXYZ"
-    static var lowercaseLetters: String = "abcdefghigklmnopqrstuvwxyz"
-    static var decimalDigits: String = "0123456789"
+    static let uppercaseLetters: String = "ABCDEFGHIGKLMNOPQRSTUVWXYZ"
+    static let lowercaseLetters: String = "abcdefghigklmnopqrstuvwxyz"
+    static let decimalDigits: String = "0123456789"
     
     static func random(min: Int, max: Int) -> String {
         guard max >= min else {return ""}

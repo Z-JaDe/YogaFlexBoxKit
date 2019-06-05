@@ -37,7 +37,7 @@ open class RenderLayout: YogaLayoutable {
     }
     ///外部设置frame时监听，会触发child计算自己的frame
     open func layoutDidChanged(oldFrame: CGRect) {
-        guard oldFrame != self.frame else { return }
+//        guard oldFrame != self.frame else { return } //有可能childs变化
         /**
          叶子节点的时候，不需要重新yoga计算，但是需要更新下内部一些配置
          非叶子节点frame主动被改，需要更新计算下childs

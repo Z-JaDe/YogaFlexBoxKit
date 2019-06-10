@@ -34,28 +34,67 @@ extension UIView {
 extension UIView {
     @objc
     public func addChildLayout(_ child: AnyObject) {
-        switch child {
-        case let child as UIView:
-            self.layout.addChild(child.layout)
-        case let child as YogaLayoutable:
-            self.layout.addChild(child)
-        default:
-            assertionFailure("未知的类型")
-        }
+        layout._addChildLayout(child)
     }
     @objc
     public func removeChildLayout(_ child: AnyObject) {
+        layout._removeChildLayout(child)
+    }
+    @objc
+    public func removeAllChildLayout() {
+        layout._removeAllChildLayout()
+    }
+}
+extension StackLayout {
+    @objc
+    public func addChildLayout(_ child: AnyObject) {
+        _addChildLayout(child)
+    }
+    @objc
+    public func removeChildLayout(_ child: AnyObject) {
+        _removeChildLayout(child)
+    }
+    @objc
+    public func removeAllChildLayout() {
+        _removeAllChildLayout()
+    }
+}
+extension GridLayout {
+    @objc
+    public func addChildLayout(_ child: AnyObject) {
+        _addChildLayout(child)
+    }
+    @objc
+    public func removeChildLayout(_ child: AnyObject) {
+        _removeChildLayout(child)
+    }
+    @objc
+    public func removeAllChildLayout() {
+        _removeAllChildLayout()
+    }
+}
+fileprivate extension YogaContainerLayoutable {
+    func _addChildLayout(_ child: AnyObject) {
         switch child {
         case let child as UIView:
-            self.layout.removeChild(child.layout)
+            self.addChild(child.layout)
         case let child as YogaLayoutable:
-            self.layout.removeChild(child)
+            self.addChild(child)
         default:
             assertionFailure("未知的类型")
         }
     }
-    @objc
-    public func removeAllChildLayout() {
-        self.layout.removeAllChild()
+    func _removeChildLayout(_ child: AnyObject) {
+        switch child {
+        case let child as UIView:
+            self.removeChild(child.layout)
+        case let child as YogaLayoutable:
+            self.removeChild(child)
+        default:
+            assertionFailure("未知的类型")
+        }
+    }
+    func _removeAllChildLayout() {
+        self.removeAllChild()
     }
 }

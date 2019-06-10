@@ -15,8 +15,8 @@ extension CGSize {
     static var nan: CGSize {
         return CGSize(width: CGFloat.nan, height: CGFloat.nan)
     }
-    var isNaN: Bool {
-        return self.width.isNaN && self.height.isNaN
+    var isNaNOrMax: Bool {
+        return self.width.isNaNOrMax || self.height.isNaNOrMax
     }
     var pixelValue: CGSize {
         return CGSize(width: width.pixelValue, height: height.pixelValue)

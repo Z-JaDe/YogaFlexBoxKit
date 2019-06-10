@@ -18,7 +18,7 @@ extension ActualLayout {
             return
         }
         let frame = CGRect(origin: converToViewHierarchy(frame.origin), size: frame.size)
-        if frame.size.isNaN {
+        if frame.size.isNaNOrMax {
             assertionFailure("计算frame出错")
             return
         }

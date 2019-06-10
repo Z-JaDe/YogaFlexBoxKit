@@ -14,7 +14,11 @@ extension CGFloat {
         return Foundation.round(self * scale) / scale
     }
 }
-
+extension CGFloat {
+    var isNaNOrMax: Bool {
+        return isNaN || self == .greatestFiniteMagnitude
+    }
+}
 extension FloatingPoint {
     static func random(min: Self = 0, max: Self = 1) -> Self {
         let diff = max - min

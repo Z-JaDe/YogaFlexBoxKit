@@ -18,7 +18,7 @@ struct ContainerLayout {
 }
 extension ContainerLayout: SingleLayoutable {
     func calculateLayout(with size: CGSize) -> CGSize {
-        if containerSize.width.isNaN && containerSize.height.isNaN {
+        if containerSize.width.isNaNOrMax && containerSize.height.isNaNOrMax {
             return child.calculateLayout(with: adjustSize(size))
         } else {
             return containerSize
@@ -29,10 +29,10 @@ extension ContainerLayout: SingleLayoutable {
     }
     func adjustSize(_ size: CGSize) -> CGSize {
         var size: CGSize = size
-        if size.width.isNaN {
+        if size.width.isNaNOrMax {
             size.width = containerSize.width
         }
-        if size.height.isNaN {
+        if size.height.isNaNOrMax {
             size.height = containerSize.height
         }
         return size

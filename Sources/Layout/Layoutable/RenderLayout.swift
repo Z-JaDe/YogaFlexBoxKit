@@ -69,9 +69,29 @@ open class RenderLayout: FlexBoxKit, YogaLayoutable {
     
     @discardableResult
     open func calculateLayout(with size: CGSize) -> CGSize {
+        var size = size
+        if size.isNaNOrMax && self.isLeaf {
+            let minSize = calculate(size: size)
+            if size.width.isNaNOrMax {
+                size.width = minSize.width
+            }
+            if size.height.isNaNOrMax {
+                size.height = minSize.height
+            }
+        }
         return yoga.calculateYogaLayout(with: size)
     }
     open func applyLayout(origin: CGPoint, size: CGSize) {
+        var size = size
+        if size.isNaNOrMax && self.isLeaf {
+            let minSize = calculate(size: size)
+            if size.width.isNaNOrMax {
+                size.width = minSize.width
+            }
+            if size.height.isNaNOrMax {
+                size.height = minSize.height
+            }
+        }
         yoga.applyLayout(origin: origin, size: size)
     }
 }

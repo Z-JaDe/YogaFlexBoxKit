@@ -24,10 +24,10 @@ extension YogaLayoutable {
 }
 extension YogaContainerLayoutable where Self: YogaLayoutable {
     func _addChildView(_ child: YogaLayoutable) {
-        guard let view = self.findFirstSuperActualLayout() else {
+        guard let layout = self.findFirstSuperActualLayout() else {
             return
         }
-        _addChildView(child, in: view.ownerView)
+        _addChildView(child, in: layout.view!)
     }
     func _addChildView(_ child: YogaLayoutable, in view: UIView) {
         switch child {

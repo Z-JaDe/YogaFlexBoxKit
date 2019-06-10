@@ -10,21 +10,16 @@ import Foundation
 
 ///本身包含view，可以添加多个子节点
 class ActualLayout: RenderLayout {
-    typealias View = Viewable
+    typealias View = UIView
     private weak var _view: View?
-    private var _layout: View?
     var view: View? {
-        return _view ?? _layout
+        return _view
     }
     let isScroll: Bool
     init(view: View) {
         self.isScroll = view is UIScrollView
         super.init()
-        if view is UIView {
-            self._view = view
-        } else {
-            self._layout = view
-        }
+        self._view = view
     }
     override func configInit() {
         super.configInit()
@@ -34,18 +29,11 @@ class ActualLayout: RenderLayout {
     }
     override func privateFrameDidChanged(oldFrame: CGRect) {
         super.privateFrameDidChanged(oldFrame: oldFrame)
-        performInMainAsyncIfNeed {
+        performInMainAsync {
             self.updateViewFrame(self.frame)
         }
     }
-    func performInMainAsyncIfNeed(_ action: @escaping () -> Void) {
-        if view is UIView {
-            performInMainAsync(action)
-        } else {
-            action()
-        }
-    }
-    open override func sizeThatFits(_ size: CGSize) -> CGSize {
+    open override func calculate(size: CGSize) -> CGSize {
         return view?.sizeThatFits(size) ?? .zero
     }
 }

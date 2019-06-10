@@ -8,13 +8,13 @@
 
 import Foundation
 
-extension Layoutable where Self: YogaLayoutable & Viewable {
-    public func corner(_ option: CornerLayoutOption) -> YogaLayoutable & Viewable {
+extension Layoutable where Self: YogaLayoutable {
+    public func corner(_ option: CornerLayoutOption) -> YogaLayoutable {
         return CornerVirtualLayout(child: self, option: option)
     }
 }
-extension Layoutable where Self: YogaLayoutable & Viewable {
-    public func center(_ option: CenterLayoutOption) -> YogaLayoutable & Viewable {
+extension Layoutable where Self: YogaLayoutable {
+    public func center(_ option: CenterLayoutOption) -> YogaLayoutable {
         return CenterVirtualLayout(child: self, option: option)
     }
 }

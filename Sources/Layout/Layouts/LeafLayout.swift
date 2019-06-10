@@ -24,7 +24,7 @@ open class LeafLayout: RenderLayout {
 //        guard oldFrame != self.frame else { return } //有可能childs变化
         (self as? LeafLayoutProtocol)?.frameDidChanged(oldFrame: oldFrame, newFrame: self.frame)
     }
-    public override final func sizeThatFits(_ size: CGSize) -> CGSize {
+    public override final func calculate(size: CGSize) -> CGSize {
         return (self as? LeafLayoutProtocol)?.calculateSize(size) ?? .zero
     }
 }

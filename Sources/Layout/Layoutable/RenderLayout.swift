@@ -54,7 +54,7 @@ open class RenderLayout: FlexBoxKit, YogaLayoutable {
         }
     }
     /// 叶子节点的时候 yoga根据该方法返回一个适合的尺寸
-    open func sizeThatFits(_ size: CGSize) -> CGSize {
+    open func calculate(size: CGSize) -> CGSize {
         return .zero
     }
     open var isLeaf: Bool {

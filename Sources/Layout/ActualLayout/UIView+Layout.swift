@@ -21,19 +21,17 @@ extension UIView {
     }
 }
 private typealias ViewActualLayout = ActualLayout
-extension UIView: Viewable {
-    public var ownerView: UIView {
-        return self
-    }
-}
+
 extension UIView: YogaLayoutable {
+    public func calculate(size: CGSize) -> CGSize {
+        return layout.calculate(size: size)
+    }
     public func applyLayout(origin: CGPoint, size: CGSize) {
         layout.applyLayout(origin: origin, size: size)
     }
     public func calculateLayout(with size: CGSize) -> CGSize {
         return layout.calculateLayout(with: size)
     }
-    
     public var yoga: LayoutNode {
         return layout.yoga
     }
@@ -46,8 +44,6 @@ extension UIView: YogaLayoutable {
     public func changePrivateFrame(_ frame: CGRect) {
         layout.changePrivateFrame(frame)
     }
-    
-    
 }
 extension UIView: YogaContainerLayoutable {
     public func addChild(_ child: YogaLayoutable) {

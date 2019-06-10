@@ -10,7 +10,7 @@ import Foundation
 
 ///本身并不包含view 但是可以参与计算布局，子节点中可能包含view
 class VirtualLayout: RenderLayout {
-    typealias ChildType = YogaLayoutable & Viewable
+    typealias ChildType = YogaLayoutable
     let child: ChildType
     init(child: ChildType) {
         self.child = child

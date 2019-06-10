@@ -15,7 +15,7 @@ public protocol YogaLayoutable: class, Layoutable {
     var superLayout: YogaLayoutable? {get}
     var isLeaf: Bool {get}
     ///该节点是叶子节点的时候，才会调用，适配尺寸
-    func sizeThatFits(_ size: CGSize) -> CGSize
+    func calculate(size: CGSize) -> CGSize
     ///内部计算好frame会调用该方法，实现协议需要实现该方法 更新内部布局
     func changePrivateFrame(_ frame: CGRect)
 }

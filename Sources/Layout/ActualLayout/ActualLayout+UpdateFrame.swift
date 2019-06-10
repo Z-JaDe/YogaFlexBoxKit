@@ -41,8 +41,8 @@ extension ActualLayout {
                 point = superView.convert(point, to: view?.superview)
                 break
             } else {                
-                point.x += layout.frame.origin.x
-                point.y += layout.frame.origin.y
+                point.x += layout.getFrame().origin.x
+                point.y += layout.getFrame().origin.y
             }
             superLayout = layout.superLayout
         }

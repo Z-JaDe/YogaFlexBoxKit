@@ -9,7 +9,7 @@
 import Foundation
 
 public protocol YogaLayoutable: class, Layoutable {
-    var frame: CGRect {get set}
+    func setFrame(_ frame: CGRect)
     var yoga: LayoutNode {get}
     var childs: [YogaLayoutable] {get}
     var superLayout: YogaLayoutable? {get}
@@ -20,16 +20,8 @@ public protocol YogaLayoutable: class, Layoutable {
     func changePrivateFrame(_ frame: CGRect)
 }
 public extension YogaLayoutable {
-    func getFrame() -> CGRect {
-        return self.frame
-    }
-}
-public extension YogaLayoutable {
     func configureLayout(_ closure: (LayoutNode) -> Void) {
         closure(yoga)
-    }
-    var isLeaf: Bool {
-        return _isLeaf
     }
     func changeFlexIfZero(_ value: CGFloat) {
         if self.yoga.flexGrow == 0 {

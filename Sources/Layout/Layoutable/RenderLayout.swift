@@ -29,6 +29,12 @@ open class RenderLayout: FlexBoxKit, YogaLayoutable {
     open func configInit() {
         
     }
+    public func getFrame() -> CGRect {
+        return self.frame
+    }
+    public func setFrame(_ frame: CGRect) {
+        self.frame = frame
+    }
     public final func changePrivateFrame(_ frame: CGRect) {
         let oldValue = self._frame
         self._frame = frame

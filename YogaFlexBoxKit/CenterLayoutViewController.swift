@@ -28,9 +28,9 @@ class CenterLayoutViewController: LayoutViewController {
         for layout in self.view.childs {
             let layoutView = UIView()
             layoutView.backgroundColor = UIColor.blue
-            layoutView.frame = layout.frame
+            layoutView.frame = layout.getFrame()
             self.view.insertSubview(layoutView, at: 0)
-            print("frame:\(layout.frame)")
+            print("frame:\(layout.getFrame())")
         }
     }
 }

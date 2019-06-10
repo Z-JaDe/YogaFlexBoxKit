@@ -23,6 +23,15 @@ extension UIView {
 private typealias ViewActualLayout = ActualLayout
 
 extension UIView: YogaLayoutable {
+    public var isLeaf: Bool {
+        return layout.isLeaf
+    }
+    public func getFrame() -> CGRect {
+        return layout.frame
+    }
+    public func setFrame(_ frame: CGRect) {
+        layout.setFrame(frame)
+    }
     public func calculate(size: CGSize) -> CGSize {
         return layout.calculate(size: size)
     }

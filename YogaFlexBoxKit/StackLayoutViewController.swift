@@ -27,7 +27,7 @@ class StackLayoutViewController: LayoutViewController {
             yoga.margin = 20
             //            yoga.height = 300
         }
-        self.view.layout.addChild(stackLayout)
+        self.view.addChild(stackLayout)
         addGridLayout()
     }
     let stackLayout = GridLayout()
@@ -37,14 +37,14 @@ class StackLayoutViewController: LayoutViewController {
             label.backgroundColor = UIColor.red
             label.text = "\(i)\(String.random(min: i + 1, max: i + 1))"
             if i == 1 {
-                label.layout.yoga.alignSelf = .stretch
+                label.yoga.alignSelf = .stretch
             }
             if i == 3 {
                 label.font = UIFont.systemFont(ofSize: 36)
             }
-            stackLayout.addChild(label.layout)
+            stackLayout.addChild(label)
         }
-        self.view.layout
+        self.view
             .container(containerSize: self.view.frame.size)
             .applyLayout()
     }

@@ -30,7 +30,7 @@ class CornerLayoutTests: XCTestCase {
         cornerlayout.test(in: view)
         cornerlayout.reload(in: view, size: CGSize(width: width, height: height))
         let itemRect = CGRect(origin: .zero, size: cornerlayout.itemSize)
-        for (offSet, layout) in view.layout.childs.enumerated() {
+        for (offSet, layout) in view.childs.enumerated() {
             var rect: CGRect = .zero
             rect.size.height = cornerlayout.layoutHeight
             rect.size.width = (width / 2).pixelValue

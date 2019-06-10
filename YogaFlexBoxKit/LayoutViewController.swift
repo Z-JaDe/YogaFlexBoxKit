@@ -29,12 +29,12 @@ class LayoutTest {
     let layoutHeight: CGFloat = 200
     
     func reload(in view: UIView, size: CGSize) {
-        view.layout.container(containerSize: size).applyLayout()
+        view.container(containerSize: size).applyLayout()
     }
     func createItem(in superview: UIView, itemSize: CGSize) -> UIView {
         let view = UILabel()
 //        view.text = "aasdasdasdasdasdsa"
-        view.layout.configureLayout { (node) in
+        view.configureLayout { (node) in
             node.minWidth = YGValue(itemSize.width)
             node.minHeight = YGValue(itemSize.height)
         }

@@ -25,34 +25,34 @@ extension YogaLayoutable {
 extension YogaContainerLayoutable where Self: YogaLayoutable {
     func _addChildView(_ child: YogaLayoutable) {
         guard let view = self.findFirstSuperActualLayout() else {
-            assertionFailure("""
-layout需要先添加到ActualLayout里面再addChid，
-原因是因为没被添加到视图层次里面的视图只被layout弱引用，可能会导致提前释放
-""")
             return
         }
         _addChildView(child, in: view.ownerView)
     }
     func _addChildView(_ child: YogaLayoutable, in view: UIView) {
-        if let child = (child as? ActualLayout) {
-            if let childView = child.view {
-                view.addSubview(childView.ownerView)
-            } else {
-                assertionFailure("view丢失")
-            }
-        } else if let child = child as? VirtualLayout {
+        switch child {
+        case let child as UIView:
+            view.addSubview(child)
+        case _ as ActualLayout:
+            assertionFailure("不应该直接操作ActualLayout")
+        case let child as VirtualLayout:
             _addChildView(child.child, in: view)
-        } else if let child = child as? YogaLayoutable & YogaContainerLayoutable {
+        case let child as YogaLayoutable & YogaContainerLayoutable:
             child.childs.forEach({_addChildView($0, in: view)})
+        default: break
         }
     }
     func _removeChildView(_ child: YogaLayoutable) {
-        if let childView = (child as? ActualLayout)?.view {
-            childView.ownerView.removeFromSuperview()
-        } else if let child = child as? VirtualLayout {
+        switch child {
+        case let child as UIView:
+            child.removeFromSuperview()
+        case _ as ActualLayout:
+            assertionFailure("不应该直接操作ActualLayout")
+        case let child as VirtualLayout:
             _removeChildView(child.child)
-        } else if let child = child as? YogaLayoutable & YogaContainerLayoutable {
+        case let child as YogaLayoutable & YogaContainerLayoutable:
             child.childs.forEach({_removeChildView($0)})
+        default: break
         }
     }
 }

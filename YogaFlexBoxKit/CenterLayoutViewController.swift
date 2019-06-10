@@ -13,19 +13,19 @@ class CenterLayoutViewController: LayoutViewController {
         super.viewDidLoad()
         let corner = CenterLayoutTest()
         corner.test(in: self.view)
-        for layout in self.view.layout.childs {
+        for layout in self.view.childs {
             let layout = layout as! (YogaLayoutable & VirtualLayout)
             layout.yoga.margin = 5
-            let view = (layout.child as! ViewActualLayout).view as! UIView
+            let view = layout.child as! UIView
             view.backgroundColor = UIColor.red
         }
         
-        self.view.layout
+        self.view
             .corner(.bottomFill(100, 10))
             .corner(.topFill(50, 50))
             .container(containerSize: self.view.frame.size)
             .applyLayout(preserveOrigin: false)
-        for layout in self.view.layout.childs {
+        for layout in self.view.childs {
             let layoutView = UIView()
             layoutView.backgroundColor = UIColor.blue
             layoutView.frame = layout.frame
@@ -41,17 +41,17 @@ class CenterLayoutTest: LayoutTest {
         .XY
     ]
     func test(in view: UIView) {
-        view.layout.configureLayout { (node) in
+        view.configureLayout { (node) in
             node.flexWrap = .wrap
             node.flexDirection = .row
             node.justifyContent = .flexStart
         }
         for option in array {
             let itemView = createItem(in: view, itemSize: itemSize)
-            let layout = itemView.layout.center(option)
+            let layout = itemView.center(option)
             layout.yoga.height = YGValue(layoutHeight)
             layout.yoga.width = 90%
-            view.layout.addChild(layout)
+            view.addChild(layout)
         }
     }
 

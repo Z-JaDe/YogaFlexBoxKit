@@ -73,24 +73,33 @@ open class RenderLayout: FlexBoxKit, YogaLayoutable {
 extension RenderLayout {
     internal func _addChild(_ child: YogaLayoutable) {
         self.childs.append(child)
-        (child as? RenderLayout)?.setSuperLayout(self)
+        child.setSuperLayout(self)
     }
     internal func _removeChild(_ child: YogaLayoutable) {
         if let index = self.childs.firstIndex(where: {child === $0}) {
             self.childs.removeFirst(index)
-            (child as? RenderLayout)?.setSuperLayout(nil)
+            child.setSuperLayout(nil)
         }
     }
     internal func _removeAllChild() {
         self.childs.forEach { (child) in
-            (child as? RenderLayout)?.setSuperLayout(nil)
+            child.setSuperLayout(nil)
         }
         self.childs.removeAll()
     }
-    internal func setSuperLayout(_ layout: YogaLayoutable?) {
+    internal func _setSuperLayout(_ layout: YogaLayoutable?) {
         if let superLayout = self.superLayout, layout != nil {
             assertionFailure("layout已经拥有superLayout->\(superLayout)")
         }
         self.superLayout = layout
+    }
+}
+extension YogaLayoutable {
+    fileprivate func setSuperLayout(_ layout: YogaLayoutable?) {
+        if let child = self as? RenderLayout {
+            child._setSuperLayout(layout)
+        } else if let child = self as? UIView {
+            child._setSuperLayout(layout)
+        }
     }
 }

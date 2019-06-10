@@ -10,7 +10,7 @@ import Foundation
 private var kLayoutAssociatedKey: UInt8 = 0
 
 extension UIView {
-    public var layout: YogaLayoutable & Viewable & YogaContainerLayoutable {
+    private var layout: ViewActualLayout {
         var _layout = objc_getAssociatedObject(self, &kLayoutAssociatedKey) as? ViewActualLayout
         if let layout = _layout {
             return layout
@@ -20,9 +20,50 @@ extension UIView {
         return _layout!
     }
 }
-typealias ViewActualLayout = ActualLayout
+private typealias ViewActualLayout = ActualLayout
 extension UIView: Viewable {
     public var ownerView: UIView {
         return self
+    }
+}
+extension UIView: YogaLayoutable {
+    public func applyLayout(origin: CGPoint, size: CGSize) {
+        layout.applyLayout(origin: origin, size: size)
+    }
+    public func calculateLayout(with size: CGSize) -> CGSize {
+        return layout.calculateLayout(with: size)
+    }
+    
+    public var yoga: LayoutNode {
+        return layout.yoga
+    }
+    public var childs: [YogaLayoutable] {
+        return layout.childs
+    }
+    public var superLayout: YogaLayoutable? {
+        return layout.superLayout
+    }
+    public func changePrivateFrame(_ frame: CGRect) {
+        layout.changePrivateFrame(frame)
+    }
+    
+    
+}
+extension UIView: YogaContainerLayoutable {
+    public func addChild(_ child: YogaLayoutable) {
+        layout.addChild(child)
+    }
+    public func removeChild(_ child: YogaLayoutable) {
+        layout.removeChild(child)
+    }
+    public func removeAllChild() {
+        layout.removeAllChild()
+    }
+    public func removeFromSuperLayout() {
+        layout.removeFromSuperLayout()
+    }
+    
+    internal func _setSuperLayout(_ layout: YogaLayoutable?) {
+        self.layout._setSuperLayout(layout)
     }
 }

@@ -31,7 +31,7 @@ class CenterLayoutTests: XCTestCase {
         centerlayout.test(in: view)
         centerlayout.reload(in: view, size: CGSize(width: width, height: height))
         let itemRect = CGRect(origin: .zero, size: centerlayout.itemSize)
-        for (offSet, layout) in view.layout.childs.enumerated() {
+        for (offSet, layout) in view.childs.enumerated() {
             var rect: CGRect = .zero
             rect.size.height = centerlayout.layoutHeight
             rect.size.width = width.pixelValue

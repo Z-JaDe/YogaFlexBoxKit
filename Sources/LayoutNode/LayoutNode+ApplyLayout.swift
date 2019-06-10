@@ -47,8 +47,7 @@ extension YogaLayoutable {
         if let layout = self as? RenderLayout {
             layout.changePrivateFrame(frame)
         } else if let view = self as? UIView {
-            assertionFailure("目前没有这种情况")
-            view.frame = frame
+            view.changePrivateFrame(frame)
         }
     }
 }

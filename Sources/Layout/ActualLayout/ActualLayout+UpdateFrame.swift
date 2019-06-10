@@ -13,7 +13,7 @@ extension ActualLayout {
         ///每次重新创建Timer实例，简单测试后发现速度反而慢了
         //        throttle(&layoutViewTimer, interval: .milliseconds(100)) {
         //        }
-        if let layout = self.view as? RenderLayout & YogaLayoutable {
+        if let layout = self.view as? RenderLayout {
             layout.frame = frame
             return
         }

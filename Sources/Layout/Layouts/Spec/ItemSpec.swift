@@ -15,4 +15,7 @@ struct ItemSpec {
     var maxX: CGFloat {
         return self.size.width + self.origin.x
     }
+    var centerX: CGFloat {
+        return self.size.width / 2 + self.origin.x
+    }
 }

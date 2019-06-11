@@ -80,24 +80,44 @@ extension MultipleItemsSpec {
         var itemSpacs = self.itemSpecs
         let childCount = getChildCount(itemSpacs.count)
         let allItemSize = adjustItemSize(&itemSpacs, size)
-        let startSpace = getStartSpace(size, allItemSize, childCount)
-        let spacing = getSpaceing(size, allItemSize, childCount)
-        adjustItemOrigin(&itemSpacs, startSpace, spacing)
+        switch self.alignContent {
+        case .center, .flexEnd, .flexStart, .fill, .spaceAround, .spaceBetween, .spaceEvenly:
+            let startSpace = getStartSpace(size, allItemSize, childCount)
+            let spacing = getSpaceing(size, allItemSize, childCount)
+            adjustItemOrigin(&itemSpacs) {
+                adjustItemOriginEqualSpaceing($0, &$1, startSpace, spacing)
+            }
+        case .centerEvenly:
+            let spacing = getCenterSpaceing(size, childCount)
+            adjustItemOrigin(&itemSpacs) {
+                adjustItemOriginEqualCentering($0, &$1, spacing)
+            }
+        }
         return itemSpacs
     }
 }
 extension MultipleItemsSpec {
-    func adjustItemOrigin(_ itemSpecs: inout [ItemSpec], _ startSpace: CGFloat, _ spacing: CGFloat) {
+    func adjustItemOrigin(_ itemSpecs: inout [ItemSpec], _ closure: (ItemSpec?, inout ItemSpec) -> Void) {
         var last: ItemSpec?
         itemSpecs = itemSpecs.enumerated().map { (offset, itemSpec) -> ItemSpec in
             var itemSpec = itemSpec
-            if let last = last {
-                itemSpec.origin.x = last.maxX + spacing
-            } else {
-                itemSpec.origin.x = startSpace
-            }
+            closure(last, &itemSpec)
             last = itemSpec
             return itemSpec
+        }
+    }
+    func adjustItemOriginEqualSpaceing(_ last: ItemSpec?, _ itemSpec: inout ItemSpec, _ startSpace: CGFloat, _ spacing: CGFloat) {
+        if let last = last {
+            itemSpec.origin.x = last.maxX + spacing
+        } else {
+            itemSpec.origin.x = startSpace
+        }
+    }
+    func adjustItemOriginEqualCentering(_ last: ItemSpec?, _ itemSpec: inout ItemSpec, _ spacing: CGFloat) {
+        if let last = last {
+            itemSpec.origin.x = last.centerX + spacing - itemSpec.size.width
+        } else {
+            itemSpec.origin.x = spacing - itemSpec.size.width
         }
     }
     ///比较计算出的尺寸 和 想要设置的尺寸，修改itemSpe的size
@@ -189,6 +209,9 @@ extension MultipleItemsSpec {
                 assertionFailure("未处理的枚举")
                 return self.spacing
             }
+        case .centerEvenly:
+            assertionFailure("不使用这个方法处理")
+            return 0
         }
     }
     ///item之间的所有间距之和
@@ -196,18 +219,21 @@ extension MultipleItemsSpec {
         var spaceCount = getChildCount(itemSpecs.count)
         switch self.alignContent {
         case .spaceAround: break
-        case .spaceEvenly:
+        case .spaceEvenly, .centerEvenly:
             spaceCount += 1
         case .center,.fill,.flexStart,.flexEnd,.spaceBetween:
             spaceCount -= 1
         }
         return spaceCount * self.spacing
     }
-    var isFixed: Bool {
+    private var isFixed: Bool {
         switch self.alignContent {
         case .fill, .center, .flexStart, .flexEnd:
             return true
         case .spaceAround, .spaceBetween, .spaceEvenly:
+            return false
+        case .centerEvenly:
+            assertionFailure("不使用这个方法处理")
             return false
         }
     }
@@ -226,6 +252,15 @@ extension MultipleItemsSpec {
         } else {
             assertionFailure("未处理的枚举")
             return self.spacing
+        }
+    }
+    func getCenterSpaceing(_ size: CGSize, _ childCount: CGFloat) -> CGFloat {
+        switch self.alignContent {
+        case .center, .flexEnd, .flexStart, .fill, .spaceAround, .spaceBetween, .spaceEvenly:
+            assertionFailure("未处理的枚举")
+            return self.spacing
+        case .centerEvenly:
+            return size.width / childCount
         }
     }
 }

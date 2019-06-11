@@ -16,6 +16,9 @@ class GridLayoutSpec: MultipleItemsSpec {
     var justifyContent: GridJustify = .fill {
         didSet {invalidateIntrinsicSize()}
     }
+    var lastLineIsFill: Bool = false {
+        didSet { invalidateIntrinsicSize() }
+    }
     var itemSpace: CGFloat = 0
     
     var childs: [StackLayoutSpec] = [] {
@@ -38,11 +41,15 @@ extension GridLayoutSpec {
                 frame.origin = itemSpec.origin.reversed().pixelValue + newFrame.origin
             }
             if lineLength != child.childs.count {
-                switch itemEqual {
-                case .everyLineSize, .everyLineSizeAndAllHieght, .none:
-                    child.wantChildCount = nil
-                case .allSize:
+                if self.lastLineIsFill == false {
                     child.wantChildCount = lineLength
+                } else {
+                    switch itemEqual {
+                    case .everyLineSize, .everyLineSizeAndAllHieght, .none, .allHieght:
+                        child.wantChildCount = nil
+                    case .allSize:
+                        child.wantChildCount = lineLength
+                    }
                 }
             }
             child.setChildFrames(frame)

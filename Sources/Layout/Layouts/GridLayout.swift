@@ -20,6 +20,11 @@ public class GridLayout: LeafLayout {
         didSet { spec.invalidateIntrinsicSize() }
     }
     @objc
+    public var lastLineIsFill: Bool {
+        get {return spec.lastLineIsFill}
+        set {spec.lastLineIsFill = newValue}
+    }
+    @objc
     public var flexDirection: GridFlexDirection {
         get {return spec.flexDirection.reversed()}
         set {spec.flexDirection = newValue.reversed()}
@@ -54,7 +59,7 @@ public class GridLayout: LeafLayout {
 extension GridLayout {
     func itemEqualChanged() {
         switch self.itemEqual {
-        case .everyLineSizeAndAllHieght, .allSize:
+        case .everyLineSizeAndAllHieght, .allSize, .allHieght:
             self.spec.allItemEqual = true
         case .everyLineSize, .none:
             self.spec.allItemEqual = false
@@ -100,7 +105,7 @@ extension GridLayout: LeafLayoutProtocol {
             switch self.itemEqual {
             case .everyLineSize, .everyLineSizeAndAllHieght, .allSize:
                 stackSpec.allItemEqual = true
-            case .none:
+            case .none, .allHieght:
                 stackSpec.allItemEqual = false
             }
             stackSpec.childs = Array(child)

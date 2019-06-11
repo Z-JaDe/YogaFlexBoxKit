@@ -10,6 +10,9 @@ import Foundation
 
 @objc
 public enum GridJustify: Int {
+    ///填充 根据内容大小等比缩放
+    case fill
+    
     case flexStart
     case flexEnd
     case center
@@ -17,8 +20,9 @@ public enum GridJustify: Int {
     case spaceBetween
     case spaceAround
     case spaceEvenly
-    ///填充 根据内容大小等比缩放
-    case fill
+    
+    case centerEvenly
+    
 }
 @objc
 public enum GridFlexDirection: Int {
@@ -27,13 +31,15 @@ public enum GridFlexDirection: Int {
 }
 @objc
 public enum GridItemEqual: Int {
-    ///每个item默认使用自有尺寸, 根据情况缩放
+    /// 每个item默认使用自有尺寸, 根据情况缩放
     case none
-    ///每一行每个item尺寸相等, 多行之间的item不一定相等
+    /// 每一行每个item尺寸相等, 多行之间的item不一定相等
     case everyLineSize
-    ///每一行每个item尺寸相等, 多行之间item只有高度相等
+    /// 多行之间item只有高度相等
+    case allHieght
+    /// 每一行每个item尺寸相等, 多行之间item只有高度相等
     case everyLineSizeAndAllHieght
-    ///每个item之间尺寸相等
+    /// 每个item之间尺寸相等
     case allSize
 }
 

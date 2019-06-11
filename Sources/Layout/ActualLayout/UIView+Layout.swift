@@ -27,10 +27,10 @@ extension UIView: YogaLayoutable {
         return layout.isLeaf
     }
     public func getFrame() -> CGRect {
-        return layout.frame
+        return layout.getFrame()
     }
-    public func setFrame(_ frame: CGRect) {
-        layout.setFrame(frame)
+    public func changeFrame(_ newValue: CGRect) {
+        layout.changeFrame(newValue)
     }
     public func calculate(size: CGSize) -> CGSize {
         return layout.calculate(size: size)
@@ -50,8 +50,8 @@ extension UIView: YogaLayoutable {
     public var superLayout: YogaLayoutable? {
         return layout.superLayout
     }
-    public func changePrivateFrame(_ frame: CGRect) {
-        layout.changePrivateFrame(frame)
+    public func changePrivateFrame(_ newValue: CGRect) {
+        layout.changePrivateFrame(newValue)
     }
 }
 extension UIView: YogaContainerLayoutable {

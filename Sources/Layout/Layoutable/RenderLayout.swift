@@ -14,13 +14,10 @@ open class RenderLayout: FlexBoxKit, YogaLayoutable {
     public private(set) weak var superLayout: YogaLayoutable?
     public private(set) var childs: [YogaLayoutable] = []
     var _frame: CGRect = .zero
+    @objc
     public var frame: CGRect {
-        get { return _frame }
-        set {
-            let oldValue = _frame
-            _frame = newValue
-            layoutDidChanged(oldFrame: oldValue)
-        }
+        get { return getFrame() }
+        set { changeFrame(newValue) }
     }
     public override init() {
         super.init()
@@ -30,14 +27,16 @@ open class RenderLayout: FlexBoxKit, YogaLayoutable {
         
     }
     public func getFrame() -> CGRect {
-        return self.frame
+        return self._frame
     }
-    public func setFrame(_ frame: CGRect) {
-        self.frame = frame
+    public func changeFrame(_ newValue: CGRect) {
+        let oldValue = _frame
+        _frame = newValue
+        layoutDidChanged(oldFrame: oldValue)
     }
-    public final func changePrivateFrame(_ frame: CGRect) {
+    public final func changePrivateFrame(_ newValue: CGRect) {
         let oldValue = self._frame
-        self._frame = frame
+        self._frame = newValue
         privateFrameDidChanged(oldFrame: oldValue)
     }
     ///内部设置frame时监听，只是更新view frame

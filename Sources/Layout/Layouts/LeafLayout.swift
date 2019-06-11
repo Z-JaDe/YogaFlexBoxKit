@@ -22,7 +22,7 @@ open class LeafLayout: RenderLayout {
     }
     public override final func privateFrameDidChanged(oldFrame: CGRect) {
 //        guard oldFrame != self.frame else { return } //有可能childs变化
-        (self as? LeafLayoutProtocol)?.frameDidChanged(oldFrame: oldFrame, newFrame: self.frame)
+        (self as? LeafLayoutProtocol)?.frameDidChanged(oldFrame: oldFrame, newFrame: self.getFrame())
     }
     public override final func calculate(size: CGSize) -> CGSize {
         return (self as? LeafLayoutProtocol)?.calculateSize(size) ?? .zero

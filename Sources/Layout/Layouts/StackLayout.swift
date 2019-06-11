@@ -26,4 +26,20 @@ extension StackLayout: LeafLayoutProtocol {
         }
         self.spec.childs = self.canUseChilds
     }
+    
+    @objc
+    public var flexDirection: GridFlexDirection {
+        get {return spec.flexDirection}
+        set {spec.flexDirection = newValue}
+    }
+    @objc
+    public var distribution: GridJustify {
+        get {return spec.alignContent}
+        set {spec.alignContent = newValue}
+    }
+    @objc
+    public var spacing: CGFloat {
+        get {return spec.spacing}
+        set {spec.spacing = newValue}
+    }
 }

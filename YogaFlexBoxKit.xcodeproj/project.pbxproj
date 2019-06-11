@@ -13,8 +13,6 @@
 		1802FE8022A76D7F00F38F85 /* GridLayoutSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1802FE7C22A76D7F00F38F85 /* GridLayoutSpec.swift */; };
 		1802FE8122A76D7F00F38F85 /* MultipleItemsSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1802FE7D22A76D7F00F38F85 /* MultipleItemsSpec.swift */; };
 		1802FE8522A76F9D00F38F85 /* YogaFlexBoxKit.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1802FE8422A76F9D00F38F85 /* YogaFlexBoxKit.swift */; };
-		1802FE8722A770B200F38F85 /* GridLayout+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1802FE8622A770B200F38F85 /* GridLayout+Extension.swift */; };
-		1802FE8922A770F000F38F85 /* StackLayout+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1802FE8822A770F000F38F85 /* StackLayout+Extension.swift */; };
 		1802FE8B22A771A700F38F85 /* Types.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1802FE8A22A771A700F38F85 /* Types.swift */; };
 		1802FE8D22A786AC00F38F85 /* UIView+OCLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1802FE8C22A786AC00F38F85 /* UIView+OCLayout.swift */; };
 		1803E8F92293E40400F1DF77 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1803E8F82293E40400F1DF77 /* AppDelegate.swift */; };
@@ -91,8 +89,6 @@
 		1802FE7C22A76D7F00F38F85 /* GridLayoutSpec.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GridLayoutSpec.swift; sourceTree = "<group>"; };
 		1802FE7D22A76D7F00F38F85 /* MultipleItemsSpec.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MultipleItemsSpec.swift; sourceTree = "<group>"; };
 		1802FE8422A76F9D00F38F85 /* YogaFlexBoxKit.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YogaFlexBoxKit.swift; sourceTree = "<group>"; };
-		1802FE8622A770B200F38F85 /* GridLayout+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "GridLayout+Extension.swift"; sourceTree = "<group>"; };
-		1802FE8822A770F000F38F85 /* StackLayout+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "StackLayout+Extension.swift"; sourceTree = "<group>"; };
 		1802FE8A22A771A700F38F85 /* Types.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Types.swift; sourceTree = "<group>"; };
 		1802FE8C22A786AC00F38F85 /* UIView+OCLayout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+OCLayout.swift"; sourceTree = "<group>"; };
 		1803E8F52293E40400F1DF77 /* YogaFlexBoxKit.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = YogaFlexBoxKit.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -272,9 +268,7 @@
 				E6A8654322A2749C002B8B10 /* LeafLayout.swift */,
 				1802FE8A22A771A700F38F85 /* Types.swift */,
 				18FBA65F22A4D12900BCE64C /* StackLayout.swift */,
-				1802FE8822A770F000F38F85 /* StackLayout+Extension.swift */,
 				18054D4822A1373E002A0911 /* GridLayout.swift */,
-				1802FE8622A770B200F38F85 /* GridLayout+Extension.swift */,
 				18054D4F22A155CD002A0911 /* PlaceholderLayout.swift */,
 			);
 			path = Layouts;
@@ -594,7 +588,6 @@
 				18FDD555229F68FF00EC68A8 /* YogaLayoutable+Container.swift in Sources */,
 				18FF9D46229D0B2F003C5EA7 /* ActualLayout.swift in Sources */,
 				18FBA67222A5221F00BCE64C /* SingleLayoutable.swift in Sources */,
-				1802FE8922A770F000F38F85 /* StackLayout+Extension.swift in Sources */,
 				18FBA66C22A508A400BCE64C /* StackLayoutViewController.swift in Sources */,
 				18B0800C229BD5D2006E1FCB /* CenterLayoutViewController.swift in Sources */,
 				18FCBE1022968F3800695868 /* RenderLayout.swift in Sources */,
@@ -624,7 +617,6 @@
 				18FF9D1A229CC593003C5EA7 /* CornerVirtualLayout.swift in Sources */,
 				1896C101229EBC7C00FAF641 /* Layoutable+Extension.swift in Sources */,
 				18FF9D45229D0B2F003C5EA7 /* UIView+Layout.swift in Sources */,
-				1802FE8722A770B200F38F85 /* GridLayout+Extension.swift in Sources */,
 				1802FE7E22A76D7F00F38F85 /* StackLayoutSpec.swift in Sources */,
 				18FCBE0322968C9400695868 /* LayoutNode.swift in Sources */,
 			);

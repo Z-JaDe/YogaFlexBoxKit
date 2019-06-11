@@ -30,7 +30,7 @@ class ActualLayout: RenderLayout {
     override func privateFrameDidChanged(oldFrame: CGRect) {
         super.privateFrameDidChanged(oldFrame: oldFrame)
         performInMainAsync {
-            self.updateViewFrame(self.frame)
+            self.updateViewFrame(self.getFrame())
         }
     }
     open override func calculate(size: CGSize) -> CGSize {

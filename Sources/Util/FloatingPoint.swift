@@ -19,10 +19,9 @@ extension CGFloat {
         return isNaN || self == .greatestFiniteMagnitude
     }
 }
-extension FloatingPoint {
-    static func random(min: Self = 0, max: Self = 1) -> Self {
-        let diff = max - min
-        let rand = Self(arc4random() % (UInt32(RAND_MAX) + 1))
-        return ((rand / Self(RAND_MAX)) * diff) + min
+extension BinaryFloatingPoint where Self.RawSignificand: FixedWidthInteger {
+    /// ZJaDe: 返回随机数
+    public static func random(min: Self = 0, max: Self = 1) -> Self {
+        return random(in: min...max)
     }
 }

@@ -11,7 +11,6 @@ import Foundation
 ///处理指定数量后换行
 public class GridLayout: LeafLayout {
     let spec: GridLayoutSpec = GridLayoutSpec()
-    #if ObjcSupport
     @objc
     public var itemEqual: GridItemEqual = .allSize {
         didSet { itemEqualChanged() }
@@ -20,15 +19,39 @@ public class GridLayout: LeafLayout {
     public var lineLength: UInt = 0 {
         didSet { spec.invalidateIntrinsicSize() }
     }
-    #else
-    public var itemEqual: GridItemEqual = .allSize {
-        didSet { itemEqualChanged() }
+    @objc
+    public var flexDirection: GridFlexDirection {
+        get {return spec.flexDirection.reversed()}
+        set {spec.flexDirection = newValue.reversed()}
     }
-    public var lineLength: UInt = 0 {
-        didSet { spec.invalidateIntrinsicSize() }
+    @objc
+    public var justifyContent: GridJustify {
+        get {return spec.justifyContent}
+        set {spec.justifyContent = newValue}
     }
-    #endif
+    @objc
+    public var alignContent: GridJustify {
+        get {return spec.alignContent}
+        set {spec.alignContent = newValue}
+    }
+    @objc
+    public var lineSpace: CGFloat {
+        get {return spec.lineSpace}
+        set {spec.lineSpace = newValue}
+    }
+    @objc
+    public var itemSpace: CGFloat {
+        get {return spec.itemSpace}
+        set {spec.itemSpace = newValue}
+    }
     
+    public override func configInit() {
+        super.configInit()
+        self.flexDirection = .row
+        itemEqualChanged()
+    }
+}
+extension GridLayout {
     func itemEqualChanged() {
         switch self.itemEqual {
         case .everyLineSizeAndAllHieght, .allSize:
@@ -38,13 +61,6 @@ public class GridLayout: LeafLayout {
         }
         spec.invalidateIntrinsicSize()
     }
-    
-    public override func configInit() {
-        super.configInit()
-        self.flexDirection = .row
-        itemEqualChanged()
-    }
-    
 }
 extension GridLayout: LeafLayoutProtocol {
     public func frameDidChanged(oldFrame: CGRect, newFrame: CGRect) {

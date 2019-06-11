@@ -28,7 +28,7 @@ extension StackLayoutSpec {
                 frame.size = itemSpec.size.reversed().pixelValue
                 frame.origin = itemSpec.origin.reversed().pixelValue + newFrame.origin
             }
-            child.setFrame(frame)
+            child.changeFrame(frame)
         }
     }
 }

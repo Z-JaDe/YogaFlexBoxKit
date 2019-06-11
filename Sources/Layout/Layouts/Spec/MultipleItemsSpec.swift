@@ -87,10 +87,11 @@ extension MultipleItemsSpec {
             adjustItemOrigin(&itemSpacs) {
                 adjustItemOriginEqualSpaceing($0, &$1, startSpace, spacing)
             }
-        case .centerEvenly:
+        case .centerEvenly, .centerAround:
             let spacing = getCenterSpaceing(size, childCount)
+            let startSpace = getCenterStartSpaceing(size, childCount)
             adjustItemOrigin(&itemSpacs) {
-                adjustItemOriginEqualCentering($0, &$1, spacing)
+                adjustItemOriginEqualCentering($0, &$1, startSpace, spacing)
             }
         }
         return itemSpacs
@@ -113,11 +114,11 @@ extension MultipleItemsSpec {
             itemSpec.origin.x = startSpace
         }
     }
-    func adjustItemOriginEqualCentering(_ last: ItemSpec?, _ itemSpec: inout ItemSpec, _ spacing: CGFloat) {
+    func adjustItemOriginEqualCentering(_ last: ItemSpec?, _ itemSpec: inout ItemSpec, _ startSpace: CGFloat, _ spacing: CGFloat) {
         if let last = last {
-            itemSpec.origin.x = last.centerX + spacing - itemSpec.size.width
+            itemSpec.centerX = last.centerX + spacing
         } else {
-            itemSpec.origin.x = spacing - itemSpec.size.width
+            itemSpec.centerX = startSpace
         }
     }
     ///比较计算出的尺寸 和 想要设置的尺寸，修改itemSpe的size
@@ -209,7 +210,7 @@ extension MultipleItemsSpec {
                 assertionFailure("未处理的枚举")
                 return self.spacing
             }
-        case .centerEvenly:
+        case .centerEvenly, .centerAround:
             assertionFailure("不使用这个方法处理")
             return 0
         }
@@ -218,7 +219,7 @@ extension MultipleItemsSpec {
     var innerTotalSpacing: CGFloat {
         var spaceCount = getChildCount(itemSpecs.count)
         switch self.alignContent {
-        case .spaceAround: break
+        case .spaceAround, .centerAround: break
         case .spaceEvenly, .centerEvenly:
             spaceCount += 1
         case .center,.fill,.flexStart,.flexEnd,.spaceBetween:
@@ -232,7 +233,7 @@ extension MultipleItemsSpec {
             return true
         case .spaceAround, .spaceBetween, .spaceEvenly:
             return false
-        case .centerEvenly:
+        case .centerEvenly, .centerAround:
             assertionFailure("不使用这个方法处理")
             return false
         }
@@ -254,13 +255,26 @@ extension MultipleItemsSpec {
             return self.spacing
         }
     }
+    func getCenterStartSpaceing(_ size: CGSize, _ childCount: CGFloat) -> CGFloat {
+        switch self.alignContent {
+        case .center, .flexEnd, .flexStart, .fill, .spaceAround, .spaceBetween, .spaceEvenly:
+            assertionFailure("未处理的枚举")
+            return self.spacing
+        case .centerAround:
+            return size.width / childCount / 2
+        case .centerEvenly:
+            return size.width / (childCount + 1)
+        }
+    }
     func getCenterSpaceing(_ size: CGSize, _ childCount: CGFloat) -> CGFloat {
         switch self.alignContent {
         case .center, .flexEnd, .flexStart, .fill, .spaceAround, .spaceBetween, .spaceEvenly:
             assertionFailure("未处理的枚举")
             return self.spacing
-        case .centerEvenly:
+        case .centerAround:
             return size.width / childCount
+        case .centerEvenly:
+            return size.width / (childCount + 1)
         }
     }
 }

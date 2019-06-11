@@ -16,6 +16,7 @@ struct ItemSpec {
         return self.size.width + self.origin.x
     }
     var centerX: CGFloat {
-        return self.size.width / 2 + self.origin.x
+        get { return origin.x + size.width / 2 }
+        set { origin.x = newValue - size.width / 2 }
     }
 }

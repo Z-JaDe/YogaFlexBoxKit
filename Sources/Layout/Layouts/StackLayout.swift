@@ -14,10 +14,16 @@ public class StackLayout: LeafLayout {
 extension StackLayout: LeafLayoutProtocol {
     public func frameDidChanged(oldFrame: CGRect, newFrame: CGRect) {
         updateSpecChild()
+        if self.yoga.isDirty {
+            self.spec.invalidateIntrinsicSize()
+        }
         self.spec.setChildFrames(newFrame.bounds)
     }
-    public func calculateSize(_ size: CGSize) -> CGSize {
+    public func leafCalculate(size: CGSize) -> CGSize {
         updateSpecChild()
+        if self.yoga.isDirty {
+            self.spec.invalidateIntrinsicSize()
+        }
         return self.spec.intrinsicSize
     }
     func updateSpecChild() {

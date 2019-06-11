@@ -66,7 +66,7 @@ open class RenderLayout: FlexBoxKit, YogaLayoutable {
         return _isLeaf
     }
     
-    @discardableResult
+    @objc @discardableResult
     open func calculateLayout(with size: CGSize) -> CGSize {
         var size = size
         if size.isNaNOrMax && self.isLeaf {
@@ -80,6 +80,7 @@ open class RenderLayout: FlexBoxKit, YogaLayoutable {
         }
         return yoga.calculateYogaLayout(with: size)
     }
+    @objc
     open func applyLayout(origin: CGPoint, size: CGSize) {
         var size = size
         if size.isNaNOrMax && self.isLeaf {

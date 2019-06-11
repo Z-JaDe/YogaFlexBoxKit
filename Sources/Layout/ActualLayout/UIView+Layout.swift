@@ -35,9 +35,11 @@ extension UIView: YogaLayoutable {
     public func calculate(size: CGSize) -> CGSize {
         return layout.calculate(size: size)
     }
+    @objc
     public func applyLayout(origin: CGPoint, size: CGSize) {
         layout.applyLayout(origin: origin, size: size)
     }
+    @objc
     public func calculateLayout(with size: CGSize) -> CGSize {
         return layout.calculateLayout(with: size)
     }

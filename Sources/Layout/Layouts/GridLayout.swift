@@ -70,10 +70,16 @@ extension GridLayout {
 extension GridLayout: LeafLayoutProtocol {
     public func frameDidChanged(oldFrame: CGRect, newFrame: CGRect) {
         updateSpecChild()
+        if self.yoga.isDirty {
+            self.spec.invalidateIntrinsicSize()
+        }
         self.spec.setChildFrames(newFrame.bounds, self.itemEqual, Int(self.lineLength))
     }
-    public func calculateSize(_ size: CGSize) -> CGSize {
+    public func leafCalculate(size: CGSize) -> CGSize {
         updateSpecChild()
+        if self.yoga.isDirty {
+            self.spec.invalidateIntrinsicSize()
+        }
         return self.spec.intrinsicSize
     }
     
@@ -91,6 +97,7 @@ extension GridLayout: LeafLayoutProtocol {
                 return
             }
         }
+        var totalLine: Int = 0
         for (offset, child) in gridChilds.enumerated() {
             let stackSpec: StackLayoutSpec
             if offset < self.spec.childs.count {
@@ -109,6 +116,10 @@ extension GridLayout: LeafLayoutProtocol {
                 stackSpec.allItemEqual = false
             }
             stackSpec.childs = Array(child)
+            totalLine = offset + 1
+        }
+        while self.spec.childs.count > totalLine {
+            self.spec.childs.removeLast(self.spec.childs.count - totalLine)
         }
     }
 }

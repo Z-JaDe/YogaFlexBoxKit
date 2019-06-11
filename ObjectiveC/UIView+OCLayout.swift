@@ -36,14 +36,6 @@ extension UIView {
     public func removeAllChildLayout() {
         _removeAllChildLayout()
     }
-    @objc
-    public func calculateLayoutSize(_ size: CGSize) -> CGSize {
-        return calculateLayout(with: size)
-    }
-    @objc
-    public func applyLayoutWithOrigin(_ origin: CGPoint, size: CGSize) {
-        applyLayout(origin: origin, size: size)
-    }
 }
 extension StackLayout {
     @objc
@@ -58,14 +50,6 @@ extension StackLayout {
     public func removeAllChildLayout() {
         _removeAllChildLayout()
     }
-    @objc
-    public func calculateLayoutSize(_ size: CGSize) -> CGSize {
-        return calculateLayout(with: size)
-    }
-    @objc
-    public func applyLayout(_ origin: CGPoint, size: CGSize) {
-        applyLayout(origin: origin, size: size)
-    }
 }
 extension GridLayout {
     @objc
@@ -79,14 +63,6 @@ extension GridLayout {
     @objc
     public func removeAllChildLayout() {
         _removeAllChildLayout()
-    }
-    @objc
-    public func calculateLayoutSize(_ size: CGSize) -> CGSize {
-        return calculateLayout(with: size)
-    }
-    @objc
-    public func applyLayout(_ origin: CGPoint, size: CGSize) {
-        applyLayout(origin: origin, size: size)
     }
 }
 fileprivate extension YogaContainerLayoutable {

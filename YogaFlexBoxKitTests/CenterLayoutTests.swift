@@ -47,17 +47,17 @@ class CenterLayoutTests: XCTestCase {
                 var rect: CGRect = itemRect
                 rect.origin.x = (layoutRect.size.width - itemRect.size.width) / 2
                 rect.origin.y = 0
-                XCTAssertTrue(item.getFrame() == rect, "X错误\(item.getFrame()) != \(rect)")
+                XCTAssertTrue(item.getFrame().aboutEqual(rect), "X错误\(item.getFrame()) != \(rect)")
             case .Y:
                 var rect: CGRect = itemRect
                 rect.origin.x = 0
                 rect.origin.y = (layoutRect.size.height - itemRect.size.height) / 2
-                XCTAssertTrue(item.getFrame() == rect, "Y错误\(item.getFrame()) != \(rect)")
+                XCTAssertTrue(item.getFrame().aboutEqual(rect), "Y错误\(item.getFrame()) != \(rect)")
             case .XY:
                 var rect: CGRect = itemRect
                 rect.origin.x = (layoutRect.size.width - itemRect.size.width) / 2
                 rect.origin.y = (layoutRect.size.height - itemRect.size.height) / 2
-                XCTAssertTrue(item.getFrame() == rect, "XY错误\(item.getFrame()) != \(rect)")
+                XCTAssertTrue(item.getFrame().aboutEqual(rect), "XY错误\(item.getFrame()) != \(rect)")
             }
         }
     }

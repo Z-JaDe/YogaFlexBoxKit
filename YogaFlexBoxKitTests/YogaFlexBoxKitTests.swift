@@ -32,3 +32,20 @@ class YogaFlexBoxKitTests: XCTestCase {
     }
 
 }
+extension CGRect {
+    func aboutEqual(_ rect: CGRect) -> Bool {
+        if self.origin.x - rect.origin.x > 1 {
+            return false
+        }
+        if self.origin.y - rect.origin.y > 1 {
+            return false
+        }
+        if self.size.width - rect.size.width > 1 {
+            return false
+        }
+        if self.size.height - rect.size.height > 1 {
+            return false
+        }
+        return true
+    }
+}

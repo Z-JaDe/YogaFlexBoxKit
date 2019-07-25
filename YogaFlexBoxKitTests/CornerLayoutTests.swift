@@ -36,32 +36,32 @@ class CornerLayoutTests: XCTestCase {
             rect.size.width = (width / 2).pixelValue
             rect.origin.x = CGFloat(offSet % 2) * rect.size.width
             rect.origin.y = CGFloat(offSet / 2) * rect.size.height
-            XCTAssertTrue(layout.frame == rect, "layout位置错误\(layout.frame) != \(rect)")
+            XCTAssertTrue(layout.getFrame() == rect, "layout位置错误\(layout.getFrame()) != \(rect)")
             
-            let item = (layout as! VirtualLayout).child as! ViewActualLayout
-            var layoutRect = layout.frame
+            let item = (layout as! VirtualLayout).child
+            var layoutRect = layout.getFrame()
             layoutRect.origin = .zero
             switch cornerlayout.array[offSet] {
             case .topLeft(let top, let left):
                 var rect: CGRect = itemRect
                 rect.origin.x = left
                 rect.origin.y = top
-                XCTAssertTrue(item.frame == rect, "topLeft错误\(item.frame) != \(rect)")
+                XCTAssertTrue(item.getFrame() == rect, "topLeft错误\(item.getFrame()) != \(rect)")
             case .topRight(let top, let right):
                 var rect: CGRect = itemRect
                 rect.origin.x = layoutRect.size.width - right - rect.size.width
                 rect.origin.y = top
-                XCTAssertTrue(item.frame == rect, "topRight错误\(item.frame) != \(rect)")
+                XCTAssertTrue(item.getFrame() == rect, "topRight错误\(item.getFrame()) != \(rect)")
             case .bottomLeft(let bottom, let left):
                 var rect: CGRect = itemRect
                 rect.origin.x = left
                 rect.origin.y = layoutRect.size.height - bottom - rect.size.height
-                XCTAssertTrue(item.frame == rect, "bottomLeft错误\(item.frame) != \(rect)")
+                XCTAssertTrue(item.getFrame() == rect, "bottomLeft错误\(item.getFrame()) != \(rect)")
             case .bottomRight(let bottom, let right):
                 var rect: CGRect = itemRect
                 rect.origin.x = layoutRect.size.width - right - rect.size.width
                 rect.origin.y = layoutRect.size.height - bottom - rect.size.height
-                XCTAssertTrue(item.frame == rect, "bottomRight错误\(item.frame) != \(rect)")
+                XCTAssertTrue(item.getFrame() == rect, "bottomRight错误\(item.getFrame()) != \(rect)")
                 
             case .topFill(let offSet, let fillOffset):
                 var rect: CGRect = layoutRect
@@ -72,7 +72,7 @@ class CornerLayoutTests: XCTestCase {
                 rect.size.height = itemRect.size.height
                 rect.origin.x = fillOffset
                 rect.origin.y = offSet
-                XCTAssertTrue(item.frame == rect, "topFill错误\(item.frame) != \(rect)")
+                XCTAssertTrue(item.getFrame() == rect, "topFill错误\(item.getFrame()) != \(rect)")
             case .bottomFill(let offSet, let fillOffset):
                 var rect: CGRect = layoutRect
                 rect.size.width -= fillOffset * 2
@@ -82,7 +82,7 @@ class CornerLayoutTests: XCTestCase {
                 rect.size.height = itemRect.size.height
                 rect.origin.x = fillOffset
                 rect.origin.y = layoutRect.size.height - offSet - rect.size.height
-                XCTAssertTrue(item.frame == rect, "bottomFill错误\(item.frame) != \(rect)")
+                XCTAssertTrue(item.getFrame() == rect, "bottomFill错误\(item.getFrame()) != \(rect)")
             case .leftFill(let offSet, let fillOffset):
                 var rect: CGRect = layoutRect
                 rect.size.width = itemRect.size.width
@@ -92,7 +92,7 @@ class CornerLayoutTests: XCTestCase {
                 }
                 rect.origin.x = offSet
                 rect.origin.y = fillOffset
-                XCTAssertTrue(item.frame == rect, "leftFill错误\(item.frame) != \(rect)")
+                XCTAssertTrue(item.getFrame() == rect, "leftFill错误\(item.getFrame()) != \(rect)")
             case .rightFill(let offSet, let fillOffset):
                 var rect: CGRect = layoutRect
                 rect.size.width = itemRect.size.width
@@ -102,7 +102,7 @@ class CornerLayoutTests: XCTestCase {
                 }
                 rect.origin.x = layoutRect.size.width - offSet - rect.size.width
                 rect.origin.y = fillOffset
-                XCTAssertTrue(item.frame == rect, "rightFill错误\(item.frame) != \(rect)")
+                XCTAssertTrue(item.getFrame() == rect, "rightFill错误\(item.getFrame()) != \(rect)")
             }
         }
     }

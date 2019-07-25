@@ -37,27 +37,27 @@ class CenterLayoutTests: XCTestCase {
             rect.size.width = width.pixelValue
             rect.origin.x = 0
             rect.origin.y = CGFloat(offSet) * rect.size.height
-            XCTAssertTrue(layout.frame == rect, "layout位置错误\(layout.frame) != \(rect)")
+            XCTAssertTrue(layout.getFrame() == rect, "layout位置错误\(layout.getFrame()) != \(rect)")
             
-            let item = (layout as! VirtualLayout).child as! ViewActualLayout
-            var layoutRect = layout.frame
+            let item = (layout as! VirtualLayout).child
+            var layoutRect = layout.getFrame()
             layoutRect.origin = .zero
             switch centerlayout.array[offSet] {
             case .X:
                 var rect: CGRect = itemRect
                 rect.origin.x = (layoutRect.size.width - itemRect.size.width) / 2
                 rect.origin.y = 0
-                XCTAssertTrue(item.frame == rect, "X错误\(item.frame) != \(rect)")
+                XCTAssertTrue(item.getFrame() == rect, "X错误\(item.getFrame()) != \(rect)")
             case .Y:
                 var rect: CGRect = itemRect
                 rect.origin.x = 0
                 rect.origin.y = (layoutRect.size.height - itemRect.size.height) / 2
-                XCTAssertTrue(item.frame == rect, "Y错误\(item.frame) != \(rect)")
+                XCTAssertTrue(item.getFrame() == rect, "Y错误\(item.getFrame()) != \(rect)")
             case .XY:
                 var rect: CGRect = itemRect
                 rect.origin.x = (layoutRect.size.width - itemRect.size.width) / 2
                 rect.origin.y = (layoutRect.size.height - itemRect.size.height) / 2
-                XCTAssertTrue(item.frame == rect, "XY错误\(item.frame) != \(rect)")
+                XCTAssertTrue(item.getFrame() == rect, "XY错误\(item.getFrame()) != \(rect)")
             }
         }
     }

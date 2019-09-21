@@ -1,6 +1,6 @@
 
 language: swift
-osx_image: xcode10.2
+osx_image: xcode11.0
 xcode_workspace: YogaFlexBoxKit.xcworkspace
 xcode_scheme: YogaFlexBoxKitTests
 xcode_destination: platform=iOS Simulator,OS=12.1,name=iPhone X

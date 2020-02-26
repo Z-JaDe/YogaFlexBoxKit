@@ -18,7 +18,7 @@ func measureView(_ node: YGNodeRef?, _ width: Float, _ widthMode: YGMeasureMode,
         width: sanitizeMeasurement(constrainedWidth, Float(sizeThatFits.width), widthMode),
         height: sanitizeMeasurement(constrainedHeight, Float(sizeThatFits.height), heightMode))
 }
-func sanitizeMeasurement(_ constrainedSize: Float, _ measuredSize: Float,_ measureMode: YGMeasureMode) -> Float {
+func sanitizeMeasurement(_ constrainedSize: Float, _ measuredSize: Float, _ measureMode: YGMeasureMode) -> Float {
     switch measureMode {
     case .atMost: return min(constrainedSize, measuredSize)
     case .exactly: return constrainedSize

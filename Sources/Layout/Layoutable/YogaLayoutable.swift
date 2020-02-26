@@ -43,4 +43,3 @@ internal extension YogaLayoutable {
         return childs.lazy.map({$0.yoga}).contains(where: {$0.isIncludedInLayout}) == false
     }
 }
-

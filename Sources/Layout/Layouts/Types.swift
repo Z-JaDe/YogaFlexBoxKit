@@ -12,18 +12,18 @@ import Foundation
 public enum GridJustify: Int {
     ///填充 根据内容大小等比缩放
     case fill
-    
+
     case flexStart
     case flexEnd
     case center
-    
+
     case spaceBetween
     case spaceAround
     case spaceEvenly
-    
+
     case centerAround
     case centerEvenly
-    
+
 }
 @objc
 public enum GridFlexDirection: Int {
@@ -43,7 +43,6 @@ public enum GridItemEqual: Int {
     /// 每个item之间尺寸相等
     case allSize
 }
-
 
 extension GridJustify {
     var isFill: Bool {

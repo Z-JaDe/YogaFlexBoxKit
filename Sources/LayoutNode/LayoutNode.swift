@@ -24,7 +24,7 @@ public class LayoutNode: AbstractLayoutNode {
         return super.node
     }
     public var isIncludedInLayout: Bool = true
-    
+
     open var isLeaf: Bool {
         return layoutable?.isLeaf ?? true
     }

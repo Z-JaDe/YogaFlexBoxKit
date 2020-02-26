@@ -69,7 +69,7 @@ extension UIView: YogaContainerLayoutable {
     public func removeFromSuperLayout() {
         layout.removeFromSuperLayout()
     }
-    
+
     internal func _setSuperLayout(_ layout: YogaLayoutable?) {
         self.layout._setSuperLayout(layout)
     }

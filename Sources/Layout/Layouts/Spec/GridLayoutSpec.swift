@@ -20,7 +20,7 @@ class GridLayoutSpec: MultipleItemsSpec {
         didSet { invalidateIntrinsicSize() }
     }
     var itemSpace: CGFloat = 0
-    
+
     var childs: [StackLayoutSpec] = [] {
         didSet { invalidateIntrinsicSize() }
     }

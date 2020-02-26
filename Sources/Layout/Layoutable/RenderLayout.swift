@@ -24,7 +24,7 @@ open class RenderLayout: FlexBoxKit, YogaLayoutable {
         configInit()
     }
     open func configInit() {
-        
+
     }
     public func getFrame() -> CGRect {
         return self._frame
@@ -65,7 +65,7 @@ open class RenderLayout: FlexBoxKit, YogaLayoutable {
     open var isLeaf: Bool {
         return _isLeaf
     }
-    
+
     @objc @discardableResult
     open func calculateLayout(with size: CGSize) -> CGSize {
         var size = size

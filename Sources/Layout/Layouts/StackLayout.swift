@@ -32,7 +32,7 @@ extension StackLayout: LeafLayoutProtocol {
         }
         self.spec.childs = self.canUseChilds
     }
-    
+
     @objc
     public var flexDirection: GridFlexDirection {
         get {return spec.flexDirection}

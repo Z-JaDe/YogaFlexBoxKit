@@ -24,7 +24,7 @@ class VirtualLayout: RenderLayout {
     }
     /// 加入yoga计算布局时计算
     func yogaLayoutConfig() {
-        
+
     }
     override var isLeaf: Bool {
         return false

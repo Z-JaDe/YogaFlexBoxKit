@@ -114,4 +114,3 @@ extension YogaLayoutable where Self: YogaContainerLayoutable {
         return childs.enumerated().allSatisfy({$0.element.yoga == _childs[$0.offset].yoga})
     }
 }
-

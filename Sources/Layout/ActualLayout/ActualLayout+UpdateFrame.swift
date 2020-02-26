@@ -40,7 +40,7 @@ extension ActualLayout {
             if let superView = (superLayout as? ActualLayout)?.view {
                 point = superView.convert(point, to: view?.superview)
                 break
-            } else {                
+            } else {
                 point.x += layout.getFrame().origin.x
                 point.y += layout.getFrame().origin.y
             }

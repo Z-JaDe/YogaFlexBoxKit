@@ -13,7 +13,7 @@ public enum CornerLayoutOption {
     case topRight(CGFloat, CGFloat)
     case bottomLeft(CGFloat, CGFloat)
     case bottomRight(CGFloat, CGFloat)
-    
+
     case topFill(CGFloat, CGFloat)
     case bottomFill(CGFloat, CGFloat)
     case leftFill(CGFloat, CGFloat)
@@ -25,7 +25,7 @@ class CornerVirtualLayout: VirtualLayout {
         self.option = option
         super.init(child: child)
     }
-
+    // swiftlint:disable cyclomatic_complexity
     override func yogaLayoutConfig() {
         super.yogaLayoutConfig()
         switch option {
@@ -42,7 +42,7 @@ class CornerVirtualLayout: VirtualLayout {
         case .bottomRight:
             yoga.justifyContent = .flexEnd
             yoga.alignItems = .flexEnd
-            
+
         case .topFill:
             yoga.flexDirection = .column
             yoga.justifyContent = .flexStart
@@ -84,7 +84,7 @@ class CornerVirtualLayout: VirtualLayout {
             return UIEdgeInsets(top: 0, left: left, bottom: bottom, right: 0)
         case .bottomRight(let bottom, let right):
             return UIEdgeInsets(top: 0, left: 0, bottom: bottom, right: right)
-            
+
         case .topFill(let top, let fillOffset):
             return UIEdgeInsets(top: top, left: fillOffset, bottom: 0, right: fillOffset)
         case .bottomFill(let bottom, let fillOffset):

@@ -27,7 +27,7 @@ class MultipleItemsSpec {
      如果wantChildCount大于0，表示使用wantChildCount布局
      */
     var wantChildCount: Int?
-    
+
     private var _intrinsicSize: CGSize?
     func calculateIntrinsicSize() -> CGSize {
         var size = calculateItemsSize(self.itemSpecs)
@@ -53,7 +53,7 @@ extension MultipleItemsSpec {
         invalidateItemSpecs()
         _intrinsicSize = nil
     }
-    
+
     var itemSpecs: [ItemSpec] {
         if let specs = _itemSpecs {
             return specs
@@ -100,7 +100,7 @@ extension MultipleItemsSpec {
 extension MultipleItemsSpec {
     func adjustItemOrigin(_ itemSpecs: inout [ItemSpec], _ closure: (ItemSpec?, inout ItemSpec) -> Void) {
         var last: ItemSpec?
-        itemSpecs = itemSpecs.enumerated().map { (offset, itemSpec) -> ItemSpec in
+        itemSpecs = itemSpecs.enumerated().map { (_, itemSpec) -> ItemSpec in
             var itemSpec = itemSpec
             closure(last, &itemSpec)
             last = itemSpec
@@ -139,7 +139,7 @@ extension MultipleItemsSpec {
         if heightSpace > 0 || self.alignContent.isFill {
             allItemSize.height = size.height
         }
-        
+
         itemSpecs = itemSpecs.map { (itemSpec) -> ItemSpec in
             var itemSpec = itemSpec
             if self.allItemEqual {
@@ -222,7 +222,7 @@ extension MultipleItemsSpec {
         case .spaceAround, .centerAround: break
         case .spaceEvenly, .centerEvenly:
             spaceCount += 1
-        case .center,.fill,.flexStart,.flexEnd,.spaceBetween:
+        case .center, .fill, .flexStart, .flexEnd, .spaceBetween:
             spaceCount -= 1
         }
         return spaceCount * self.spacing

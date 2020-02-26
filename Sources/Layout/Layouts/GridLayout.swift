@@ -49,7 +49,7 @@ public class GridLayout: LeafLayout {
         get {return spec.itemSpace}
         set {spec.itemSpace = newValue}
     }
-    
+
     public override func configInit() {
         super.configInit()
         self.flexDirection = .row
@@ -82,7 +82,7 @@ extension GridLayout: LeafLayoutProtocol {
         }
         return self.spec.intrinsicSize
     }
-    
+
     var gridChilds: AnySequence<ArraySlice<YogaLayoutable>> {
         return childs.lazy
             .filter({$0.yoga.isIncludedInLayout})

@@ -10,7 +10,7 @@ import Foundation
 
 extension ActualLayout {
     func updateViewFrame(_ frame: CGRect) {
-        ///每次重新创建Timer实例，简单测试后发现速度反而慢了
+        // 每次重新创建Timer实例，简单测试后发现速度反而慢了
         //        throttle(&layoutViewTimer, interval: .milliseconds(100)) {
         //        }
         guard let view = self.view else {

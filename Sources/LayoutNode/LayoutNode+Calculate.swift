@@ -46,12 +46,12 @@ extension YogaLayoutable {
     fileprivate func attachNodesFromViewHierachy() {
         let yoga = self.yoga
         if self.isLeaf {
-            ///如果是叶子节点 移除所有子节点，并设置适配尺寸的方法
+            // 如果是叶子节点 移除所有子节点，并设置适配尺寸的方法
             yoga.removeAllChildren()
             yoga.setMeasureFunc(measureView)
             return
         }
-        /// 如果不是叶子节点，移除适配尺寸的方法，移除不可用节点，并递归遍历所有子视图
+        // 如果不是叶子节点，移除适配尺寸的方法，移除不可用节点，并递归遍历所有子视图
         yoga.setMeasureFunc(nil)
         let subviewsToInclude = self.childs.lazy.map({$0.yoga}).filter({$0.isIncludedInLayout})
         if yoga.hasExactSameChildren(subviewsToInclude) == false {

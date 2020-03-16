@@ -31,7 +31,7 @@ public class LayoutNode: AbstractLayoutNode {
     public override func markDirty() {
         guard isLeaf else { return }
         guard self.isDirty == false else { return }
-        /**
+        /*
          不知道为什么判断有measure函数的时候，再设置一次measure函数。
          通过代码看，应该是measure函数有2种：一种有上下文 一种没有上下文。
          yoga只公开了没有上下文的measure函数，这里判断当之前设置过没有上下文的measure函数，就可以继续设置

@@ -8,7 +8,7 @@
 
 import Foundation
 
-///处理指定数量后换行
+/// 处理指定数量后换行
 public class GridLayout: LeafLayout {
     let spec: GridLayoutSpec = GridLayoutSpec()
     @objc

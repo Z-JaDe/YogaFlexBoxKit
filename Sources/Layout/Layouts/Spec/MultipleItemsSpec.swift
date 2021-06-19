@@ -121,10 +121,10 @@ extension MultipleItemsSpec {
             itemSpec.centerX = startSpace
         }
     }
-    ///比较计算出的尺寸 和 想要设置的尺寸，修改itemSpe的size
+    /// 比较计算出的尺寸 和 想要设置的尺寸，修改itemSpe的size
     func adjustItemSize(_ itemSpecs: inout [ItemSpec], _ size: CGSize) -> CGSize {
         let childCount = getChildCount(itemSpecs.count)
-        ///计算出不包含间距的内容大小
+        /// 计算出不包含间距的内容大小
         let size: CGSize = CGSize(
             width: size.width - self.innerTotalSpacing,
             height: size.height
@@ -143,10 +143,10 @@ extension MultipleItemsSpec {
         itemSpecs = itemSpecs.map { (itemSpec) -> ItemSpec in
             var itemSpec = itemSpec
             if self.allItemEqual {
-                //allItemEqual时所有item是相等的
+                // allItemEqual时所有item是相等的
                 itemSpec.size.width = size.width / childCount
             } else if widthSpace > 0 || self.alignContent.isFill {
-                //如果需要是填充类型，或者内容太多，按照内容等比缩放
+                // 如果需要是填充类型，或者内容太多，按照内容等比缩放
                 itemSpec.size.width -= widthSpace
             }
 //            if heightSpace > 0 || self.alignContent.isFill {
@@ -161,7 +161,7 @@ extension MultipleItemsSpec {
         }
         return allItemSize
     }
-    ///计算itemSpecs最适合尺寸
+    /// 计算itemSpecs最适合尺寸
     func calculateItemsSize(_ itemSpecs: [ItemSpec]) -> CGSize {
         let childCount = getChildCount(itemSpecs.count)
         guard childCount > 0 else { return .zero }
@@ -183,7 +183,7 @@ extension MultipleItemsSpec {
 }
 
 extension MultipleItemsSpec {
-    ///根据childs的size 生成 itemSpec
+    /// 根据childs的size 生成 itemSpec
     func mapItemSpec(_ itemSize: CGSize) -> ItemSpec {
         var itemSpec = ItemSpec()
         itemSpec.size = self.flexDirection == .row ? itemSize : itemSize.reversed()
@@ -194,13 +194,13 @@ extension MultipleItemsSpec {
         case .fill, .flexStart, .spaceBetween:
             return 0
         case .center:
-            //总大小减去所有item大小 再减去item之间间距的大小 除以2
+            // 总大小减去所有item大小 再减去item之间间距的大小 除以2
             return (size.width - allItemSize.width - self.innerTotalSpacing) / 2
         case .flexEnd:
-            //总大小减去所有item大小 再减去item之间间距的大小
+            // 总大小减去所有item大小 再减去item之间间距的大小
             return size.width - allItemSize.width - self.innerTotalSpacing
         case .spaceAround, .spaceEvenly:
-            //总大小减去所有item大小 忽略 spacing
+            // 总大小减去所有item大小 忽略 spacing
             let totalSpace = size.width - allItemSize.width
             if self.alignContent == .spaceAround {
                 return totalSpace / childCount / 2
@@ -215,7 +215,7 @@ extension MultipleItemsSpec {
             return 0
         }
     }
-    ///item之间的所有间距之和
+    /// item之间的所有间距之和
     var innerTotalSpacing: CGFloat {
         var spaceCount = getChildCount(itemSpecs.count)
         switch self.alignContent {
@@ -242,7 +242,7 @@ extension MultipleItemsSpec {
         if self.isFixed {
             return self.spacing
         }
-        //总大小减去所有item大小 忽略 spacing
+        // 总大小减去所有item大小 忽略 spacing
         let totalSpace = size.width - allItemSize.width
         if self.alignContent == .spaceBetween {
             return totalSpace / (childCount - 1)

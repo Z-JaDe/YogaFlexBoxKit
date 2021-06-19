@@ -10,7 +10,7 @@ import Foundation
 
 @objc
 public enum GridJustify: Int {
-    ///填充 根据内容大小等比缩放
+    /// 填充 根据内容大小等比缩放
     case fill
 
     case flexStart

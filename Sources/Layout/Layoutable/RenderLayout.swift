@@ -39,11 +39,11 @@ open class RenderLayout: FlexBoxKit, YogaLayoutable {
         self._frame = newValue
         privateFrameDidChanged(oldFrame: oldValue)
     }
-    ///内部设置frame时监听，只是更新view frame
+    /// 内部设置frame时监听，只是更新view frame
     open func privateFrameDidChanged(oldFrame: CGRect) {
 
     }
-    ///外部设置frame时监听，会触发child计算自己的frame
+    /// 外部设置frame时监听，会触发child计算自己的frame
     open func layoutDidChanged(oldFrame: CGRect) {
 //        guard oldFrame != self.frame else { return } //有可能childs变化
         /**
@@ -54,7 +54,7 @@ open class RenderLayout: FlexBoxKit, YogaLayoutable {
             privateFrameDidChanged(oldFrame: oldFrame)
         } else {
             let frame = self.frame
-            ///该方法走完会走下_frameDidChanged
+            /// 该方法走完会走下_frameDidChanged
             self.applyLayout(origin: frame.origin, size: frame.size)
         }
     }

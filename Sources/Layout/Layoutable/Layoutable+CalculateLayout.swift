@@ -38,14 +38,16 @@ public extension Layoutable {
 /* 本想等计算好布局后再设置view的frame。但是yoga本身就是先计算好frame，然后统一设置一遍frame。所以这样做没意义，反而还要多写了一些兼容代码，故去除
     重新使用这个方法是想把设置frame的代码都统一一次性放到主线程里面执行
  */
-//extension YogaCalculateLayoutable {
-//    func updateChildViewFrame() {
-//        switch self {
-//        case let layout as UpdateLayoutProtocol & YogaLayoutable:
-//            print(layout.frame)
-//            layout.updateViewFrame(layout.frame)
-//            layout.childs.lazy.compactMap({$0 as? YogaCalculateLayoutable}).forEach({$0.updateChildViewFrame()})
-//        default: assertionFailure("未知的类型")
-//        }
-//    }
-//}
+/*
+ extension YogaCalculateLayoutable {
+     func updateChildViewFrame() {
+         switch self {
+         case let layout as UpdateLayoutProtocol & YogaLayoutable:
+             print(layout.frame)
+             layout.updateViewFrame(layout.frame)
+             layout.childs.lazy.compactMap({$0 as? YogaCalculateLayoutable}).forEach({$0.updateChildViewFrame()})
+         default: assertionFailure("未知的类型")
+         }
+     }
+ }
+ */

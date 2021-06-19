@@ -8,7 +8,7 @@
 
 import Foundation
 import yoga
-///该协议声明了一个叶子节点，需要实现的方法，LeafLayout子类实现该协议可以快速实现一个叶子节点
+/// 该协议声明了一个叶子节点，需要实现的方法，LeafLayout子类实现该协议可以快速实现一个叶子节点
 public protocol LeafLayoutProtocol {
     func leafCalculate(size: CGSize) -> CGSize
     func frameDidChanged(oldFrame: CGRect, newFrame: CGRect)
